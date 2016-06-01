@@ -3844,7 +3844,7 @@ struct Option MuttVars[] = {
   ** .te
   */
 #endif /* USE_SSL_GNUTLS */
-  { "ssl_ciphers", DT_STRING, R_NONE, UL &SslCiphers, UL 0 },
+  { "ssl_ciphers", DT_STRING, R_NONE, UL &SslCiphers, UL "@SYSTEM" },
   /*
   ** .pp
   ** Contains a colon-separated list of ciphers to use when using SSL.
