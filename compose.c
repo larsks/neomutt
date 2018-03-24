@@ -641,14 +641,10 @@ static void compose_menu_redraw(struct Menu *menu)
  */
 static void compose_attach_swap(struct Body *msg, struct AttachPtr **idx, short first)
 {
-  int i;
-  void *saved;
-  struct Body *part;
-
   /* Reorder Body pointers.
    * Must traverse msg from top since Body * has no previous ptr.
    */
-  for (part = msg; part; part = part->next)
+  for (struct Body *part = msg; part; part = part->next)
   {
     if (part->next == idx[first]->content)
     {
@@ -660,12 +656,12 @@ static void compose_attach_swap(struct Body *msg, struct AttachPtr **idx, short 
   }
 
   /* Reorder index */
-  saved = idx[first];
+  struct AttachPtr *saved = idx[first];
   idx[first] = idx[first + 1];
   idx[first + 1] = saved;
 
   /* Swap ptr->num */
-  i = idx[first]->num;
+  int i = idx[first]->num;
   idx[first]->num = idx[first + 1]->num;
   idx[first + 1]->num = i;
 }
@@ -1087,11 +1083,6 @@ int mutt_compose_menu(struct Header *msg, /* structure for new message */
 
       case OP_COMPOSE_GROUP_ALTS:
       {
-        struct Body *group, *bptr, *alts;
-        struct AttachPtr *gptr;
-        int j;
-        char *p;
-
         if (menu->tagged < 2)
         {
           mutt_error(
@@ -1099,26 +1090,26 @@ int mutt_compose_menu(struct Header *msg, /* structure for new message */
           break;
         }
 
-        group = mutt_mem_calloc(1, sizeof(struct Body));
+        struct Body *group = mutt_new_body();
         group->type = TYPEMULTIPART;
-        group->subtype = strdup("alternative");
+        group->subtype = mutt_str_strdup("alternative");
         group->disposition = DISPINLINE;
 
-        alts = NULL;
+        struct Body *alts = NULL;
         /* group tagged message into a multipart/alternative */
-        for (i = 0, bptr = msg->content; bptr;)
+        struct Body *bptr = msg->content;
+        for (i = 0; bptr;)
         {
           if (bptr->tagged)
           {
-            /* untag */
-            bptr->tagged = 0;
+            bptr->tagged = false;
             bptr->disposition = DISPINLINE;
 
             /* for first match, set group desc according to match */
 #define ALTS_TAG "Alternatives for \"%s\""
             if (!group->description)
             {
-              p = bptr->description == NULL ? bptr->filename : bptr->description;
+              char *p = bptr->description ? bptr->description : bptr->filename;
               if (p)
               {
                 group->description =
@@ -1143,7 +1134,7 @@ int mutt_compose_menu(struct Header *msg, /* structure for new message */
               alts->next = NULL;
             }
 
-            for (j = i; j < actx->idxlen - 1; j++)
+            for (int j = i; j < actx->idxlen - 1; j++)
             {
               actx->idx[j] = actx->idx[j + 1];
             }
@@ -1161,13 +1152,13 @@ int mutt_compose_menu(struct Header *msg, /* structure for new message */
 
         /* msg->content = NULL; */
 
-        gptr = mutt_mem_calloc(1, sizeof(struct AttachPtr));
+        struct AttachPtr *gptr = mutt_mem_calloc(1, sizeof(struct AttachPtr));
         gptr->content = group;
         update_idx(menu, actx, gptr);
 
         /* if no group desc yet, make one up */
         if (!group->description)
-          group->description = strdup("unknown alternative group");
+          group->description = mutt_str_strdup("unknown alternative group");
       }
         menu->redraw = 1;
         break;
