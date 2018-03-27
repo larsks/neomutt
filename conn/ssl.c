@@ -24,11 +24,6 @@
  * @page conn_ssl Handling of OpenSSL encryption
  *
  * Handling of OpenSSL encryption
- *
- * | Function                | Description
- * | :---------------------- | :-----------------------------------
- * | mutt_ssl_socket_setup() | Set up the socket multiplexor
- * | mutt_ssl_starttls()     | Negotiate TLS over an already opened connection
  */
 
 #include "config.h"
@@ -52,7 +47,6 @@
 #include <string.h>
 #include <sys/stat.h>
 #include <unistd.h>
-#include "mutt/debug.h"
 #include "mutt/file.h"
 #include "mutt/memory.h"
 #include "mutt/message.h"
@@ -226,7 +220,6 @@ static int add_entropy(const char *file)
       ((st.st_mode & (S_IWOTH | S_IROTH)) != 0))
   {
     mutt_error(_("%s has insecure permissions!"), file);
-    mutt_sleep(2);
     return -1;
   }
 
@@ -373,7 +366,6 @@ static int ssl_passwd_cb(char *buf, int size, int rwflag, void *userdata)
 static int ssl_socket_open_err(struct Connection *conn)
 {
   mutt_error(_("SSL disabled due to the lack of entropy"));
-  mutt_sleep(2);
   return -1;
 }
 
@@ -518,7 +510,6 @@ static bool check_certificate_expiration(X509 *peercert, bool silent)
       {
         mutt_debug(2, "Server certificate is not yet valid\n");
         mutt_error(_("Server certificate is not yet valid"));
-        mutt_sleep(2);
       }
       return false;
     }
@@ -528,7 +519,6 @@ static bool check_certificate_expiration(X509 *peercert, bool silent)
       {
         mutt_debug(2, "Server certificate has expired\n");
         mutt_error(_("Server certificate has expired"));
-        mutt_sleep(2);
       }
       return false;
     }
@@ -621,7 +611,6 @@ static int ssl_init(void)
     if (!HAVE_ENTROPY())
     {
       mutt_error(_("Failed to find enough entropy on your system"));
-      mutt_sleep(2);
       return -1;
     }
   }
@@ -1078,7 +1067,6 @@ static int interactive_check_cert(X509 *cert, int idx, size_t len, SSL *ssl, int
         if (!done)
         {
           mutt_error(_("Warning: Couldn't save certificate"));
-          mutt_sleep(2);
         }
         else
         {
@@ -1199,7 +1187,6 @@ static int ssl_verify_callback(int preverify_ok, X509_STORE_CTX *ctx)
     if (!check_host(cert, host, buf, sizeof(buf)))
     {
       mutt_error(_("Certificate host check failed: %s"), buf);
-      mutt_sleep(2);
       /* we disallow (a)ccept always in the prompt, because it will have no effect
        * for hostname mismatches. */
       return interactive_check_cert(cert, pos, len, ssl, 0);
@@ -1279,7 +1266,6 @@ static int ssl_negotiate(struct Connection *conn, struct SslSockData *ssldata)
      * TLS Server Name Indication (SNI).  This allows the server to present
      * the correct certificate if it supports multiple hosts. */
     mutt_error(_("Warning: unable to set TLS SNI host name"));
-    mutt_sleep(1);
   }
 
   ERR_clear_error();
@@ -1300,7 +1286,6 @@ static int ssl_negotiate(struct Connection *conn, struct SslSockData *ssldata)
     }
 
     mutt_error(_("SSL failed: %s"), errmsg);
-    mutt_sleep(1);
 
     return -1;
   }
@@ -1389,7 +1374,6 @@ static int ssl_socket_open(struct Connection *conn)
   if (ssl_set_verify_partial(data->ctx))
   {
     mutt_error(_("Warning: error enabling ssl_verify_partial_chains"));
-    mutt_sleep(2);
   }
 
   data->ssl = SSL_new(data->ctx);
@@ -1490,7 +1474,6 @@ int mutt_ssl_starttls(struct Connection *conn)
   if (ssl_set_verify_partial(ssldata->ctx))
   {
     mutt_error(_("Warning: error enabling ssl_verify_partial_chains"));
-    mutt_sleep(2);
   }
 
   ssldata->ssl = SSL_new(ssldata->ctx);

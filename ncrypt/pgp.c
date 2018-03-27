@@ -22,12 +22,10 @@
  * this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-/*
- * This file contains all of the PGP routines necessary to sign, encrypt,
- * verify and decrypt PGP messages in either the new PGP/MIME format, or
- * in the older Application/Pgp format.  It also contains some code to
- * cache the user's passphrase for repeat use when decrypting or signing
- * a message.
+/* This file contains all of the PGP routines necessary to sign, encrypt,
+ * verify and decrypt PGP messages in either the new PGP/MIME format, or in the
+ * older Application/Pgp format.  It also contains some code to cache the
+ * user's passphrase for repeat use when decrypting or signing a message.
  */
 
 #include "config.h"
@@ -507,7 +505,6 @@ int pgp_application_pgp_handler(struct Body *m, struct State *s)
         if (could_not_decrypt && !(s->flags & MUTT_DISPLAY))
         {
           mutt_error(_("Could not decrypt PGP message"));
-          mutt_sleep(1);
           rc = -1;
           goto out;
         }
@@ -801,7 +798,7 @@ void pgp_extract_keys_from_attachment_list(FILE *fp, int tag, struct Body *top)
     return;
   }
 
-  mutt_endwin(NULL);
+  mutt_endwin();
   OPT_DONT_HANDLE_PGP_KEYS = true;
 
   for (; top; top = top->next)
@@ -1084,7 +1081,6 @@ int pgp_encrypted_handler(struct Body *a, struct State *s)
   else
   {
     mutt_error(_("Could not decrypt PGP message"));
-    mutt_sleep(2);
     /* void the passphrase, even if it's not necessarily the problem */
     pgp_void_passphrase();
     rc = -1;
@@ -1677,13 +1673,13 @@ int pgp_send_menu(struct Header *msg)
   char *mime_inline = NULL;
   if (msg->security & INLINE)
   {
-    /* L10N: These next string MUST have the same highlighted letter
+    /* L10N: The next string MUST have the same highlighted letter
              One of them will appear in each of the three strings marked "(inline"), below. */
     mime_inline = _("PGP/M(i)ME");
   }
   else
   {
-    /* L10N: These previous string MUST have the same highlighted letter
+    /* L10N: The previous string MUST have the same highlighted letter
              One of them will appear in each of the three strings marked "(inline"), below. */
     mime_inline = _("(i)nline");
   }

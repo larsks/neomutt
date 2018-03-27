@@ -26,21 +26,6 @@
  * @page conn_socket Low-level socket handling
  *
  * Low-level socket handling
- *
- * | Function               | Description
- * | :--------------------- | :-----------------------------------
- * | mutt_socket_close()    | Close a socket
- * | mutt_socket_open()     | Simple wrapper
- * | mutt_socket_poll()     | Checks whether reads would block
- * | mutt_socket_readchar() | simple read buffering to speed things up
- * | mutt_socket_readln_d() | Read a line from a socket
- * | mutt_socket_write_d()  | Write data to a socket
- * | raw_socket_close()     | Close a socket
- * | raw_socket_open()      | Open a socket
- * | raw_socket_poll()      | Checks whether reads would block
- * | raw_socket_read()      | Read data from a socket
- * | raw_socket_write()     | Write data to a socket
- * | socket_new_conn()      | allocate and initialise a new connection
  */
 
 #include "config.h"
@@ -84,7 +69,6 @@ static int socket_preconnect(void)
     {
       const int save_errno = errno;
       mutt_perror(_("Preconnect command failed."));
-      mutt_sleep(1);
 
       return save_errno;
     }
@@ -274,7 +258,6 @@ int mutt_socket_readchar(struct Connection *conn, char *c)
     if (conn->available == 0)
     {
       mutt_error(_("Connection to %s closed"), conn->account.host);
-      mutt_sleep(2);
     }
     if (conn->available <= 0)
     {
@@ -367,7 +350,6 @@ int raw_socket_read(struct Connection *conn, char *buf, size_t len)
   if (rc == -1)
   {
     mutt_error(_("Error talking to %s (%s)"), conn->account.host, strerror(errno));
-    mutt_sleep(2);
     SigInt = 0;
   }
   mutt_sig_allow_interrupt(0);
@@ -375,7 +357,6 @@ int raw_socket_read(struct Connection *conn, char *buf, size_t len)
   if (SigInt)
   {
     mutt_error(_("Connection to %s has been aborted"), conn->account.host);
-    mutt_sleep(2);
     SigInt = 0;
     rc = -1;
   }
@@ -400,7 +381,6 @@ int raw_socket_write(struct Connection *conn, const char *buf, size_t count)
   if (rc == -1)
   {
     mutt_error(_("Error talking to %s (%s)"), conn->account.host, strerror(errno));
-    mutt_sleep(2);
     SigInt = 0;
   }
   mutt_sig_allow_interrupt(0);
@@ -408,7 +388,6 @@ int raw_socket_write(struct Connection *conn, const char *buf, size_t count)
   if (SigInt)
   {
     mutt_error(_("Connection to %s has been aborted"), conn->account.host);
-    mutt_sleep(2);
     SigInt = 0;
     rc = -1;
   }
@@ -516,7 +495,6 @@ int raw_socket_open(struct Connection *conn)
   if (rc)
   {
     mutt_error(_("Could not find the host \"%s\""), conn->account.host);
-    mutt_sleep(2);
     return -1;
   }
 
@@ -607,7 +585,6 @@ int raw_socket_open(struct Connection *conn)
   {
     mutt_error(_("Could not connect to %s (%s)."), conn->account.host,
                (rc > 0) ? strerror(rc) : _("unknown error"));
-    mutt_sleep(2);
     return -1;
   }
 

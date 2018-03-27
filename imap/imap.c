@@ -27,47 +27,9 @@
  *
  * Support for IMAP4rev1, with the occasional nod to IMAP 4.
  *
- * | Function                     | Description
- * | :--------------------------- | :-------------------------------------------------
- * | imap_access()                | Check permissions on an IMAP mailbox
- * | imap_buffy_check()           | Check for new mail in subscribed folders
- * | imap_check()                 | Check for new mail
- * | imap_check_mailbox()         | use the NOOP or IDLE command to poll for new mail
- * | imap_close_connection()      | Close an IMAP connection
- * | imap_complete()              | Try to complete an IMAP folder path
- * | imap_conn_find()             | Find an open IMAP connection
- * | imap_create_mailbox()        | Create a new mailbox
- * | imap_delete_mailbox()        | Delete a mailbox
- * | imap_exec_msgset()           | Prepare commands for all messages matching conditions
- * | imap_expunge_mailbox()       | Purge messages from the server
- * | imap_fast_trash()            | Use server COPY command to copy deleted messages to trash
- * | imap_has_flag()              | Does the flag exist in the list
- * | imap_logout()                | Gracefully log out of server
- * | imap_logout_all()            | close all open connections
- * | imap_mboxcache_free()        | Free the cached ImapStatus
- * | imap_mboxcache_get()         | Open an hcache for a mailbox
- * | imap_open_connection()       | Open an IMAP connection
- * | imap_read_literal()          | Read bytes bytes from server into file
- * | imap_rename_mailbox()        | Rename a mailbox
- * | imap_search()                | Find a matching mailbox
- * | imap_status()                | Get the status of a mailbox
- * | imap_subscribe()             | Subscribe to a mailbox
- * | imap_sync_message_for_copy() | Update server to reflect the flags of a single message
- *
- * | Data               | Description
- * | :----------------- | :--------------------------------------------------
- * | #mx_comp_ops       | Mailbox callback functions
- *
- * | Function                    | Description
- * | :-------------------------- | :-------------------------------------------------
- * | imap_check_mailbox_reopen() | Check for new mail (reopen mailbox if necessary)
- * | imap_close_mailbox()        | Clean up IMAP data in Context
- * | imap_commit_message_tags()  | Add/Change/Remove flags from headers
- * | imap_edit_message_tags()    | Prompt and validate new messages tags
- * | imap_open_mailbox()         | Open an IMAP mailbox
- * | imap_open_mailbox_append()  | Open an IMAP mailbox to append
- * | imap_open_new_message()     | Open an IMAP message
- * | imap_sync_mailbox()         | Sync all the changes to the server
+ * | Data         | Description
+ * | :----------- | :-------------------------
+ * | #mx_imap_ops | Mailbox callback functions
  */
 
 #include "config.h"
@@ -96,6 +58,7 @@
 #include "message.h"
 #include "mutt_account.h"
 #include "mutt_curses.h"
+#include "mutt_logging.h"
 #include "mutt_socket.h"
 #include "mx.h"
 #include "options.h"
@@ -127,8 +90,6 @@ static int check_capabilities(struct ImapData *idata)
   {
     mutt_error(
         _("This IMAP server is ancient. NeoMutt does not work with it."));
-    mutt_sleep(2); /* pause a moment to let the user see the error */
-
     return -1;
   }
 
@@ -165,7 +126,7 @@ static char *get_flags(struct ListHead *hflags, char *s)
   {
     s++;
     SKIPWS(s);
-    const char* flag_word = s;
+    const char *flag_word = s;
     while (*s && (*s != ')') && !ISSPACE(*s))
       s++;
     const char ctmp = *s;
@@ -222,7 +183,7 @@ static void set_flag(struct ImapData *idata, int aclbit, int flag,
 static int make_msg_set(struct ImapData *idata, struct Buffer *buf, int flag,
                         bool changed, bool invert, int *pos)
 {
-  int count = 0;      /* number of messages in message set */
+  int count = 0;             /* number of messages in message set */
   unsigned int setstart = 0; /* start of current message range */
   int n;
   bool started = false;
@@ -817,6 +778,10 @@ int imap_read_literal(FILE *fp, struct ImapData *idata, unsigned long bytes,
 {
   char c;
   bool r = false;
+  struct Buffer *buf = NULL;
+
+  if (DebugLevel >= IMAP_LOG_LTRL)
+    buf = mutt_buffer_alloc(bytes + 10);
 
   mutt_debug(2, "reading %ld bytes\n", bytes);
 
@@ -827,6 +792,7 @@ int imap_read_literal(FILE *fp, struct ImapData *idata, unsigned long bytes,
       mutt_debug(1, "error during read, %ld bytes read\n", pos);
       idata->status = IMAP_FATAL;
 
+      mutt_buffer_free(&buf);
       return -1;
     }
 
@@ -845,10 +811,15 @@ int imap_read_literal(FILE *fp, struct ImapData *idata, unsigned long bytes,
 
     if (pbar && !(pos % 1024))
       mutt_progress_update(pbar, pos, -1);
-    if (debuglevel >= IMAP_LOG_LTRL)
-      fputc(c, debugfile);
+    if (DebugLevel >= IMAP_LOG_LTRL)
+      mutt_buffer_addch(buf, c);
   }
 
+  if (DebugLevel >= IMAP_LOG_LTRL)
+  {
+    mutt_debug(IMAP_LOG_LTRL, "\n%s", buf->data);
+    mutt_buffer_free(&buf);
+  }
   return 0;
 }
 
@@ -1082,7 +1053,6 @@ int imap_open_connection(struct ImapData *idata)
           if (mutt_ssl_starttls(idata->conn))
           {
             mutt_error(_("Could not negotiate TLS connection"));
-            mutt_sleep(1);
             goto err_close_conn;
           }
           else
@@ -1098,7 +1068,6 @@ int imap_open_connection(struct ImapData *idata)
     if (SslForceTls && !idata->conn->ssf)
     {
       mutt_error(_("Encrypted connection unavailable"));
-      mutt_sleep(1);
       goto err_close_conn;
     }
 #endif
@@ -2169,7 +2138,6 @@ static int imap_open_mailbox(struct Context *ctx)
     s = imap_next_word(idata->buf); /* skip seq */
     s = imap_next_word(s);          /* Skip response */
     mutt_error("%s", s);
-    mutt_sleep(2);
     goto fail;
   }
 
@@ -2185,7 +2153,7 @@ static int imap_open_mailbox(struct Context *ctx)
   }
 
   /* dump the mailbox flags we've found */
-  if (debuglevel > 2)
+  if (DebugLevel > 2)
   {
     if (STAILQ_EMPTY(&idata->flags))
       mutt_debug(3, "No folder flags found\n");
@@ -2218,7 +2186,6 @@ static int imap_open_mailbox(struct Context *ctx)
   if (count && (imap_read_headers(idata, 1, count) < 0))
   {
     mutt_error(_("Error opening mailbox"));
-    mutt_sleep(1);
     goto fail;
   }
 
@@ -2434,7 +2401,6 @@ int imap_sync_mailbox(struct Context *ctx, int expunge)
     if (rc < 0)
     {
       mutt_error(_("Expunge failed"));
-      mutt_sleep(1);
       goto out;
     }
 
@@ -2658,7 +2624,6 @@ static int imap_edit_message_tags(struct Context *ctx, const char *tags, char *b
         *checker == 93)                     // ]
     {
       mutt_error(_("Invalid IMAP flags"));
-      mutt_sleep(2);
       return 0;
     }
 
@@ -2775,7 +2740,7 @@ static int imap_commit_message_tags(struct Context *ctx, struct Header *h, char 
 }
 
 /**
- * mx_comp_ops - Mailbox callback functions
+ * mx_imap_ops - Mailbox callback functions
  */
 struct MxOps mx_imap_ops = {
   .open = imap_open_mailbox,

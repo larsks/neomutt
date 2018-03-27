@@ -26,16 +26,6 @@
  * @page imap_command Send/receive commands to/from an IMAP server
  *
  * Send/receive commands to/from an IMAP server
- *
- * | Function           | Description
- * | :----------------- | :-------------------------------------------------
- * | imap_cmd_finish()  | Attempt to perform cleanup
- * | imap_cmd_idle()    | Enter the IDLE state
- * | imap_cmd_start()   | Given an IMAP command, send it to the server
- * | imap_cmd_step()    | Reads server responses from an IMAP command
- * | imap_cmd_trailer() | Extra information after tagged command response if any
- * | imap_code()        | Was the command successful
- * | imap_exec()        | Execute a command and wait for the response from the server
  */
 
 #include "config.h"
@@ -167,7 +157,6 @@ static void cmd_handle_fatal(struct ImapData *idata)
     mutt_socket_close(idata->conn);
     mutt_error(_("Mailbox %s@%s closed"), idata->conn->account.login,
                idata->conn->account.host);
-    mutt_sleep(1);
     idata->state = IMAP_DISCONNECTED;
   }
 
@@ -898,7 +887,6 @@ static int cmd_handle_untagged(struct ImapData *idata)
     s += 3;
     SKIPWS(s);
     mutt_error("%s", s);
-    mutt_sleep(2);
     cmd_handle_fatal(idata);
 
     return -1;
@@ -909,7 +897,6 @@ static int cmd_handle_untagged(struct ImapData *idata)
 
     /* Display the warning message from the server */
     mutt_error("%s", s + 3);
-    mutt_sleep(2);
   }
 
   return 0;
@@ -1128,7 +1115,6 @@ int imap_exec(struct ImapData *idata, const char *cmdstr, int flags)
       (mutt_socket_poll(idata->conn, ImapPollTimeout)) == 0)
   {
     mutt_error(_("Connection to %s timed out"), idata->conn->account.host);
-    mutt_sleep(2);
     cmd_handle_fatal(idata);
     return -1;
   }
@@ -1223,7 +1209,6 @@ int imap_cmd_idle(struct ImapData *idata)
   if ((ImapPollTimeout > 0) && (mutt_socket_poll(idata->conn, ImapPollTimeout)) == 0)
   {
     mutt_error(_("Connection to %s timed out"), idata->conn->account.host);
-    mutt_sleep(2);
     cmd_handle_fatal(idata);
     return -1;
   }

@@ -35,6 +35,7 @@
 #include <unistd.h>
 #include "memory.h"
 #include "exit.h"
+#include "logging.h"
 #include "message.h"
 
 /**
@@ -44,7 +45,7 @@
  * @retval ptr Memory on the heap
  *
  * @note This function will never return NULL.
- *       It will print and error and exit the program.
+ *       It will print an error and exit the program.
  *
  * The caller should call mutt_mem_free() to release the memory
  */
@@ -58,7 +59,6 @@ void *mutt_mem_calloc(size_t nmemb, size_t size)
   if (nmemb > (SIZE_MAX / size))
   {
     mutt_error(_("Integer overflow -- can't allocate memory!"));
-    sleep(1);
     mutt_exit(1);
   }
 
@@ -66,7 +66,6 @@ void *mutt_mem_calloc(size_t nmemb, size_t size)
   if (!p)
   {
     mutt_error(_("Out of memory!"));
-    sleep(1);
     mutt_exit(1);
   }
   return p;
@@ -94,7 +93,7 @@ void mutt_mem_free(void *ptr)
  * @retval ptr Memory on the heap
  *
  * @note This function will never return NULL.
- *       It will print and error and exit the program.
+ *       It will print an error and exit the program.
  *
  * The caller should call mutt_mem_free() to release the memory
  */
@@ -108,7 +107,6 @@ void *mutt_mem_malloc(size_t size)
   if (!p)
   {
     mutt_error(_("Out of memory!"));
-    sleep(1);
     mutt_exit(1);
   }
   return p;
@@ -120,7 +118,7 @@ void *mutt_mem_malloc(size_t size)
  * @param size New size
  *
  * @note This function will never return NULL.
- *       It will print and error and exit the program.
+ *       It will print an error and exit the program.
  *
  * If the new size is zero, the block will be freed.
  */
@@ -143,7 +141,6 @@ void mutt_mem_realloc(void *ptr, size_t size)
   if (!r)
   {
     mutt_error(_("Out of memory!"));
-    sleep(1);
     mutt_exit(1);
   }
 

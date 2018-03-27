@@ -24,10 +24,6 @@
  * @page imap_auth_cram IMAP CRAM-MD5 authentication method
  *
  * IMAP CRAM-MD5 authentication method
- *
- * | Function             | Description
- * | :------------------- | :-------------------------------------------------
- * | imap_auth_cram_md5() | Authenticate using CRAM-MD5
  */
 
 #include "config.h"
@@ -187,6 +183,5 @@ enum ImapAuthRes imap_auth_cram_md5(struct ImapData *idata, const char *method)
 
 bail:
   mutt_error(_("CRAM-MD5 authentication failed."));
-  mutt_sleep(2);
   return IMAP_AUTH_FAILURE;
 }

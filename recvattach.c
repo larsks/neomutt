@@ -659,7 +659,8 @@ static void query_pipe_attachment(char *command, FILE *fp, struct Body *body, bo
 
 static void pipe_attachment(FILE *fp, struct Body *b, struct State *state)
 {
-  FILE *ifp = NULL;
+  if (!state || !state->fpout)
+    return;
 
   if (fp)
   {
@@ -670,7 +671,7 @@ static void pipe_attachment(FILE *fp, struct Body *b, struct State *state)
   }
   else
   {
-    ifp = fopen(b->filename, "r");
+    FILE *ifp = fopen(b->filename, "r");
     if (!ifp)
     {
       mutt_perror("fopen");
@@ -729,7 +730,7 @@ void mutt_pipe_attachment_list(struct AttachCtx *actx, FILE *fp, bool tag,
 
   if (!filter && !AttachSplit)
   {
-    mutt_endwin(NULL);
+    mutt_endwin();
     thepid = mutt_create_filter(buf, &state.fpout, NULL, NULL);
     pipe_attachment_list(buf, actx, fp, tag, top, filter, &state);
     mutt_file_fclose(&state.fpout);
@@ -802,6 +803,13 @@ static void print_attachment_list(struct AttachCtx *actx, FILE *fp, bool tag,
           mutt_mktemp(newfile, sizeof(newfile));
           if (mutt_decode_save_attachment(fp, top, newfile, MUTT_PRINTING, 0) == 0)
           {
+            if (!state->fpout)
+            {
+              mutt_error(
+                  "BUG in print_attachment_list().  Please report this. ");
+              return;
+            }
+
             ifp = fopen(newfile, "r");
             if (ifp)
             {
@@ -835,7 +843,7 @@ void mutt_print_attachment_list(struct AttachCtx *actx, FILE *fp, bool tag, stru
   {
     if (!can_print(actx, top, tag))
       return;
-    mutt_endwin(NULL);
+    mutt_endwin();
     thepid = mutt_create_filter(NONULL(PrintCommand), &state.fpout, NULL, NULL);
     print_attachment_list(actx, fp, tag, top, &state);
     mutt_file_fclose(&state.fpout);
@@ -976,7 +984,7 @@ static void mutt_generate_recvattach_list(struct AttachCtx *actx, struct Header 
   {
     need_secured = secured = 0;
 
-    if ((WithCrypto & APPLICATION_SMIME) && mutt_is_application_smime(m))
+    if (((WithCrypto & APPLICATION_SMIME) != 0) && mutt_is_application_smime(m))
     {
       need_secured = 1;
 
@@ -1007,7 +1015,7 @@ static void mutt_generate_recvattach_list(struct AttachCtx *actx, struct Header 
         hdr->security |= SMIMEENCRYPT;
     }
 
-    if ((WithCrypto & APPLICATION_PGP) &&
+    if (((WithCrypto & APPLICATION_PGP) != 0) &&
         (mutt_is_multipart_encrypted(m) || mutt_is_malformed_multipart_pgp_encrypted(m)))
     {
       need_secured = 1;
@@ -1211,7 +1219,7 @@ void mutt_view_attachments(struct Header *hdr)
         break;
 
       case OP_EXTRACT_KEYS:
-        if ((WithCrypto & APPLICATION_PGP))
+        if (WithCrypto & APPLICATION_PGP)
         {
           recvattach_extract_pgp_keys(actx, menu);
           menu->redraw = REDRAW_FULL;
@@ -1219,7 +1227,8 @@ void mutt_view_attachments(struct Header *hdr)
         break;
 
       case OP_CHECK_TRADITIONAL:
-        if ((WithCrypto & APPLICATION_PGP) && recvattach_pgp_check_traditional(actx, menu))
+        if (((WithCrypto & APPLICATION_PGP) != 0) &&
+            recvattach_pgp_check_traditional(actx, menu))
         {
           hdr->security = crypt_query(cur);
           menu->redraw = REDRAW_FULL;
@@ -1267,13 +1276,13 @@ void mutt_view_attachments(struct Header *hdr)
         }
 #endif
 
-        if (WithCrypto && (hdr->security & ENCRYPT))
+        if ((WithCrypto != 0) && (hdr->security & ENCRYPT))
         {
           mutt_message(_("Deletion of attachments from encrypted messages is "
                          "unsupported."));
           break;
         }
-        if (WithCrypto && (hdr->security & (SIGN | PARTSIGN)))
+        if ((WithCrypto != 0) && (hdr->security & (SIGN | PARTSIGN)))
         {
           mutt_message(_("Deletion of attachments from signed messages may "
                          "invalidate the signature."));

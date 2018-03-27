@@ -757,7 +757,6 @@ static struct SmimeKey *smime_ask_for_key(char *prompt, short abilities, short p
       return key;
 
     mutt_error(_("No matching keys found for \"%s\""), resp);
-    mutt_sleep(0);
   }
 }
 
@@ -967,7 +966,7 @@ static int smime_handle_cert_email(char *certificate, char *mailbox, int copy,
 
   if (rc == -1)
   {
-    mutt_endwin(NULL);
+    mutt_endwin();
     mutt_file_copy_stream(fperr, stdout);
     mutt_any_key_to_continue(_("Error: unable to create OpenSSL subprocess!"));
     rc = 1;
@@ -1157,7 +1156,7 @@ static char *smime_extract_signer_certificate(char *infile)
   empty = (fgetc(fpout) == EOF);
   if (empty)
   {
-    mutt_endwin(NULL);
+    mutt_endwin();
     mutt_file_copy_stream(fperr, stdout);
     mutt_any_key_to_continue(NULL);
     mutt_file_fclose(&fpout);
@@ -1212,11 +1211,11 @@ void smime_invoke_import(char *infile, char *mailbox)
     }
   }
 
-  mutt_endwin(NULL);
+  mutt_endwin();
   certfile = smime_extract_certificate(infile);
   if (certfile)
   {
-    mutt_endwin(NULL);
+    mutt_endwin();
 
     thepid = smime_invoke(&smimein, NULL, NULL, -1, fileno(fpout), fileno(fperr), certfile,
                           NULL, NULL, NULL, NULL, NULL, NULL, SmimeImportCertCommand);
@@ -2097,10 +2096,10 @@ int smime_send_menu(struct Header *msg)
           switch (mutt_multi_choice(_("Choose algorithm family:"
                                       " 1: DES, 2: RC2, 3: AES,"
                                       " or (c)lear? "),
-                                    _("drac")))
+                                    _("123c")))
           {
             case 1:
-              switch (choice = mutt_multi_choice(_("1: DES, 2: Triple-DES "), _("dt")))
+              switch (choice = mutt_multi_choice(_("1: DES, 2: Triple-DES "), _("12")))
               {
                 case 1:
                   mutt_str_replace(&SmimeEncryptWith, "des");
@@ -2113,7 +2112,7 @@ int smime_send_menu(struct Header *msg)
 
             case 2:
               switch (choice = mutt_multi_choice(
-                          _("1: RC2-40, 2: RC2-64, 3: RC2-128 "), _("468")))
+                          _("1: RC2-40, 2: RC2-64, 3: RC2-128 "), _("123")))
               {
                 case 1:
                   mutt_str_replace(&SmimeEncryptWith, "rc2-40");
@@ -2129,7 +2128,7 @@ int smime_send_menu(struct Header *msg)
 
             case 3:
               switch (choice = mutt_multi_choice(
-                          _("1: AES128, 2: AES192, 3: AES256 "), _("895")))
+                          _("1: AES128, 2: AES192, 3: AES256 "), _("123")))
               {
                 case 1:
                   mutt_str_replace(&SmimeEncryptWith, "aes128");
