@@ -26,8 +26,10 @@
  * Constants and macros for managing MIME encoding.
  */
 
+#include <stdbool.h>
 #include "config.h"
 #include "mime.h"
+#include "mutt/string2.h"
 
 // clang-format off
 /**
@@ -61,7 +63,57 @@ const char *const BodyEncodings[] = {
   "base64",    "binary", "x-uuencoded",
 };
 
+
+/**
+ * BodyLanguages - Common MIME body languages
+ */
+const char *const BodyLanguages[] = {
+  "cs-cz",
+  "da", "da-dk",
+  "de", "de-at", "de-ch", "de-de",
+  "el", "el-gr",
+  "en", "en-au", "en-ca", "en-dk", "en-fi", "en-gb", "en-id", "en-ie", "en-il",
+  "en-in", "en-my", "en-no", "en-nz", "en-ph", "en-sg", "en-th", "en-us", "en-ww",
+  "en-xa", "en-za",
+  "es", "es-ar", "es-cl", "es-co", "es-es", "es-la", "es-mx", "es-pr", "es-us",
+  "fi", "fi-fi",
+  "fr", "fr-be", "fr-ca", "fr-ch", "fr-fr", "fr-lu",
+  "he", "he-il",
+  "hu", "hu-hu",
+  "it", "it-it",
+  "ja", "ja-jp",
+  "ko", "ko-kr",
+  "nl", "nl-be", "nl-nl",
+  "no", "no-no",
+  "pl", "pl-pl",
+  "pt", "pt-br", "pt-pt",
+  "ru", "ru-ru",
+  "sl", "sl-sl",
+  "sv", "sv-se",
+  "tr", "tr-tr",
+  "zh", "zh-cn", "zh-hk", "zh-tw",
+};
+
 /**
  * MimeSpecials - Characters that need special treatment in MIME
  */
 const char MimeSpecials[] = "@.,;:<>[]\\\"()?/= \t";
+
+/* mutt_check_language - check whether it is a valid language code
+ *
+ * @param c  the language code to check (e.g., en)
+ *
+ * Note that currently this checking does not strictly adhere to RFC3282 &
+ * RFC5646. See "BodyLanguages" in mime.c for all supported languages.
+ */
+bool mutt_check_language(const char *c)
+{
+  const char *lan;
+  int i;
+  for (i = 0; i < sizeof(BodyLanguages) / sizeof(char *); i++) {
+    lan = BodyLanguages[i];
+    if (mutt_str_strcasecmp(c, lan) == 0)
+      return true;
+  }
+  return false;
+}
