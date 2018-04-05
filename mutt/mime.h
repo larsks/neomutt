@@ -75,7 +75,7 @@ extern const char *const BodyEncodings[];
 extern const char *const BodyLanguages[];
 extern const char MimeSpecials[];
 
-bool mutt_check_language(const char *c);
+bool mutt_mime_valid_language(const char *lang);
 
 #define hexval(c) IndexHex[(unsigned int) (c)]
 

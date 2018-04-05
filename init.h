@@ -2771,7 +2771,7 @@ struct Option MuttVars[] = {
   /*
   ** .pp
   ** RFC8255 : user preferred languages to be search in parts and display
-  ** Ex. : preferred_languages="en,fr,de"
+  ** Ex. : set preferred_languages="en,fr,de"
   */
   { "print",            DT_QUAD, R_NONE, &Print, MUTT_ASKNO },
   /*

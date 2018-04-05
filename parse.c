@@ -378,12 +378,18 @@ void mutt_parse_content_type(char *s, struct Body *ct)
   }
 }
 
-void mutt_parse_content_language(char *s, struct Body *ct)
+/**
+ * mutt_parse_content_language - Read the content's language
+ * @param s  Language string
+ * @param ct Body of the email
+ */
+static void mutt_parse_content_language(char *s, struct Body *ct)
 {
-  if(s != NULL) {
-    mutt_debug(2, "RFC8255 >> Content-Language set to %s\n",s);
-    ct->language = mutt_str_strdup(s);
-  }
+  if (!s || !ct)
+    return;
+
+  mutt_debug(2, "RFC8255 >> Content-Language set to %s\n", s);
+  ct->language = mutt_str_strdup(s);
 }
 
 static void parse_content_disposition(const char *s, struct Body *ct)

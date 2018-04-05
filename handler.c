@@ -1176,6 +1176,12 @@ static int alternative_handler(struct Body *a, struct State *s)
   return rc;
 }
 
+/**
+ * multilingual_handler - Parse a multi-lingual email
+ * @param a Body of the email
+ * @param s State for the file containing the email
+ * @retval 0 Always
+ */
 static int multilingual_handler(struct Body *a, struct State *s)
 {
   struct Body *choice = NULL;
@@ -1222,12 +1228,12 @@ static int multilingual_handler(struct Body *a, struct State *s)
         if (!first_part)
           first_part = b;
 
-        if (b->language && (strcmp("zxx", b->language) == 0))
+        if (b->language && (mutt_str_strcmp("zxx", b->language) == 0))
           zxx_part = b;
 
         mutt_debug(2, "RFC8255 >> comparing configuration preferred_language='%s' to mail part content-language='%s'\n",
                    lang, b->language);
-        if (lang && b->language && (strcmp(lang, b->language) == 0))
+        if (lang && b->language && (mutt_str_strcmp(lang, b->language) == 0))
         {
           mutt_debug(2, "RFC8255 >> preferred_language='%s' matches content-language='%s' >> part selected to be displayed\n",
                      lang, b->language);

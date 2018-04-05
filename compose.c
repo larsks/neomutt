@@ -637,13 +637,16 @@ static void compose_menu_redraw(struct Menu *menu)
     menu_redraw_current(menu);
 }
 
-/*
- * compose_attach_swap: swap two adjacent entries in the attachment list.
+/**
+ * compose_attach_swap - Swap two adjacent entries in the attachment list
+ * @param msg   Body of email
+ * @param idx   Array of Attachments
+ * @param first Index of first attachment to swap
  */
 static void compose_attach_swap(struct Body *msg, struct AttachPtr **idx, short first)
 {
   /* Reorder Body pointers.
-   * Must traverse msg from top since Body * has no previous ptr.
+   * Must traverse msg from top since Body has no previous ptr.
    */
   for (struct Body *part = msg; part; part = part->next)
   {
@@ -1139,7 +1142,7 @@ int mutt_compose_menu(struct Header *msg, char *fcc, size_t fcclen,
             for (int j = i; j < actx->idxlen - 1; j++)
             {
               actx->idx[j] = actx->idx[j + 1];
-              actx->idx[j + 1] = NULL;   /* for debug reason */
+              actx->idx[j + 1] = NULL; /* for debug reason */
             }
             actx->idxlen--;
           }
@@ -1178,13 +1181,12 @@ int mutt_compose_menu(struct Header *msg, char *fcc, size_t fcclen,
         int tagged_with_lang_num = 0;
         for (i = 0; b; b = b->next)
           if (b->tagged && b->language && *b->language)
-              tagged_with_lang_num++;
+            tagged_with_lang_num++;
 
         if (menu->tagged != tagged_with_lang_num)
         {
           if (mutt_yesorno(
-                  _("Not all parts have Content-Language: set, continue?"),
-                  MUTT_YES) != MUTT_YES)
+                  _("Not all parts have Content-Language: set, continue?"), MUTT_YES) != MUTT_YES)
           {
             mutt_message(_("Not sending this message."));
             break;
@@ -1238,7 +1240,7 @@ int mutt_compose_menu(struct Header *msg, char *fcc, size_t fcclen,
             for (int j = i; j < actx->idxlen - 1; j++)
             {
               actx->idx[j] = actx->idx[j + 1];
-              actx->idx[j + 1] = NULL;   /* for debug reason */
+              actx->idx[j + 1] = NULL; /* for debug reason */
             }
             actx->idxlen--;
           }
@@ -1516,18 +1518,18 @@ int mutt_compose_menu(struct Header *msg, char *fcc, size_t fcclen,
 
       case OP_COMPOSE_EDIT_LANGUAGE:
         CHECK_COUNT;
-        buf[0] = 0;   /* clear buffer first */
+        buf[0] = 0; /* clear buffer first */
         if (CURATTACH->content->language)
           mutt_str_strfcpy(buf, CURATTACH->content->language, sizeof(buf));
-        if (mutt_get_field("Content-Language: ", buf, sizeof(buf), 0) == 0
-            && mutt_check_language(buf))
+        if ((mutt_get_field("Content-Language: ", buf, sizeof(buf), 0) == 0) &&
+            mutt_mime_valid_language(buf))
         {
           CURATTACH->content->language = mutt_str_strdup(buf);
           menu->redraw = REDRAW_CURRENT | REDRAW_STATUS;
           mutt_clear_error();
         }
         else
-            mutt_error(_("Invalid language, default to none."));
+          mutt_error(_("Invalid language, default to none."));
         mutt_message_hook(NULL, msg, MUTT_SEND2HOOK);
         break;
 

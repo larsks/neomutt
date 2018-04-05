@@ -26,10 +26,11 @@
  * Constants and macros for managing MIME encoding.
  */
 
-#include <stdbool.h>
 #include "config.h"
+#include <stdbool.h>
 #include "mime.h"
-#include "mutt/string2.h"
+#include "memory.h"
+#include "string2.h"
 
 // clang-format off
 /**
@@ -45,24 +46,6 @@ const int IndexHex[128] = {
     -1,10,11,12, 13,14,15,-1, -1,-1,-1,-1, -1,-1,-1,-1,
     -1,-1,-1,-1, -1,-1,-1,-1, -1,-1,-1,-1, -1,-1,-1,-1
 };
-// clang-format on
-
-/**
- * BodyTypes - Common MIME body types
- */
-const char *const BodyTypes[] = {
-  "x-unknown", "audio",     "application", "image", "message",
-  "model",     "multipart", "text",        "video", "*",
-};
-
-/**
- * BodyEncodings - Common MIME body encodings
- */
-const char *const BodyEncodings[] = {
-  "x-unknown", "7bit",   "8bit",        "quoted-printable",
-  "base64",    "binary", "x-uuencoded",
-};
-
 
 /**
  * BodyLanguages - Common MIME body languages
@@ -93,26 +76,42 @@ const char *const BodyLanguages[] = {
   "tr", "tr-tr",
   "zh", "zh-cn", "zh-hk", "zh-tw",
 };
+// clang-format on
+
+/**
+ * BodyTypes - Common MIME body types
+ */
+const char *const BodyTypes[] = {
+  "x-unknown", "audio",     "application", "image", "message",
+  "model",     "multipart", "text",        "video", "*",
+};
+
+/**
+ * BodyEncodings - Common MIME body encodings
+ */
+const char *const BodyEncodings[] = {
+  "x-unknown", "7bit",   "8bit",        "quoted-printable",
+  "base64",    "binary", "x-uuencoded",
+};
 
 /**
  * MimeSpecials - Characters that need special treatment in MIME
  */
 const char MimeSpecials[] = "@.,;:<>[]\\\"()?/= \t";
 
-/* mutt_check_language - check whether it is a valid language code
+/**
+ * mutt_mime_valid_language - Is it a valid language code?
+ * @param lang Language code to check (e.g., en)
+ * @retval true Valid language code
  *
- * @param c  the language code to check (e.g., en)
- *
- * Note that currently this checking does not strictly adhere to RFC3282 &
- * RFC5646. See "BodyLanguages" in mime.c for all supported languages.
+ * @note Currently this checking does not strictly adhere to RFC3282 and
+ * RFC5646. See #BodyLanguages for all supported languages.
  */
-bool mutt_check_language(const char *c)
+bool mutt_mime_valid_language(const char *lang)
 {
-  const char *lan;
-  int i;
-  for (i = 0; i < sizeof(BodyLanguages) / sizeof(char *); i++) {
-    lan = BodyLanguages[i];
-    if (mutt_str_strcasecmp(c, lan) == 0)
+  for (size_t i = 0; i < mutt_array_size(BodyLanguages); i++)
+  {
+    if (mutt_str_strcasecmp(lang, BodyLanguages[i]) == 0)
       return true;
   }
   return false;
