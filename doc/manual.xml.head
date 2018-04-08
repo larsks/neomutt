@@ -3774,7 +3774,7 @@ bind index gg first-entry</screen>
       <cmdsynopsis>
         <command>folder-hook</command>
         <arg choice="plain">
-          <replaceable class="parameter">[!]regex</replaceable>
+          <replaceable class="parameter">regex</replaceable>
         </arg>
         <arg choice="plain">
           <replaceable class="parameter">command</replaceable>
@@ -4625,7 +4625,7 @@ unignore posted-to:
       <cmdsynopsis>
         <command>mbox-hook</command>
         <arg choice="plain">
-          <replaceable class="parameter">[!]regex</replaceable>
+          <replaceable class="parameter">regex</replaceable>
         </arg>
         <arg choice="plain">
           <replaceable class="parameter">mailbox</replaceable>
@@ -4769,7 +4769,7 @@ unignore posted-to:
       <cmdsynopsis>
         <command>save-hook</command>
         <arg choice="plain">
-          <replaceable class="parameter">[!]pattern</replaceable>
+          <replaceable class="parameter">pattern</replaceable>
         </arg>
         <arg choice="plain">
           <replaceable class="parameter">mailbox</replaceable>
@@ -4810,7 +4810,7 @@ save-hook aol\\.com$ +spam
       <cmdsynopsis>
         <command>fcc-hook</command>
         <arg choice="plain">
-          <replaceable class="parameter">[!]pattern</replaceable>
+          <replaceable class="parameter">pattern</replaceable>
         </arg>
         <arg choice="plain">
           <replaceable class="parameter">mailbox</replaceable>
@@ -4845,7 +4845,7 @@ save-hook aol\\.com$ +spam
       <cmdsynopsis>
         <command>fcc-save-hook</command>
         <arg choice="plain">
-          <replaceable class="parameter">[!]pattern</replaceable>
+          <replaceable class="parameter">pattern</replaceable>
         </arg>
         <arg choice="plain">
           <replaceable class="parameter">mailbox</replaceable>
@@ -4870,21 +4870,21 @@ save-hook aol\\.com$ +spam
       <cmdsynopsis>
         <command>reply-hook</command>
         <arg choice="plain">
-          <replaceable class="parameter">[!]pattern</replaceable>
+          <replaceable class="parameter">pattern</replaceable>
         </arg>
         <arg choice="plain">
           <replaceable class="parameter">command</replaceable>
         </arg>
         <command>send-hook</command>
         <arg choice="plain">
-          <replaceable class="parameter">[!]pattern</replaceable>
+          <replaceable class="parameter">pattern</replaceable>
         </arg>
         <arg choice="plain">
           <replaceable class="parameter">command</replaceable>
         </arg>
         <command>send2-hook</command>
         <arg choice="plain">
-          <replaceable class="parameter">[!]pattern</replaceable>
+          <replaceable class="parameter">pattern</replaceable>
         </arg>
         <arg choice="plain">
           <replaceable class="parameter">command</replaceable>
@@ -4964,7 +4964,7 @@ save-hook aol\\.com$ +spam
       <cmdsynopsis>
         <command>message-hook</command>
         <arg choice="plain">
-          <replaceable class="parameter">[!]pattern</replaceable>
+          <replaceable class="parameter">pattern</replaceable>
         </arg>
         <arg choice="plain">
           <replaceable class="parameter">command</replaceable>
@@ -15606,7 +15606,7 @@ folder-hook ^pop 'set read_inc=1'</screen>
               <link linkend="fcc-hook">fcc-hook</link>
             </command>
             <arg choice="plain">
-              <replaceable class="parameter">[!]pattern</replaceable>
+              <replaceable class="parameter">pattern</replaceable>
             </arg>
             <arg choice="plain">
               <replaceable class="parameter">mailbox</replaceable>
@@ -15619,7 +15619,7 @@ folder-hook ^pop 'set read_inc=1'</screen>
               <link linkend="fcc-save-hook">fcc-save-hook</link>
             </command>
             <arg choice="plain">
-              <replaceable class="parameter">[!]pattern</replaceable>
+              <replaceable class="parameter">pattern</replaceable>
             </arg>
             <arg choice="plain">
               <replaceable class="parameter">mailbox</replaceable>
@@ -15632,7 +15632,7 @@ folder-hook ^pop 'set read_inc=1'</screen>
               <link linkend="folder-hook">folder-hook</link>
             </command>
             <arg choice="plain">
-              <replaceable class="parameter">[!]regex</replaceable>
+              <replaceable class="parameter">regex</replaceable>
             </arg>
             <arg choice="plain">
               <replaceable class="parameter">command</replaceable>
@@ -15878,7 +15878,7 @@ folder-hook ^pop 'set read_inc=1'</screen>
               <link linkend="mbox-hook">mbox-hook</link>
             </command>
             <arg choice="plain">
-              <replaceable class="parameter">[!]regex</replaceable>
+              <replaceable class="parameter">regex</replaceable>
             </arg>
             <arg choice="plain">
               <replaceable class="parameter">mailbox</replaceable>
@@ -15891,7 +15891,7 @@ folder-hook ^pop 'set read_inc=1'</screen>
               <link linkend="message-hook">message-hook</link>
             </command>
             <arg choice="plain">
-              <replaceable class="parameter">[!]pattern</replaceable>
+              <replaceable class="parameter">pattern</replaceable>
             </arg>
             <arg choice="plain">
               <replaceable class="parameter">command</replaceable>
@@ -16036,7 +16036,7 @@ folder-hook ^pop 'set read_inc=1'</screen>
               <link linkend="reply-hook">reply-hook</link>
             </command>
             <arg choice="plain">
-              <replaceable class="parameter">[!]pattern</replaceable>
+              <replaceable class="parameter">pattern</replaceable>
             </arg>
             <arg choice="plain">
               <replaceable class="parameter">command</replaceable>
@@ -16049,7 +16049,7 @@ folder-hook ^pop 'set read_inc=1'</screen>
               <link linkend="save-hook">save-hook</link>
             </command>
             <arg choice="plain">
-              <replaceable class="parameter">[!]pattern</replaceable>
+              <replaceable class="parameter">pattern</replaceable>
             </arg>
             <arg choice="plain">
               <replaceable class="parameter">mailbox</replaceable>
@@ -16086,7 +16086,7 @@ folder-hook ^pop 'set read_inc=1'</screen>
               <link linkend="send-hook">send-hook</link>
             </command>
             <arg choice="plain">
-              <replaceable class="parameter">[!]pattern</replaceable>
+              <replaceable class="parameter">pattern</replaceable>
             </arg>
             <arg choice="plain">
               <replaceable class="parameter">command</replaceable>
@@ -16099,7 +16099,7 @@ folder-hook ^pop 'set read_inc=1'</screen>
               <link linkend="send2-hook">send2-hook</link>
             </command>
             <arg choice="plain">
-              <replaceable class="parameter">[!]pattern</replaceable>
+              <replaceable class="parameter">pattern</replaceable>
             </arg>
             <arg choice="plain">
               <replaceable class="parameter">command</replaceable>
