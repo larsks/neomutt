@@ -4763,10 +4763,24 @@ unignore posted-to:
       <screen>unmy_hdr to cc</screen>
     </sect1>
 
-    <sect1 id="save-hook">
-      <title>Specify Default Save Mailbox</title>
+    <sect1 id="default-save-mailbox">
+      <title>Specify Default Fcc: and/or Save Mailbox</title>
       <para>Usage:</para>
       <cmdsynopsis>
+        <command>fcc-save-hook</command>
+        <arg choice="plain">
+          <replaceable class="parameter">pattern</replaceable>
+        </arg>
+        <arg choice="plain">
+          <replaceable class="parameter">mailbox</replaceable>
+        </arg>
+        <command>fcc-hook</command>
+        <arg choice="plain">
+          <replaceable class="parameter">pattern</replaceable>
+        </arg>
+        <arg choice="plain">
+          <replaceable class="parameter">mailbox</replaceable>
+        </arg>
         <command>save-hook</command>
         <arg choice="plain">
           <replaceable class="parameter">pattern</replaceable>
@@ -4775,20 +4789,35 @@ unignore posted-to:
           <replaceable class="parameter">mailbox</replaceable>
         </arg>
       </cmdsynopsis>
-      <para>This command is used to override the default mailbox used when
-      saving messages.
-      <emphasis>mailbox</emphasis> will be used as the default if the message
-      matches
-      <emphasis>pattern</emphasis>, see
-      <xref linkend="pattern-hook" />for information on the exact
-      format.</para>
-      <para>To provide more flexibility and good defaults, NeoMutt applies the
-      expandos of
-      <link linkend="index-format">$index_format</link> to
-      <emphasis>mailbox</emphasis> after it was expanded.</para>
+      <para><anchor id="fcc-save-hook" />
+        <command>fcc-save-hook</command> is a shortcut, equivalent to doing
+        both a <link linkend="fcc-hook"><command>fcc-hook</command></link> and
+        a <link linkend="save-hook"><command>save-hook</command></link> with
+        its arguments, including %-expansion on <emphasis>mailbox</emphasis>
+        according to <link linkend="index-format">$index_format</link>.
+      </para>
+
+      <para><anchor id="fcc-hook" />
+        <command>fcc-hook</command> is used to save outgoing mail in a mailbox
+        other than <link linkend="record">$record</link>. NeoMutt searches the
+        initial list of message recipients for the first matching
+        <emphasis>pattern</emphasis> and uses <emphasis>mailbox</emphasis> as
+        the default <quote>Fcc:</quote> mailbox. If no match is found the
+        message will be saved to <link linkend="record">$record</link> mailbox.
+      </para>
+      <screen>fcc-hook [@.]aol\\.com$ +spammers</screen>
+      <para>
+        ...will save a copy of all messages going to the aol.com domain to the
+        <quote>+spammers</quote> mailbox by default.
+      </para>
+
+      <para><anchor id="save-hook" />
+        <command>save-hook</command> is used to override the default mailbox
+        used when saving messages. <emphasis>mailbox</emphasis> will be used
+        as the default if the message matches <emphasis>pattern</emphasis>.
+      </para>
       <example id="ex-save-hook-exando">
-        <title>Using %-expandos in
-        <command>save-hook</command></title>
+        <title>Using %-expandos in <command>save-hook</command></title>
         <screen>
 <emphasis role="comment"># default: save all to ~/Mail/&lt;author name&gt;</emphasis>
 save-hook . ~/Mail/%F
@@ -4796,70 +4825,20 @@ save-hook . ~/Mail/%F
 save-hook me@(turing\\.)?cs\\.hmc\\.edu$ +elkins
 <emphasis role="comment"># save from aol.com to $folder/spam</emphasis>
 save-hook aol\\.com$ +spam
-</screen>
+        </screen>
       </example>
-      <para>Also see the
-      <link linkend="fcc-save-hook">
-        <command>fcc-save-hook</command>
-      </link>command.</para>
-    </sect1>
 
-    <sect1 id="fcc-hook">
-      <title>Specify Default Fcc: Mailbox When Composing</title>
-      <para>Usage:</para>
-      <cmdsynopsis>
-        <command>fcc-hook</command>
-        <arg choice="plain">
-          <replaceable class="parameter">pattern</replaceable>
-        </arg>
-        <arg choice="plain">
-          <replaceable class="parameter">mailbox</replaceable>
-        </arg>
-      </cmdsynopsis>
-      <para>This command is used to save outgoing mail in a mailbox other than
-      <link linkend="record">$record</link>. NeoMutt searches the initial list of
-      message recipients for the first matching
-      <emphasis>pattern</emphasis> and uses
-      <emphasis>mailbox</emphasis> as the default Fcc: mailbox. If no match is
-      found the message will be saved to
-      <link linkend="record">$record</link> mailbox.</para>
-      <para>To provide more flexibility and good defaults, NeoMutt applies the
-      expandos of
-      <link linkend="index-format">$index_format</link> to
-      <emphasis>mailbox</emphasis> after it was expanded.</para>
-      <para>See
-      <xref linkend="pattern-hook" />for information on the exact format of
-      <emphasis>pattern</emphasis>.</para>
-      <screen>fcc-hook [@.]aol\\.com$ +spammers</screen>
-      <para>...will save a copy of all messages going to the aol.com domain to
-      the `+spammers' mailbox by default. Also see the
-      <link linkend="fcc-save-hook">
-        <command>fcc-save-hook</command>
-      </link>command.</para>
-    </sect1>
-
-    <sect1 id="fcc-save-hook">
-      <title>Specify Default Save Filename and Default Fcc: Mailbox at
-      Once</title>
-      <para>Usage:</para>
-      <cmdsynopsis>
-        <command>fcc-save-hook</command>
-        <arg choice="plain">
-          <replaceable class="parameter">pattern</replaceable>
-        </arg>
-        <arg choice="plain">
-          <replaceable class="parameter">mailbox</replaceable>
-        </arg>
-      </cmdsynopsis>
-      <para>This command is a shortcut, equivalent to doing both a
-      <link linkend="fcc-hook">
-        <command>fcc-hook</command>
-      </link>and a
-      <link linkend="save-hook">
-        <command>save-hook</command>
-      </link>with its arguments, including %-expansion on
-      <emphasis>mailbox</emphasis> according to
-      <link linkend="index-format">$index_format</link>.</para>
+      <para>
+        Also see the
+        <link linkend="fcc-save-hook"><command>fcc-save-hook</command></link>
+        command.
+      </para><para>
+        To provide more flexibility and good defaults, NeoMutt applies the
+        expandos of <link linkend="index-format">$index_format</link> to
+        <emphasis>mailbox</emphasis> after it was expanded. See
+        <xref linkend="pattern-hook" /> for information on the exact format of
+        <emphasis>pattern</emphasis>.
+      </para>
     </sect1>
 
     <sect1 id="send-hook">
@@ -5424,13 +5403,6 @@ set spam_separator=", "
             </arg>
           </group>
           <arg choice="opt" rep="repeat"></arg>
-          <command>toggle</command>
-          <arg choice="plain">
-            <replaceable class="parameter">variable</replaceable>
-          </arg>
-          <arg choice="opt" rep="repeat">
-            <replaceable class="parameter">variable</replaceable>
-          </arg>
           <command>unset</command>
           <arg choice="plain">
             <replaceable class="parameter">variable</replaceable>
@@ -5439,6 +5411,13 @@ set spam_separator=", "
             <replaceable class="parameter">variable</replaceable>
           </arg>
           <command>reset</command>
+          <arg choice="plain">
+            <replaceable class="parameter">variable</replaceable>
+          </arg>
+          <arg choice="opt" rep="repeat">
+            <replaceable class="parameter">variable</replaceable>
+          </arg>
+          <command>toggle</command>
           <arg choice="plain">
             <replaceable class="parameter">variable</replaceable>
           </arg>
@@ -7274,22 +7253,12 @@ mailboxes $my_mx +mailbox3</screen>
         </listitem>
         <listitem>
           <para>
-            <link linkend="append-hook">
-              <command>append-hook</command>
-            </link>
-          </para>
-        </listitem>
-        <listitem>
-          <para>
             <link linkend="charset-hook">
               <command>charset-hook</command>
             </link>
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            <link linkend="close-hook">
-              <command>close-hook</command>
+          </para><para>
+            <link linkend="iconv-hook">
+              <command>iconv-hook</command>
             </link>
           </para>
         </listitem>
@@ -7302,15 +7271,16 @@ mailboxes $my_mx +mailbox3</screen>
         </listitem>
         <listitem>
           <para>
+            <link linkend="fcc-save-hook">
+              <command>fcc-save-hook</command>
+            </link>
+          </para><para>
             <link linkend="fcc-hook">
               <command>fcc-hook</command>
             </link>
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            <link linkend="fcc-save-hook">
-              <command>fcc-save-hook</command>
+          </para><para>
+            <link linkend="save-hook">
+              <command>save-hook</command>
             </link>
           </para>
         </listitem>
@@ -7318,13 +7288,6 @@ mailboxes $my_mx +mailbox3</screen>
           <para>
             <link linkend="folder-hook">
               <command>folder-hook</command>
-            </link>
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            <link linkend="iconv-hook">
-              <command>iconv-hook</command>
             </link>
           </para>
         </listitem>
@@ -7347,6 +7310,14 @@ mailboxes $my_mx +mailbox3</screen>
             <link linkend="open-hook">
               <command>open-hook</command>
             </link>
+          </para><para>
+            <link linkend="close-hook">
+              <command>close-hook</command>
+            </link>
+          </para><para>
+            <link linkend="append-hook">
+              <command>append-hook</command>
+            </link>
           </para>
         </listitem>
         <listitem>
@@ -7354,26 +7325,35 @@ mailboxes $my_mx +mailbox3</screen>
             <link linkend="reply-hook">
               <command>reply-hook</command>
             </link>
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            <link linkend="save-hook">
-              <command>save-hook</command>
-            </link>
-          </para>
-        </listitem>
-        <listitem>
-          <para>
+          </para><para>
             <link linkend="send-hook">
               <command>send-hook</command>
             </link>
+          </para><para>
+            <link linkend="send2-hook">
+              <command>send2-hook</command>
+            </link>
           </para>
         </listitem>
         <listitem>
           <para>
-            <link linkend="send2-hook">
-              <command>send2-hook</command>
+            <link linkend="global-hooks">
+              <command>timeout-hook</command>
+            </link>
+          </para><para>
+            <link linkend="global-hooks">
+              <command>startup-hook</command>
+            </link>
+          </para><para>
+            <link linkend="global-hooks">
+              <command>shutdown-hook</command>
+            </link>
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <link linkend="unhook">
+              <command>unhook</command>
             </link>
           </para>
         </listitem>
@@ -7661,8 +7641,8 @@ roessler@does-not-exist.org        Thomas Roessler mutt pgp
                 <emphasis>@alias</emphasis>
               </entry>
               <entry>to the
-              <link linkend="save-hook">default save folder</link> as determined
-              by the address of the alias</entry>
+              <link linkend="default-save-mailbox">default save folder</link>
+              as determined by the address of the alias</entry>
             </row>
           </tbody>
         </tgroup>
@@ -15388,19 +15368,6 @@ folder-hook ^pop 'set read_inc=1'</screen>
         <listitem>
           <cmdsynopsis>
             <command>
-              <link linkend="append-hook">append-hook</link>
-            </command>
-            <arg choice="plain">
-              <replaceable class="parameter">regex</replaceable>
-            </arg>
-            <arg choice="plain">
-              <replaceable class="parameter">&quot;shell-command&quot;</replaceable>
-            </arg>
-          </cmdsynopsis>
-        </listitem>
-        <listitem>
-          <cmdsynopsis>
-            <command>
               <link linkend="attachments">attachments</link>
             </command>
             <group choice="req">
@@ -15486,18 +15453,14 @@ folder-hook ^pop 'set read_inc=1'</screen>
             <arg choice="plain">
               <replaceable class="parameter">charset</replaceable>
             </arg>
-          </cmdsynopsis>
-        </listitem>
-        <listitem>
-          <cmdsynopsis>
             <command>
-              <link linkend="close-hook">close-hook</link>
+              <link linkend="charset-hook">iconv-hook</link>
             </command>
             <arg choice="plain">
-              <replaceable class="parameter">regex</replaceable>
+              <replaceable class="parameter">charset</replaceable>
             </arg>
             <arg choice="plain">
-              <replaceable class="parameter">&quot;shell-command&quot;</replaceable>
+              <replaceable class="parameter">local-charset</replaceable>
             </arg>
           </cmdsynopsis>
         </listitem>
@@ -15603,7 +15566,7 @@ folder-hook ^pop 'set read_inc=1'</screen>
         <listitem>
           <cmdsynopsis>
             <command>
-              <link linkend="fcc-hook">fcc-hook</link>
+              <link linkend="default-save-mailbox">fcc-save-hook</link>
             </command>
             <arg choice="plain">
               <replaceable class="parameter">pattern</replaceable>
@@ -15611,12 +15574,17 @@ folder-hook ^pop 'set read_inc=1'</screen>
             <arg choice="plain">
               <replaceable class="parameter">mailbox</replaceable>
             </arg>
-          </cmdsynopsis>
-        </listitem>
-        <listitem>
-          <cmdsynopsis>
             <command>
-              <link linkend="fcc-save-hook">fcc-save-hook</link>
+              <link linkend="default-save-mailbox">fcc-hook</link>
+            </command>
+            <arg choice="plain">
+              <replaceable class="parameter">pattern</replaceable>
+            </arg>
+            <arg choice="plain">
+              <replaceable class="parameter">mailbox</replaceable>
+            </arg>
+            <command>
+              <link linkend="default-save-mailbox">save-hook</link>
             </command>
             <arg choice="plain">
               <replaceable class="parameter">pattern</replaceable>
@@ -15707,19 +15675,6 @@ folder-hook ^pop 'set read_inc=1'</screen>
         <listitem>
           <cmdsynopsis>
             <command>
-              <link linkend="iconv-hook">iconv-hook</link>
-            </command>
-            <arg choice="plain">
-              <replaceable class="parameter">charset</replaceable>
-            </arg>
-            <arg choice="plain">
-              <replaceable class="parameter">local-charset</replaceable>
-            </arg>
-          </cmdsynopsis>
-        </listitem>
-        <listitem>
-          <cmdsynopsis>
-            <command>
               <link linkend="ifdef">ifdef</link>
             </command>
             <arg choice="plain">
@@ -15796,6 +15751,34 @@ folder-hook ^pop 'set read_inc=1'</screen>
               </arg>
               <arg choice="plain" rep="repeat">
                 <replaceable>regex</replaceable>
+              </arg>
+            </group>
+            <command>
+              <link linkend="lists">subscribe</link>
+            </command>
+            <arg choice="opt" rep="repeat">
+              <option>-group</option>
+              <replaceable class="parameter">name</replaceable>
+            </arg>
+            <arg choice="plain">
+              <replaceable class="parameter">regex</replaceable>
+            </arg>
+            <arg choice="opt" rep="repeat">
+              <replaceable class="parameter">regex</replaceable>
+            </arg>
+            <command>
+              <link linkend="lists">unsubscribe</link>
+            </command>
+            <arg choice="opt" rep="repeat">
+              <option>-group</option>
+              <replaceable>name</replaceable>
+            </arg>
+            <group choice="req">
+              <arg choice="plain">
+                <replaceable class="parameter">*</replaceable>
+              </arg>
+              <arg choice="plain" rep="repeat">
+                <replaceable class="parameter">regex</replaceable>
               </arg>
             </group>
           </cmdsynopsis>
@@ -16018,6 +16001,24 @@ folder-hook ^pop 'set read_inc=1'</screen>
             <arg choice="plain">
               <replaceable class="parameter">&quot;shell-command&quot;</replaceable>
             </arg>
+            <command>
+              <link linkend="close-hook">close-hook</link>
+            </command>
+            <arg choice="plain">
+              <replaceable class="parameter">regex</replaceable>
+            </arg>
+            <arg choice="plain">
+              <replaceable class="parameter">&quot;shell-command&quot;</replaceable>
+            </arg>
+            <command>
+              <link linkend="append-hook">append-hook</link>
+            </command>
+            <arg choice="plain">
+              <replaceable class="parameter">regex</replaceable>
+            </arg>
+            <arg choice="plain">
+              <replaceable class="parameter">&quot;shell-command&quot;</replaceable>
+            </arg>
           </cmdsynopsis>
         </listitem>
         <listitem>
@@ -16033,7 +16034,7 @@ folder-hook ^pop 'set read_inc=1'</screen>
         <listitem>
           <cmdsynopsis>
             <command>
-              <link linkend="reply-hook">reply-hook</link>
+              <link linkend="send-hook">reply-hook</link>
             </command>
             <arg choice="plain">
               <replaceable class="parameter">pattern</replaceable>
@@ -16041,18 +16042,23 @@ folder-hook ^pop 'set read_inc=1'</screen>
             <arg choice="plain">
               <replaceable class="parameter">command</replaceable>
             </arg>
-          </cmdsynopsis>
-        </listitem>
-        <listitem>
-          <cmdsynopsis>
             <command>
-              <link linkend="save-hook">save-hook</link>
+              <link linkend="send-hook">send-hook</link>
             </command>
             <arg choice="plain">
               <replaceable class="parameter">pattern</replaceable>
             </arg>
             <arg choice="plain">
-              <replaceable class="parameter">mailbox</replaceable>
+              <replaceable class="parameter">command</replaceable>
+            </arg>
+            <command>
+              <link linkend="send-hook">send2-hook</link>
+            </command>
+            <arg choice="plain">
+              <replaceable class="parameter">pattern</replaceable>
+            </arg>
+            <arg choice="plain">
+              <replaceable class="parameter">command</replaceable>
             </arg>
           </cmdsynopsis>
         </listitem>
@@ -16078,32 +16084,6 @@ folder-hook ^pop 'set read_inc=1'</screen>
                 <replaceable class="parameter">pattern</replaceable>
               </arg>
             </group>
-          </cmdsynopsis>
-        </listitem>
-        <listitem>
-          <cmdsynopsis>
-            <command>
-              <link linkend="send-hook">send-hook</link>
-            </command>
-            <arg choice="plain">
-              <replaceable class="parameter">pattern</replaceable>
-            </arg>
-            <arg choice="plain">
-              <replaceable class="parameter">command</replaceable>
-            </arg>
-          </cmdsynopsis>
-        </listitem>
-        <listitem>
-          <cmdsynopsis>
-            <command>
-              <link linkend="send2-hook">send2-hook</link>
-            </command>
-            <arg choice="plain">
-              <replaceable class="parameter">pattern</replaceable>
-            </arg>
-            <arg choice="plain">
-              <replaceable class="parameter">command</replaceable>
-            </arg>
           </cmdsynopsis>
         </listitem>
         <listitem>
@@ -16135,15 +16115,6 @@ folder-hook ^pop 'set read_inc=1'</screen>
             </group>
             <arg choice="opt" rep="repeat"></arg>
             <command>
-              <link linkend="set">toggle</link>
-            </command>
-            <arg choice="plain">
-              <replaceable class="parameter">variable</replaceable>
-            </arg>
-            <arg choice="opt" rep="repeat">
-              <replaceable class="parameter">variable</replaceable>
-            </arg>
-            <command>
               <link linkend="set">unset</link>
             </command>
             <arg choice="plain">
@@ -16154,6 +16125,15 @@ folder-hook ^pop 'set read_inc=1'</screen>
             </arg>
             <command>
               <link linkend="set">reset</link>
+            </command>
+            <arg choice="plain">
+              <replaceable class="parameter">variable</replaceable>
+            </arg>
+            <arg choice="opt" rep="repeat">
+              <replaceable class="parameter">variable</replaceable>
+            </arg>
+            <command>
+              <link linkend="set">toggle</link>
             </command>
             <arg choice="plain">
               <replaceable class="parameter">variable</replaceable>
@@ -16269,33 +16249,23 @@ folder-hook ^pop 'set read_inc=1'</screen>
         <listitem>
           <cmdsynopsis>
             <command>
-              <link linkend="subscribe">subscribe</link>
+              <link linkend="global-hooks">timeout-hook</link>
             </command>
-            <arg choice="opt" rep="repeat">
-              <option>-group</option>
-              <replaceable class="parameter">name</replaceable>
-            </arg>
             <arg choice="plain">
-              <replaceable class="parameter">regex</replaceable>
-            </arg>
-            <arg choice="opt" rep="repeat">
-              <replaceable class="parameter">regex</replaceable>
+              <replaceable class="parameter">command</replaceable>
             </arg>
             <command>
-              <link linkend="subscribe">unsubscribe</link>
+              <link linkend="global-hooks">startup-hook</link>
             </command>
-            <arg choice="opt" rep="repeat">
-              <option>-group</option>
-              <replaceable>name</replaceable>
+            <arg choice="plain">
+              <replaceable class="parameter">command</replaceable>
             </arg>
-            <group choice="req">
-              <arg choice="plain">
-                <replaceable class="parameter">*</replaceable>
-              </arg>
-              <arg choice="plain" rep="repeat">
-                <replaceable class="parameter">regex</replaceable>
-              </arg>
-            </group>
+            <command>
+              <link linkend="global-hooks">shutdown-hook</link>
+            </command>
+            <arg choice="plain">
+              <replaceable class="parameter">command</replaceable>
+            </arg>
           </cmdsynopsis>
         </listitem>
         <listitem>
@@ -16311,28 +16281,6 @@ folder-hook ^pop 'set read_inc=1'</screen>
                 <replaceable class="parameter">hook-type</replaceable>
               </arg>
             </group>
-          </cmdsynopsis>
-        </listitem>
-        <listitem>
-          <cmdsynopsis>
-            <command>
-              <link linkend="global-hooks">shutdown-hook</link>
-            </command>
-            <arg choice="plain">
-              <replaceable class="parameter">command</replaceable>
-            </arg>
-            <command>
-              <link linkend="global-hooks">startup-hook</link>
-            </command>
-            <arg choice="plain">
-              <replaceable class="parameter">command</replaceable>
-            </arg>
-            <command>
-              <link linkend="global-hooks">timeout-hook</link>
-            </command>
-            <arg choice="plain">
-              <replaceable class="parameter">command</replaceable>
-            </arg>
           </cmdsynopsis>
         </listitem>
       </itemizedlist>
