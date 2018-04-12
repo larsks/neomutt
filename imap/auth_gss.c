@@ -172,7 +172,7 @@ enum ImapAuthRes imap_auth_gss(struct ImapData *idata, const char *method)
   mutt_b64_encode(buf1, send_token.value, send_token.length, sizeof(buf1) - 2);
   gss_release_buffer(&min_stat, &send_token);
   mutt_str_strcat(buf1, sizeof(buf1), "\r\n");
-  mutt_socket_write(idata->conn, buf1);
+  mutt_socket_send(idata->conn, buf1);
 
   while (maj_stat == GSS_S_CONTINUE_NEEDED)
   {
@@ -208,7 +208,7 @@ enum ImapAuthRes imap_auth_gss(struct ImapData *idata, const char *method)
     mutt_b64_encode(buf1, send_token.value, send_token.length, sizeof(buf1) - 2);
     gss_release_buffer(&min_stat, &send_token);
     mutt_str_strcat(buf1, sizeof(buf1), "\r\n");
-    mutt_socket_write(idata->conn, buf1);
+    mutt_socket_send(idata->conn, buf1);
   }
 
   gss_release_name(&min_stat, &target_name);
@@ -250,9 +250,9 @@ enum ImapAuthRes imap_auth_gss(struct ImapData *idata, const char *method)
   buf_size = ntohl(*((long *) send_token.value));
   gss_release_buffer(&min_stat, &send_token);
   mutt_debug(2, "Unwrapped security level flags: %c%c%c\n",
-             server_conf_flags & GSS_AUTH_P_NONE ? 'N' : '-',
-             server_conf_flags & GSS_AUTH_P_INTEGRITY ? 'I' : '-',
-             server_conf_flags & GSS_AUTH_P_PRIVACY ? 'P' : '-');
+             (server_conf_flags & GSS_AUTH_P_NONE) ? 'N' : '-',
+             (server_conf_flags & GSS_AUTH_P_INTEGRITY) ? 'I' : '-',
+             (server_conf_flags & GSS_AUTH_P_PRIVACY) ? 'P' : '-');
   mutt_debug(2, "Maximum GSS token size is %ld\n", buf_size);
 
   /* agree to terms (hack!) */
@@ -274,7 +274,7 @@ enum ImapAuthRes imap_auth_gss(struct ImapData *idata, const char *method)
   mutt_b64_encode(buf1, send_token.value, send_token.length, sizeof(buf1) - 2);
   mutt_debug(2, "Requesting authorisation as %s\n", idata->conn->account.user);
   mutt_str_strcat(buf1, sizeof(buf1), "\r\n");
-  mutt_socket_write(idata->conn, buf1);
+  mutt_socket_send(idata->conn, buf1);
 
   /* Joy of victory or agony of defeat? */
   do
@@ -305,7 +305,7 @@ enum ImapAuthRes imap_auth_gss(struct ImapData *idata, const char *method)
     goto bail;
 
 err_abort_cmd:
-  mutt_socket_write(idata->conn, "*\r\n");
+  mutt_socket_send(idata->conn, "*\r\n");
   do
     rc = imap_cmd_step(idata);
   while (rc == IMAP_CMD_CONTINUE);

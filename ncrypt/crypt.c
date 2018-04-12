@@ -154,7 +154,7 @@ int mutt_protect(struct Header *msg, char *keylist)
         return -1;
       }
     }
-    else if (!mutt_str_strcasecmp("flowed", mutt_param_get(&msg->content->parameter, "format")))
+    else if (mutt_str_strcasecmp("flowed", mutt_param_get(&msg->content->parameter, "format")) == 0)
     {
       if ((query_quadoption(PgpMimeAuto,
                             _("Inline PGP can't be used with format=flowed.  "
@@ -268,7 +268,7 @@ int mutt_protect(struct Header *msg, char *keylist)
            which tmp_smime_pbody->parts after signing. */
         tmp_smime_pbody->parts = tmp_smime_pbody->parts->next;
         msg->content->next = NULL;
-        mutt_free_body(&tmp_smime_pbody);
+        mutt_body_free(&tmp_smime_pbody);
       }
       pbody = tmp_pbody;
     }
@@ -284,7 +284,7 @@ int mutt_protect(struct Header *msg, char *keylist)
           /* remove the outer multipart layer */
           tmp_pgp_pbody = mutt_remove_multipart(tmp_pgp_pbody);
           /* get rid of the signature */
-          mutt_free_body(&tmp_pgp_pbody->next);
+          mutt_body_free(&tmp_pgp_pbody->next);
         }
 
         return -1;
@@ -297,7 +297,7 @@ int mutt_protect(struct Header *msg, char *keylist)
       if (flags != msg->security)
       {
         tmp_pgp_pbody = mutt_remove_multipart(tmp_pgp_pbody);
-        mutt_free_body(&tmp_pgp_pbody->next);
+        mutt_body_free(&tmp_pgp_pbody->next);
       }
     }
   }
@@ -365,7 +365,7 @@ int mutt_is_multipart_encrypted(struct Body *b)
 
 int mutt_is_valid_multipart_pgp_encrypted(struct Body *b)
 {
-  if (!mutt_is_multipart_encrypted(b))
+  if (mutt_is_multipart_encrypted(b) == 0)
     return 0;
 
   b = b->parts;
@@ -723,7 +723,7 @@ void crypt_extract_keys_from_messages(struct Header *h)
   }
 
   if (WithCrypto & APPLICATION_PGP)
-    OPT_DONT_HANDLE_PGP_KEYS = true;
+    OptDontHandlePgpKeys = true;
 
   if (!h)
   {
@@ -823,7 +823,7 @@ void crypt_extract_keys_from_messages(struct Header *h)
   mutt_file_unlink(tempfname);
 
   if (WithCrypto & APPLICATION_PGP)
-    OPT_DONT_HANDLE_PGP_KEYS = false;
+    OptDontHandlePgpKeys = false;
 }
 
 /**
@@ -849,7 +849,7 @@ int crypt_get_keys(struct Header *msg, char **keylist, int oppenc_mode)
     return 0;
 
   if (WithCrypto & APPLICATION_PGP)
-    OPT_PGP_CHECK_TRUST = true;
+    OptPgpCheckTrust = true;
 
   last = mutt_addr_append(&addrlist, msg->env->to, false);
   last = mutt_addr_append(last ? &last : &addrlist, msg->env->cc, false);
@@ -871,7 +871,7 @@ int crypt_get_keys(struct Header *msg, char **keylist, int oppenc_mode)
         mutt_addr_free(&addrlist);
         return -1;
       }
-      OPT_PGP_CHECK_TRUST = false;
+      OptPgpCheckTrust = false;
       if (PgpSelfEncrypt || (PgpEncryptSelf == MUTT_YES))
         self_encrypt = PgpDefaultKey;
     }
@@ -1010,7 +1010,8 @@ int mutt_signed_handler(struct Body *a, struct State *s)
   if (inconsistent)
   {
     state_attach_puts(_("[-- Error: "
-                        "Inconsistent multipart/signed structure! --]\n\n"),
+                        "Missing or bad-format multipart/signed signature!"
+                        " --]\n\n"),
                       s);
     return mutt_body_handler(a, s);
   }
@@ -1098,7 +1099,7 @@ const char *crypt_get_fingerprint_or_id(char *p, const char **pphint,
                                         const char **ppl, const char **pps)
 {
   const char *ps = NULL, *pl = NULL, *phint = NULL;
-  char *pfcopy = NULL, *pf = NULL, *s1 = NULL, *s2 = NULL;
+  char *pfcopy = NULL, *s1 = NULL, *s2 = NULL;
   char c;
   int isid;
   size_t hexdigits;
@@ -1110,7 +1111,7 @@ const char *crypt_get_fingerprint_or_id(char *p, const char **pphint,
    * if an ID was found and to simplify logic in the key loop's inner
    * condition of the caller. */
 
-  pf = mutt_str_skip_whitespace(p);
+  char *pf = mutt_str_skip_whitespace(p);
   if (mutt_str_strncasecmp(pf, "0x", 2) == 0)
     pf += 2;
 

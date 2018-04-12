@@ -49,10 +49,12 @@
 #include "mutt_curses.h"
 #include "mutt_logging.h"
 #include "mutt_menu.h"
+#include "mutt_window.h"
 #include "myvar.h"
 #include "ncrypt/ncrypt.h"
 #include "options.h"
 #include "protos.h"
+#include "terminal.h"
 #include "url.h"
 #include "version.h"
 #ifdef ENABLE_NLS
@@ -67,8 +69,6 @@
 #ifdef USE_NNTP
 #include "nntp.h"
 #endif
-
-char **envlist = NULL;
 
 void mutt_exit(int code)
 {
@@ -161,7 +161,7 @@ static int start_curses(void)
   meta(stdscr, true);
 #endif
   init_extended_keys();
-  mutt_reflow_windows();
+  mutt_window_reflow();
   return 0;
 }
 
@@ -174,11 +174,15 @@ static int start_curses(void)
 #define MUTT_NEWS (1 << 5) /* -g and -G */
 #endif
 
+/**
+ * get_user_info - Find the user's name, home and shell
+ * @param cs Config Set
+ * @retval 0 Success
+ * @retval 1 Error
+ */
 static int get_user_info(void)
 {
-  const char *p = NULL;
-
-  p = mutt_str_getenv("HOME");
+  const char *p = mutt_str_getenv("HOME");
   if (p)
     HomeDir = mutt_str_strdup(p);
 
@@ -231,11 +235,11 @@ static int get_user_info(void)
  * main - Start NeoMutt
  * @param argc Number of command line arguments
  * @param argv List of command line arguments
- * @param env  Copy of the environment
+ * @param envp Copy of the environment
  * @retval 0 on success
  * @retval 1 on error
  */
-int main(int argc, char **argv, char **env)
+int main(int argc, char *argv[], char *envp[])
 {
   char folder[_POSIX_PATH_MAX] = "";
   char *subject = NULL;
@@ -244,6 +248,9 @@ int main(int argc, char **argv, char **env)
   char *new_magic = NULL;
   char *dlevel = NULL;
   char *dfile = NULL;
+#ifdef USE_NNTP
+  char *cli_nntp = NULL;
+#endif
   struct Header *msg = NULL;
   struct ListHead attach = STAILQ_HEAD_INITIALIZER(attach);
   struct ListHead commands = STAILQ_HEAD_INITIALIZER(commands);
@@ -295,16 +302,7 @@ int main(int argc, char **argv, char **env)
 
   umask(077);
 
-  /* Init envlist */
-  {
-    char **srcp, **dstp;
-    int count = 0;
-    for (srcp = env; srcp && *srcp; srcp++)
-      count++;
-    envlist = mutt_mem_calloc(count + 1, sizeof(char *));
-    for (srcp = env, dstp = envlist; srcp && *srcp; srcp++, dstp++)
-      *dstp = mutt_str_strdup(*srcp);
-  }
+  mutt_envlist_init(envp);
 
   for (optind = 1; optind < double_dash;)
   {
@@ -371,7 +369,7 @@ int main(int argc, char **argv, char **env)
           break;
 #ifdef USE_NNTP
         case 'g': /* Specify a news server */
-          set_default_value("news_server", (intptr_t) mutt_str_strdup(optarg));
+          cli_nntp = optarg;
           /* fallthrough */
         case 'G': /* List of newsgroups */
           flags |= MUTT_SELECT | MUTT_NEWS;
@@ -424,6 +422,7 @@ int main(int argc, char **argv, char **env)
           break;
         default:
           usage();
+          OptNoCurses = true;
           goto main_ok; // TEST03: neomutt -9
       }
     }
@@ -442,6 +441,7 @@ int main(int argc, char **argv, char **env)
       print_version();
     else
       print_copyright();
+    OptNoCurses = true;
     goto main_ok; // TEST04: neomutt -v
   }
 
@@ -484,7 +484,7 @@ int main(int argc, char **argv, char **env)
 
   if (!STAILQ_EMPTY(&cc_list) || !STAILQ_EMPTY(&bcc_list))
   {
-    msg = mutt_new_header();
+    msg = mutt_header_new();
     msg->env = mutt_env_new();
 
     struct ListNode *np = NULL;
@@ -506,17 +506,19 @@ int main(int argc, char **argv, char **env)
   if (!isatty(0) || !STAILQ_EMPTY(&queries) || !STAILQ_EMPTY(&alias_queries) ||
       dump_variables || batch_mode)
   {
-    OPT_NO_CURSES = true;
+    OptNoCurses = true;
     sendflags = SENDBATCH;
+    MuttLogger = log_disp_terminal;
+    log_queue_flush(log_disp_terminal);
   }
 
   /* Always create the mutt_windows because batch mode has some shared code
    * paths that end up referencing them. */
-  mutt_init_windows();
+  mutt_window_init();
 
   /* This must come before mutt_init() because curses needs to be started
    * before calling the init_pair() function to set the color scheme.  */
-  if (!OPT_NO_CURSES)
+  if (!OptNoCurses)
   {
     int crc = start_curses();
     /* Now that curses is set up, we drop back to normal screen mode.
@@ -528,12 +530,11 @@ int main(int argc, char **argv, char **env)
       goto main_curses; // TEST08: can't test -- fake term?
 
     /* check whether terminal status is supported (must follow curses init) */
-    TSSupported = mutt_ts_capability();
+    TsSupported = mutt_ts_capability();
   }
 
   /* set defaults and read init files */
-  rc = mutt_init(flags & MUTT_NOSYSRC, &commands);
-  if (rc != 0)
+  if (mutt_init(flags & MUTT_NOSYSRC, &commands) != 0)
     goto main_curses;
 
   /* The command line overrides the config */
@@ -552,6 +553,23 @@ int main(int argc, char **argv, char **env)
 
   mutt_list_free(&commands);
 
+#ifdef USE_NNTP
+  /* "$news_server" precedence: command line, environment, config file, system file */
+  const char *env_nntp = NULL;
+  if (cli_nntp)
+    mutt_str_replace(&NewsServer, cli_nntp);
+  else if ((env_nntp = mutt_str_getenv("NNTPSERVER")))
+    mutt_str_replace(&NewsServer, env_nntp);
+  else if (!NewsServer)
+  {
+    char buffer[1024];
+    char *server = mutt_file_read_keyword(SYSCONFDIR "/nntpserver", buffer, sizeof(buffer));
+    NewsServer = mutt_str_strdup(server);
+  }
+  if (NewsServer)
+    set_default_value("news_server", (intptr_t) mutt_str_strdup(NewsServer));
+#endif
+
   /* Initialize crypto backends.  */
   crypt_init();
 
@@ -566,6 +584,7 @@ int main(int argc, char **argv, char **env)
     for (; optind < argc; optind++)
       mutt_list_insert_tail(&queries, mutt_str_strdup(argv[optind]));
     rc = mutt_query_variables(&queries);
+    mutt_list_free(&queries);
     goto main_curses;
   }
 
@@ -584,7 +603,7 @@ int main(int argc, char **argv, char **env)
     struct ListNode *np;
     STAILQ_FOREACH(np, &alias_queries, entries)
     {
-      a = mutt_lookup_alias(np->data);
+      a = mutt_alias_lookup(np->data);
       if (a)
       {
         /* output in machine-readable form */
@@ -601,7 +620,7 @@ int main(int argc, char **argv, char **env)
     goto main_curses; // TEST20: neomutt -A alias
   }
 
-  if (!OPT_NO_CURSES)
+  if (!OptNoCurses)
   {
     NORMAL_COLOR;
     clear();
@@ -611,7 +630,7 @@ int main(int argc, char **argv, char **env)
   }
 
   /* Create the Folder directory if it doesn't exist. */
-  if (!OPT_NO_CURSES && Folder)
+  if (!OptNoCurses && Folder)
   {
     struct stat sb;
     char fpath[_POSIX_PATH_MAX];
@@ -645,7 +664,7 @@ int main(int argc, char **argv, char **env)
 
   if (sendflags & SENDPOSTPONED)
   {
-    if (!OPT_NO_CURSES)
+    if (!OptNoCurses)
       mutt_flushinp();
     if (ci_send_message(SENDPOSTPONED, NULL, NULL, NULL, NULL) == 0)
       rc = 0;
@@ -653,6 +672,7 @@ int main(int argc, char **argv, char **env)
     // TEST24: neomutt -p (no postponed message)
     log_queue_empty();
     repeat_error = true;
+    goto main_curses;
   }
   else if (subject || msg || sendflags || draft_file || include_file ||
            !STAILQ_EMPTY(&attach) || optind < argc)
@@ -664,11 +684,11 @@ int main(int argc, char **argv, char **env)
     int rv = 0;
     char expanded_infile[_POSIX_PATH_MAX];
 
-    if (!OPT_NO_CURSES)
+    if (!OptNoCurses)
       mutt_flushinp();
 
     if (!msg)
-      msg = mutt_new_header();
+      msg = mutt_header_new();
     if (!msg->env)
       msg->env = mutt_env_new();
 
@@ -780,7 +800,6 @@ int main(int argc, char **argv, char **env)
        */
       if (draft_file)
       {
-        struct Header *context_hdr = NULL;
         struct Envelope *opts_env = msg->env;
         struct stat st;
 
@@ -789,9 +808,9 @@ int main(int argc, char **argv, char **env)
         /* Set up a "context" header with just enough information so that
          * mutt_prepare_template() can parse the message in fin.
          */
-        context_hdr = mutt_new_header();
+        struct Header *context_hdr = mutt_header_new();
         context_hdr->offset = 0;
-        context_hdr->content = mutt_new_body();
+        context_hdr->content = mutt_body_new();
         if (fstat(fileno(fin), &st) != 0)
         {
           mutt_perror(draft_file);
@@ -803,7 +822,7 @@ int main(int argc, char **argv, char **env)
         {
           mutt_error(_("Cannot parse message template: %s"), draft_file);
           mutt_env_free(&opts_env);
-          mutt_free_header(&context_hdr);
+          mutt_header_free(&context_hdr);
           goto main_curses;
         }
 
@@ -829,7 +848,7 @@ int main(int argc, char **argv, char **env)
           mutt_str_replace(&msg->env->subject, opts_env->subject);
 
         mutt_env_free(&opts_env);
-        mutt_free_header(&context_hdr);
+        mutt_header_free(&context_hdr);
       }
       /* Editing the include_file: pass it directly in.
        * Note that SENDNOFREEHEADER is set above so it isn't unlinked.
@@ -910,7 +929,7 @@ int main(int argc, char **argv, char **env)
           mutt_env_to_intl(msg->env, NULL, NULL);
         }
 
-        mutt_write_rfc822_header(fout, msg->env, msg->content, -1, 0);
+        mutt_rfc822_write_header(fout, msg->env, msg->content, -1, 0);
         if (ResumeEditedDraftFiles)
           fprintf(fout, "X-Mutt-Resume-Draft: 1\n");
         fputc('\n', fout);
@@ -922,7 +941,7 @@ int main(int argc, char **argv, char **env)
         mutt_file_fclose(&fout);
       }
 
-      mutt_free_header(&msg);
+      mutt_header_free(&msg);
     }
 
     /* !edit_infile && draft_file will leave the tempfile around */
@@ -932,7 +951,7 @@ int main(int argc, char **argv, char **env)
       FREE(&tempfile);
     }
 
-    mutt_free_windows();
+    mutt_window_free();
 
     if (rv != 0)
       goto main_curses; // TEST36: neomutt -H existing -s test john@example.com -E (cancel sending)
@@ -941,7 +960,7 @@ int main(int argc, char **argv, char **env)
   {
     if (flags & MUTT_BUFFY)
     {
-      if (!mutt_buffy_check(false))
+      if (mutt_buffy_check(false) == 0)
       {
         mutt_message(_("No mailbox with new mail."));
         goto main_curses; // TEST37: neomutt -Z (no new mail)
@@ -954,7 +973,7 @@ int main(int argc, char **argv, char **env)
 #ifdef USE_NNTP
       if (flags & MUTT_NEWS)
       {
-        OPT_NEWS = true;
+        OptNews = true;
         CurrentNewsSrv = nntp_select_server(NewsServer, false);
         if (!CurrentNewsSrv)
           goto main_curses; // TEST38: neomutt -G (unset news_server)
@@ -984,9 +1003,9 @@ int main(int argc, char **argv, char **env)
     }
 
 #ifdef USE_NNTP
-    if (OPT_NEWS)
+    if (OptNews)
     {
-      OPT_NEWS = false;
+      OptNews = false;
       nntp_expand_path(folder, sizeof(folder), &CurrentNewsSrv->conn->account);
     }
     else
@@ -1033,8 +1052,7 @@ int main(int argc, char **argv, char **env)
 #endif
     log_queue_empty();
     mutt_log_stop();
-    mutt_free_opts();
-    mutt_free_windows();
+    mutt_window_free();
     // TEST43: neomutt (no change to mailbox)
     // TEST44: neomutt (change mailbox)
   }
@@ -1049,5 +1067,8 @@ main_curses:
   if (repeat_error && ErrorBufMessage)
     puts(ErrorBuf);
 main_exit:
+  mutt_envlist_free();
+  mutt_free_opts();
+  mutt_free_keys();
   return rc;
 }

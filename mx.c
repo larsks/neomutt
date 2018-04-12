@@ -472,7 +472,7 @@ struct Context *mx_open_mailbox(const char *path, int flags, struct Context *pct
    * mutt_refresh() will think we are in the middle of a macro.  so set a
    * flag to indicate that we should really refresh the screen.
    */
-  OPT_FORCE_REFRESH = true;
+  OptForceRefresh = true;
 
   if (!ctx->quiet)
     mutt_message(_("Reading %s..."), ctx->path);
@@ -485,8 +485,8 @@ struct Context *mx_open_mailbox(const char *path, int flags, struct Context *pct
     {
       /* avoid unnecessary work since the mailbox is completely unthreaded
          to begin with */
-      OPT_SORT_SUBTHREADS = false;
-      OPT_NEED_RESCORE = false;
+      OptSortSubthreads = false;
+      OptNeedRescore = false;
       mutt_sort_headers(ctx, 1);
     }
     if (!ctx->quiet)
@@ -501,7 +501,7 @@ struct Context *mx_open_mailbox(const char *path, int flags, struct Context *pct
       FREE(&ctx);
   }
 
-  OPT_FORCE_REFRESH = false;
+  OptForceRefresh = false;
   return ctx;
 }
 
@@ -538,7 +538,7 @@ void mx_fastclose_mailbox(struct Context *ctx)
   mutt_hash_destroy(&ctx->label_hash);
   mutt_clear_threads(ctx);
   for (int i = 0; i < ctx->msgcount; i++)
-    mutt_free_header(&ctx->hdrs[i]);
+    mutt_header_free(&ctx->hdrs[i]);
   FREE(&ctx->hdrs);
   FREE(&ctx->v2r);
   FREE(&ctx->path);
@@ -605,7 +605,7 @@ static int trash_append(struct Context *ctx)
 #ifdef USE_IMAP
   if (Context->magic == MUTT_IMAP && mx_is_imap(Trash))
   {
-    if (!imap_fast_trash(Context, Trash))
+    if (imap_fast_trash(Context, Trash) == 0)
       return 0;
   }
 #endif
@@ -642,7 +642,6 @@ static int trash_append(struct Context *ctx)
 int mx_close_mailbox(struct Context *ctx, int *index_hint)
 {
   int i, move_messages = 0, purge = 1, read_msgs = 0;
-  int check;
   struct Context f;
   char mbox[_POSIX_PATH_MAX];
   char buf[SHORT_STRING];
@@ -835,7 +834,7 @@ int mx_close_mailbox(struct Context *ctx, int *index_hint)
   /* allow IMAP to preserve the deleted flag across sessions */
   if (ctx->magic == MUTT_IMAP)
   {
-    check = imap_sync_mailbox(ctx, purge);
+    int check = imap_sync_mailbox(ctx, purge);
     if (check != 0)
     {
       ctx->closing = false;
@@ -857,7 +856,7 @@ int mx_close_mailbox(struct Context *ctx, int *index_hint)
 
     if (ctx->changed || ctx->deleted)
     {
-      check = sync_mailbox(ctx, index_hint);
+      int check = sync_mailbox(ctx, index_hint);
       if (check != 0)
       {
         ctx->closing = false;
@@ -982,7 +981,7 @@ void mx_update_tables(struct Context *ctx, bool committing)
        */
       if (ctx->last_tag == ctx->hdrs[i])
         ctx->last_tag = NULL;
-      mutt_free_header(&ctx->hdrs[i]);
+      mutt_header_free(&ctx->hdrs[i]);
     }
   }
   ctx->msgcount = j;

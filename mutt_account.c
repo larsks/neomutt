@@ -205,7 +205,7 @@ int mutt_account_getuser(struct Account *account)
   else if ((account->type == MUTT_ACCT_TYPE_NNTP) && NntpUser)
     mutt_str_strfcpy(account->user, NntpUser, sizeof(account->user));
 #endif
-  else if (OPT_NO_CURSES)
+  else if (OptNoCurses)
     return -1;
   /* prompt (defaults to unix username), copy into account->user */
   else
@@ -289,12 +289,12 @@ int mutt_account_getpass(struct Account *account)
   else if ((account->type == MUTT_ACCT_TYPE_NNTP) && NntpPass)
     mutt_str_strfcpy(account->pass, NntpPass, sizeof(account->pass));
 #endif
-  else if (OPT_NO_CURSES)
+  else if (OptNoCurses)
     return -1;
   else
   {
     snprintf(prompt, sizeof(prompt), _("Password for %s@%s: "),
-             account->flags & MUTT_ACCT_LOGIN ? account->login : account->user,
+             (account->flags & MUTT_ACCT_LOGIN) ? account->login : account->user,
              account->host);
     account->pass[0] = '\0';
     if (mutt_get_password(prompt, account->pass, sizeof(account->pass)))
