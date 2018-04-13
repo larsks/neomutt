@@ -15142,15 +15142,13 @@ neomutt -a image.jpg *.png -- address1 address2
               <entry>-d <literal>level</literal></entry>
               <entry>
                 Log debugging output to file, by default to
-                <literal>~/.neomuttdebug0</literal>, but see also configuration
-                variables <link linkend="debug-file">$debug_file</link> and
-                <link linkend="debug-level">$debug_level</link>.
-                The <literal>level</literal> can range from 1&mdash;5 and
-                affects verbosity. A value of 2 is recommended.
-                NeoMutt keeps up to five debug logs
-                (<literal>~/.neomuttdebug</literal>[<literal>0-4</literal>])
-                before removing the oldest file on next invocation with this
-                option.
+                <literal>~/.neomuttdebug0</literal>. The
+                <literal>level</literal> can range from 1&ndash;5 and affects
+                verbosity. A value of 2 is recommended. Using this option along
+                with <emphasis role="bold">-l</emphasis> is useful to log the
+                early startup process (before reading any configuration and
+                hence <link linkend="debug-level">$debug_level</link> and
+                <link linkend="debug-file">$debug_file</link>).
               </entry>
             </row><row>
               <entry>-E</entry>
@@ -15206,6 +15204,17 @@ neomutt -a image.jpg *.png -- address1 address2
               <entry>
                 Specify a file to <literal>include</literal> into the body of
                 a message.
+              </entry>
+            </row><row>
+              <entry>-l <literal>file</literal></entry>
+              <entry>
+                Overrule <link linkend="debug-file">$debug_file</link> or
+                default setting with <literal>file</literal> for debugging
+                output. NeoMutt keeps up to five debug logs ({
+                <literal>file</literal> |
+                <link linkend="debug-file">$debug_file</link> |
+                <literal>~/.neomuttdebug</literal> }[<literal>0-4</literal>])
+                before removing the oldest file.
               </entry>
             </row><row>
               <entry>-m <literal>type</literal></entry>

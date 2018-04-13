@@ -683,17 +683,19 @@ struct Option MuttVars[] = {
   { "debug_file", DT_PATH, R_NONE, &DebugFile, IP "~/.neomuttdebug" },
   /*
   ** .pp
-  ** The location prefix of the debug file, 0 is append to the debug file
+  ** The location prefix of the debug file, 0 is append to the debug file.
   ** Old debug files are renamed with the prefix 1, 2, 3 and 4.
-  ** See ``debug_level'' for more detail.
+  ** See $$debug_level for more detail.
+  ** .pp
+  ** The \fC-l\fP command line option overrules this variable.
   */
   { "debug_level", DT_NUMBER, R_NONE, &DebugLevel, 0 },
   /*
   ** .pp
-  ** The debug level. Note: to debug the early startup process (before the
-  ** configuration is loaded), ``-d'' neomutt argument must be used.
-  ** debug_level/debug_file are ignored until it's read from the configuration
-  ** file.
+  ** The debug level, can range from 1–5, if set. \fBNote:\fP To debug the early
+  ** startup process (before the configuration is loaded), \fC-d\fP command line
+  ** option must be used. $$debug_level/$$debug_file are ignored until it's read
+  ** from the configuration file.
   */
   { "default_hook",     DT_STRING,  R_NONE, &DefaultHook, IP "~f %s !~P | (~P ~C %s)" },
   /*

@@ -89,6 +89,7 @@ static void usage(void)
          "       neomutt [<options>] -Q <query> [...]\n"
          "       neomutt [<options>] -B\n"
          "       neomutt [<options>] -D [-S]\n"
+         "       neomutt [<options>] -d <level> -l <file>\n"
          "       neomutt -v[v]\n"));
 
   puts(_("options:\n"
@@ -110,6 +111,7 @@ static void usage(void)
          "  -G            select a newsgroup (if compiled with NNTP)\n"
          "  -H <file>     specify a draft file to read header and body from\n"
          "  -i <file>     specify a file which NeoMutt should include in the body\n"
+         "  -l <file>     specify a file for debugging output\n"
          "  -m <type>     specify a default mailbox type\n"
          "  -n            causes NeoMutt not to read the system neomuttrc\n"
          "  -p            recall a postponed message"));
