@@ -454,46 +454,53 @@ msgstr "命令："
 msgid "Warning: message contains no From: header"
 msgstr "警告：信件未包含 From: 标头"
 
-#: commands.c:285 recvcmd.c:163
+#: commands.c:285 recvcmd.c:162
+#, fuzzy
 msgid "Bounce message to: "
-msgstr "回退信件至："
+msgid_plural "Bounce tagged messages to: "
+msgstr[0] "回退信件至："
 
-#: commands.c:287 recvcmd.c:165
+#: commands.c:287
 msgid "Bounce tagged messages to: "
 msgstr "回退已标记的信件至："
 
-#: commands.c:296 recvcmd.c:174
+#: commands.c:296 recvcmd.c:172
 msgid "Error parsing address!"
 msgstr "解析地址出错！"
 
-#: commands.c:304 recvcmd.c:182
+#: commands.c:304 recvcmd.c:180
 #, c-format
 msgid "Bad IDN: '%s'"
 msgstr "错误的 IDN: '%s'"
 
-#: commands.c:315 recvcmd.c:196
-#, c-format
+#: commands.c:315 recvcmd.c:194
+#, fuzzy, c-format
 msgid "Bounce message to %s"
-msgstr "回退信件至 %s"
+msgid_plural "Bounce messages to %s"
+msgstr[0] "回退信件至 %s"
 
-#: commands.c:315 recvcmd.c:196
+#: commands.c:315
 #, c-format
 msgid "Bounce messages to %s"
 msgstr "回退信件至 %s"
 
-#: commands.c:330 recvcmd.c:211
+#: commands.c:330 recvcmd.c:209
+#, fuzzy
 msgid "Message not bounced."
-msgstr "信件未回退。"
+msgid_plural "Messages not bounced."
+msgstr[0] "信件未回退。"
 
-#: commands.c:330 recvcmd.c:211
+#: commands.c:330
 msgid "Messages not bounced."
 msgstr "信件未回退。"
 
-#: commands.c:340 recvcmd.c:230
+#: commands.c:340 recvcmd.c:228
+#, fuzzy
 msgid "Message bounced."
-msgstr "信件已回退。"
+msgid_plural "Messages bounced."
+msgstr[0] "信件已回退。"
 
-#: commands.c:340 recvcmd.c:230
+#: commands.c:340
 msgid "Messages bounced."
 msgstr "信件已回退。"
 
@@ -5963,45 +5970,43 @@ msgstr "只支持删除多段附件"
 msgid "You may only bounce message/rfc822 parts."
 msgstr "您只能退回 message/rfc822 的部分。"
 
-#: recvcmd.c:232
+#: recvcmd.c:230
+#, fuzzy
 msgid "Error bouncing message!"
-msgstr "退回信件出错！"
+msgid_plural "Error bouncing messages!"
+msgstr[0] "退回信件出错！"
 
-#: recvcmd.c:232
-msgid "Error bouncing messages!"
-msgstr "退回信件出错！"
-
-#: recvcmd.c:414
+#: recvcmd.c:412
 #, c-format
 msgid "Can't open temporary file %s."
 msgstr "无法打开临时文件 %s。"
 
-#: recvcmd.c:443
+#: recvcmd.c:441
 msgid "Forward as attachments?"
 msgstr "作为附件转发？"
 
-#: recvcmd.c:461
+#: recvcmd.c:459
 msgid "Can't decode all tagged attachments.  MIME-forward the others?"
 msgstr "无法解码所有已标记的附件。通过 MIME 转发其它的吗？"
 
-#: recvcmd.c:581
+#: recvcmd.c:579
 msgid "Forward MIME encapsulated?"
 msgstr "用 MIME 封装并转发？"
 
-#: recvcmd.c:590 recvcmd.c:858
+#: recvcmd.c:588 recvcmd.c:856
 #, c-format
 msgid "Can't create %s."
 msgstr "无法建立 %s。"
 
-#: recvcmd.c:711
+#: recvcmd.c:709
 msgid "Can't find any tagged messages."
 msgstr "无法找到任何已标记信件。"
 
-#: recvcmd.c:747 send.c:800
+#: recvcmd.c:745 send.c:800
 msgid "No mailing lists found!"
 msgstr "没有找到邮件列表！"
 
-#: recvcmd.c:834
+#: recvcmd.c:832
 msgid "Can't decode all tagged attachments.  MIME-encapsulate the others?"
 msgstr "无法解码所有已标记的附件。通过 MIME 封装其它的吗？"
 
@@ -6392,6 +6397,9 @@ msgstr "编译选项："
 #: version.c:414
 msgid "Compile options:"
 msgstr "编译选项："
+
+#~ msgid "Error bouncing messages!"
+#~ msgstr "退回信件出错！"
 
 #~ msgid "Purge %d deleted messages?"
 #~ msgstr "清除 %d 封已被删除的信件？"

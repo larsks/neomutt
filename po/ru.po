@@ -460,46 +460,61 @@ msgstr "Команда: "
 msgid "Warning: message contains no From: header"
 msgstr "Предупреждение: сообщение не содержит заголовка From:"
 
-#: commands.c:285 recvcmd.c:163
+#: commands.c:285 recvcmd.c:162
+#, fuzzy
 msgid "Bounce message to: "
-msgstr "Перенаправить сообщение: "
+msgid_plural "Bounce tagged messages to: "
+msgstr[0] "Перенаправить сообщение: "
+msgstr[1] "Перенаправить сообщения: "
+msgstr[2] "Перенаправить сообщения: "
 
-#: commands.c:287 recvcmd.c:165
+#: commands.c:287
 msgid "Bounce tagged messages to: "
 msgstr "Перенаправить сообщения: "
 
-#: commands.c:296 recvcmd.c:174
+#: commands.c:296 recvcmd.c:172
 msgid "Error parsing address!"
 msgstr "Ошибка разбора адреса!"
 
-#: commands.c:304 recvcmd.c:182
+#: commands.c:304 recvcmd.c:180
 #, c-format
 msgid "Bad IDN: '%s'"
 msgstr "Некорректный IDN: %s"
 
-#: commands.c:315 recvcmd.c:196
-#, c-format
+#: commands.c:315 recvcmd.c:194
+#, fuzzy, c-format
 msgid "Bounce message to %s"
-msgstr "Перенаправить сообщение %s"
+msgid_plural "Bounce messages to %s"
+msgstr[0] "Перенаправить сообщение %s"
+msgstr[1] "Перенаправить сообщения %s"
+msgstr[2] "Перенаправить сообщения %s"
 
-#: commands.c:315 recvcmd.c:196
+#: commands.c:315
 #, c-format
 msgid "Bounce messages to %s"
 msgstr "Перенаправить сообщения %s"
 
-#: commands.c:330 recvcmd.c:211
+#: commands.c:330 recvcmd.c:209
+#, fuzzy
 msgid "Message not bounced."
-msgstr "Сообщение не перенаправлено."
+msgid_plural "Messages not bounced."
+msgstr[0] "Сообщение не перенаправлено."
+msgstr[1] "Сообщения не перенаправлены."
+msgstr[2] "Сообщения не перенаправлены."
 
-#: commands.c:330 recvcmd.c:211
+#: commands.c:330
 msgid "Messages not bounced."
 msgstr "Сообщения не перенаправлены."
 
-#: commands.c:340 recvcmd.c:230
+#: commands.c:340 recvcmd.c:228
+#, fuzzy
 msgid "Message bounced."
-msgstr "Сообщение перенаправлено."
+msgid_plural "Messages bounced."
+msgstr[0] "Сообщение перенаправлено."
+msgstr[1] "Сообщения перенаправлены."
+msgstr[2] "Сообщения перенаправлены."
 
-#: commands.c:340 recvcmd.c:230
+#: commands.c:340
 msgid "Messages bounced."
 msgstr "Сообщения перенаправлены."
 
@@ -5958,46 +5973,46 @@ msgstr "Для составных вложений поддерживается 
 msgid "You may only bounce message/rfc822 parts."
 msgstr "Вы можете перенаправлять только части типа message/rfc822."
 
-#: recvcmd.c:232
+#: recvcmd.c:230
+#, fuzzy
 msgid "Error bouncing message!"
-msgstr "Ошибка перенаправления сообщения!"
+msgid_plural "Error bouncing messages!"
+msgstr[0] "Ошибка перенаправления сообщения!"
+msgstr[1] "Ошибка перенаправления сообщений!"
+msgstr[2] "Ошибка перенаправления сообщений!"
 
-#: recvcmd.c:232
-msgid "Error bouncing messages!"
-msgstr "Ошибка перенаправления сообщений!"
-
-#: recvcmd.c:414
+#: recvcmd.c:412
 #, c-format
 msgid "Can't open temporary file %s."
 msgstr "Не удалось открыть временный файл %s."
 
-#: recvcmd.c:443
+#: recvcmd.c:441
 msgid "Forward as attachments?"
 msgstr "Переслать как вложения?"
 
-#: recvcmd.c:461
+#: recvcmd.c:459
 msgid "Can't decode all tagged attachments.  MIME-forward the others?"
 msgstr ""
 "Удалось раскодировать не все вложения. Переслать остальные в виде MIME?"
 
-#: recvcmd.c:581
+#: recvcmd.c:579
 msgid "Forward MIME encapsulated?"
 msgstr "Переслать инкапсулированным в MIME?"
 
-#: recvcmd.c:590 recvcmd.c:858
+#: recvcmd.c:588 recvcmd.c:856
 #, c-format
 msgid "Can't create %s."
 msgstr "Не удалось создать %s."
 
-#: recvcmd.c:711
+#: recvcmd.c:709
 msgid "Can't find any tagged messages."
 msgstr "Помеченные сообщения отсутствуют."
 
-#: recvcmd.c:747 send.c:800
+#: recvcmd.c:745 send.c:800
 msgid "No mailing lists found!"
 msgstr "Списков рассылки не найдено!"
 
-#: recvcmd.c:834
+#: recvcmd.c:832
 msgid "Can't decode all tagged attachments.  MIME-encapsulate the others?"
 msgstr ""
 "Удалось раскодировать не все вложения. Инкапсулировать остальные в MIME?"
@@ -6391,6 +6406,9 @@ msgstr "Параметры компиляции:"
 #: version.c:414
 msgid "Compile options:"
 msgstr "Параметры компиляции:"
+
+#~ msgid "Error bouncing messages!"
+#~ msgstr "Ошибка перенаправления сообщений!"
 
 #~ msgid "Purge %d deleted messages?"
 #~ msgstr "Вычистить %d удаленных сообщений?"

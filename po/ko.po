@@ -457,46 +457,53 @@ msgstr "명령어: "
 msgid "Warning: message contains no From: header"
 msgstr ""
 
-#: commands.c:285 recvcmd.c:163
+#: commands.c:285 recvcmd.c:162
+#, fuzzy
 msgid "Bounce message to: "
-msgstr "메일을 전달할 주소: "
+msgid_plural "Bounce tagged messages to: "
+msgstr[0] "메일을 전달할 주소: "
 
-#: commands.c:287 recvcmd.c:165
+#: commands.c:287
 msgid "Bounce tagged messages to: "
 msgstr "선택한 메일을 전달한 주소: "
 
-#: commands.c:296 recvcmd.c:174
+#: commands.c:296 recvcmd.c:172
 msgid "Error parsing address!"
 msgstr "주소 분석 중 오류!"
 
-#: commands.c:304 recvcmd.c:182
+#: commands.c:304 recvcmd.c:180
 #, c-format
 msgid "Bad IDN: '%s'"
 msgstr "잘못된 IDN: '%s'"
 
-#: commands.c:315 recvcmd.c:196
-#, c-format
+#: commands.c:315 recvcmd.c:194
+#, fuzzy, c-format
 msgid "Bounce message to %s"
-msgstr "%s에게 메일 전달"
+msgid_plural "Bounce messages to %s"
+msgstr[0] "%s에게 메일 전달"
 
-#: commands.c:315 recvcmd.c:196
+#: commands.c:315
 #, c-format
 msgid "Bounce messages to %s"
 msgstr "%s에게 메일 전달"
 
-#: commands.c:330 recvcmd.c:211
+#: commands.c:330 recvcmd.c:209
+#, fuzzy
 msgid "Message not bounced."
-msgstr "메일이 전달 되지 않음."
+msgid_plural "Messages not bounced."
+msgstr[0] "메일이 전달 되지 않음."
 
-#: commands.c:330 recvcmd.c:211
+#: commands.c:330
 msgid "Messages not bounced."
 msgstr "메일들이 전달 되지 않음."
 
-#: commands.c:340 recvcmd.c:230
+#: commands.c:340 recvcmd.c:228
+#, fuzzy
 msgid "Message bounced."
-msgstr "메일이 전달됨."
+msgid_plural "Messages bounced."
+msgstr[0] "메일이 전달됨."
 
-#: commands.c:340 recvcmd.c:230
+#: commands.c:340
 msgid "Messages bounced."
 msgstr "메일들이 전달됨."
 
@@ -6061,45 +6068,43 @@ msgstr "다중체계 첨부물의 삭제만이 지원됩니다."
 msgid "You may only bounce message/rfc822 parts."
 msgstr "message/rfc822 부분만 전달할 수 있습니다."
 
-#: recvcmd.c:232
+#: recvcmd.c:230
+#, fuzzy
 msgid "Error bouncing message!"
-msgstr "메일 바운스중 오류!"
+msgid_plural "Error bouncing messages!"
+msgstr[0] "메일 바운스중 오류!"
 
-#: recvcmd.c:232
-msgid "Error bouncing messages!"
-msgstr "메일 바운스중 오류!"
-
-#: recvcmd.c:414
+#: recvcmd.c:412
 #, c-format
 msgid "Can't open temporary file %s."
 msgstr "임시 파일 %s를 열지 못함"
 
-#: recvcmd.c:443
+#: recvcmd.c:441
 msgid "Forward as attachments?"
 msgstr "첨부물로 포워딩?"
 
-#: recvcmd.c:461
+#: recvcmd.c:459
 msgid "Can't decode all tagged attachments.  MIME-forward the others?"
 msgstr "표시된 첨부물을 모두 디코딩하지 못함. 나머지는 MIME 포워딩 할까요?"
 
-#: recvcmd.c:581
+#: recvcmd.c:579
 msgid "Forward MIME encapsulated?"
 msgstr "MIME 캡슐에 넣어 포워딩할까요?"
 
-#: recvcmd.c:590 recvcmd.c:858
+#: recvcmd.c:588 recvcmd.c:856
 #, c-format
 msgid "Can't create %s."
 msgstr "%s를 만들 수 없음."
 
-#: recvcmd.c:711
+#: recvcmd.c:709
 msgid "Can't find any tagged messages."
 msgstr "표시된 메일이 없습니다."
 
-#: recvcmd.c:747 send.c:800
+#: recvcmd.c:745 send.c:800
 msgid "No mailing lists found!"
 msgstr "메일링 리스트를 찾을 수 없음!"
 
-#: recvcmd.c:834
+#: recvcmd.c:832
 msgid "Can't decode all tagged attachments.  MIME-encapsulate the others?"
 msgstr "표시된 첨부물을 모두 디코딩하지 못함. 나머지는 MIME 캡슐을 사용할까요?"
 
@@ -6481,6 +6486,9 @@ msgstr "컴파일 선택사항:"
 #: version.c:414
 msgid "Compile options:"
 msgstr "컴파일 선택사항:"
+
+#~ msgid "Error bouncing messages!"
+#~ msgstr "메일 바운스중 오류!"
 
 #~ msgid "Purge %d deleted messages?"
 #~ msgstr "삭제 표시된 메일들(%d)을 삭제할까요?"

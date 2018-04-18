@@ -451,46 +451,61 @@ msgstr "Komanda: "
 msgid "Warning: message contains no From: header"
 msgstr ""
 
-#: commands.c:285 recvcmd.c:163
+#: commands.c:285 recvcmd.c:162
+#, fuzzy
 msgid "Bounce message to: "
-msgstr "Nukreipti laišką kam: "
+msgid_plural "Bounce tagged messages to: "
+msgstr[0] "Nukreipti laišką kam: "
+msgstr[1] "Nukreipti pažymėtus laiškus kam: "
+msgstr[2] "Nukreipti pažymėtus laiškus kam: "
 
-#: commands.c:287 recvcmd.c:165
+#: commands.c:287
 msgid "Bounce tagged messages to: "
 msgstr "Nukreipti pažymėtus laiškus kam: "
 
-#: commands.c:296 recvcmd.c:174
+#: commands.c:296 recvcmd.c:172
 msgid "Error parsing address!"
 msgstr "Klaida nagrinėjant adresą!"
 
-#: commands.c:304 recvcmd.c:182
+#: commands.c:304 recvcmd.c:180
 #, c-format
 msgid "Bad IDN: '%s'"
 msgstr ""
 
-#: commands.c:315 recvcmd.c:196
-#, c-format
+#: commands.c:315 recvcmd.c:194
+#, fuzzy, c-format
 msgid "Bounce message to %s"
-msgstr "Nukreipti laišką į %s"
+msgid_plural "Bounce messages to %s"
+msgstr[0] "Nukreipti laišką į %s"
+msgstr[1] "Nukreipti laiškus į %s"
+msgstr[2] "Nukreipti laiškus į %s"
 
-#: commands.c:315 recvcmd.c:196
+#: commands.c:315
 #, c-format
 msgid "Bounce messages to %s"
 msgstr "Nukreipti laiškus į %s"
 
-#: commands.c:330 recvcmd.c:211
+#: commands.c:330 recvcmd.c:209
+#, fuzzy
 msgid "Message not bounced."
-msgstr "Laiškas nenukreiptas."
+msgid_plural "Messages not bounced."
+msgstr[0] "Laiškas nenukreiptas."
+msgstr[1] "Laiškai nenukreipti."
+msgstr[2] "Laiškai nenukreipti."
 
-#: commands.c:330 recvcmd.c:211
+#: commands.c:330
 msgid "Messages not bounced."
 msgstr "Laiškai nenukreipti."
 
-#: commands.c:340 recvcmd.c:230
+#: commands.c:340 recvcmd.c:228
+#, fuzzy
 msgid "Message bounced."
-msgstr "Laiškas nukreiptas."
+msgid_plural "Messages bounced."
+msgstr[0] "Laiškas nukreiptas."
+msgstr[1] "Laiškai nukreipti."
+msgstr[2] "Laiškai nukreipti."
 
-#: commands.c:340 recvcmd.c:230
+#: commands.c:340
 msgid "Messages bounced."
 msgstr "Laiškai nukreipti."
 
@@ -6097,48 +6112,46 @@ msgstr "Palaikomas trynimas tik iš keleto dalių priedų."
 msgid "You may only bounce message/rfc822 parts."
 msgstr "Tu gali nukreipti tik message/rfc822 priedus."
 
-#: recvcmd.c:232
+#: recvcmd.c:230
 #, fuzzy
 msgid "Error bouncing message!"
-msgstr "Klaida siunčiant laišką."
+msgid_plural "Error bouncing messages!"
+msgstr[0] "Klaida siunčiant laišką."
+msgstr[1] "Klaida siunčiant laišką."
+msgstr[2] "Klaida siunčiant laišką."
 
-#: recvcmd.c:232
-#, fuzzy
-msgid "Error bouncing messages!"
-msgstr "Klaida siunčiant laišką."
-
-#: recvcmd.c:414
+#: recvcmd.c:412
 #, c-format
 msgid "Can't open temporary file %s."
 msgstr "Negaliu atidaryti laikinos bylos %s."
 
-#: recvcmd.c:443
+#: recvcmd.c:441
 #, fuzzy
 msgid "Forward as attachments?"
 msgstr "rodyti MIME priedus"
 
-#: recvcmd.c:461
+#: recvcmd.c:459
 msgid "Can't decode all tagged attachments.  MIME-forward the others?"
 msgstr "Negaliu dekoduoti visų pažymėtų priedų.  Persiųsti kitus MIME formatu?"
 
-#: recvcmd.c:581
+#: recvcmd.c:579
 msgid "Forward MIME encapsulated?"
 msgstr "Persiųsti MIME enkapsuliuotą?"
 
-#: recvcmd.c:590 recvcmd.c:858
+#: recvcmd.c:588 recvcmd.c:856
 #, c-format
 msgid "Can't create %s."
 msgstr "Negaliu sukurti %s."
 
-#: recvcmd.c:711
+#: recvcmd.c:709
 msgid "Can't find any tagged messages."
 msgstr "Negaliu rasti nė vieno pažymėto laiško."
 
-#: recvcmd.c:747 send.c:800
+#: recvcmd.c:745 send.c:800
 msgid "No mailing lists found!"
 msgstr "Nerasta jokia konferencija!"
 
-#: recvcmd.c:834
+#: recvcmd.c:832
 msgid "Can't decode all tagged attachments.  MIME-encapsulate the others?"
 msgstr ""
 "Negaliu dekoduoti visų pažymėtų priedų.  Enkapsuliuoti kitus MIME formatu?"
@@ -6516,6 +6529,10 @@ msgstr "Įprastos parinktys:"
 #: version.c:414
 msgid "Compile options:"
 msgstr "Kompiliavimo parinktys:"
+
+#, fuzzy
+#~ msgid "Error bouncing messages!"
+#~ msgstr "Klaida siunčiant laišką."
 
 #~ msgid "Purge %d deleted messages?"
 #~ msgstr "Sunaikinti %d ištrintus laiškus?"

@@ -451,46 +451,57 @@ msgstr "Komut: "
 msgid "Warning: message contains no From: header"
 msgstr ""
 
-#: commands.c:285 recvcmd.c:163
+#: commands.c:285 recvcmd.c:162
+#, fuzzy
 msgid "Bounce message to: "
-msgstr "İletinin geri gönderme adresi: "
+msgid_plural "Bounce tagged messages to: "
+msgstr[0] "İletinin geri gönderme adresi: "
+msgstr[1] "İşaretli iletileri geri gönder:"
 
-#: commands.c:287 recvcmd.c:165
+#: commands.c:287
 msgid "Bounce tagged messages to: "
 msgstr "İşaretli iletileri geri gönder:"
 
-#: commands.c:296 recvcmd.c:174
+#: commands.c:296 recvcmd.c:172
 msgid "Error parsing address!"
 msgstr "Adres ayrıştırılırken hata!"
 
-#: commands.c:304 recvcmd.c:182
+#: commands.c:304 recvcmd.c:180
 #, c-format
 msgid "Bad IDN: '%s'"
 msgstr "Hatalı IDN: '%s'"
 
-#: commands.c:315 recvcmd.c:196
-#, c-format
+#: commands.c:315 recvcmd.c:194
+#, fuzzy, c-format
 msgid "Bounce message to %s"
-msgstr "İletiyi %s adresine geri gönder"
+msgid_plural "Bounce messages to %s"
+msgstr[0] "İletiyi %s adresine geri gönder"
+msgstr[1] "İletilerin geri gönderme adresi: %s"
 
-#: commands.c:315 recvcmd.c:196
+#: commands.c:315
 #, c-format
 msgid "Bounce messages to %s"
 msgstr "İletilerin geri gönderme adresi: %s"
 
-#: commands.c:330 recvcmd.c:211
+#: commands.c:330 recvcmd.c:209
+#, fuzzy
 msgid "Message not bounced."
-msgstr "İleti geri gönderilmedi."
+msgid_plural "Messages not bounced."
+msgstr[0] "İleti geri gönderilmedi."
+msgstr[1] "İletiler geri gönderilmedi."
 
-#: commands.c:330 recvcmd.c:211
+#: commands.c:330
 msgid "Messages not bounced."
 msgstr "İletiler geri gönderilmedi."
 
-#: commands.c:340 recvcmd.c:230
+#: commands.c:340 recvcmd.c:228
+#, fuzzy
 msgid "Message bounced."
-msgstr "İleti geri gönderildi."
+msgid_plural "Messages bounced."
+msgstr[0] "İleti geri gönderildi."
+msgstr[1] "İletiler geri gönderildi."
 
-#: commands.c:340 recvcmd.c:230
+#: commands.c:340
 msgid "Messages bounced."
 msgstr "İletiler geri gönderildi."
 
@@ -5962,46 +5973,45 @@ msgstr "Sadece çok parçalı (multipart) eklerin silinmesi destekleniyor."
 msgid "You may only bounce message/rfc822 parts."
 msgstr "Sadece ileti ya da rfc822 kısımları geri gönderilebilir."
 
-#: recvcmd.c:232
+#: recvcmd.c:230
+#, fuzzy
 msgid "Error bouncing message!"
-msgstr "İleti geri gönderilirken hata oluştu!"
+msgid_plural "Error bouncing messages!"
+msgstr[0] "İleti geri gönderilirken hata oluştu!"
+msgstr[1] "İleti geri gönderilirken hata oluştu!"
 
-#: recvcmd.c:232
-msgid "Error bouncing messages!"
-msgstr "İleti geri gönderilirken hata oluştu!"
-
-#: recvcmd.c:414
+#: recvcmd.c:412
 #, c-format
 msgid "Can't open temporary file %s."
 msgstr "Geçici dosya %s açılamıyor."
 
-#: recvcmd.c:443
+#: recvcmd.c:441
 msgid "Forward as attachments?"
 msgstr "Ekler halinde iletilsin mi?"
 
-#: recvcmd.c:461
+#: recvcmd.c:459
 msgid "Can't decode all tagged attachments.  MIME-forward the others?"
 msgstr ""
 "İşaretlenmiş eklerin hepsi çözülemiyor. Kalanlar MIME olarak iletilsin mi?"
 
-#: recvcmd.c:581
+#: recvcmd.c:579
 msgid "Forward MIME encapsulated?"
 msgstr "MIME ile sarmalanmış hâlde iletilsin mi?"
 
-#: recvcmd.c:590 recvcmd.c:858
+#: recvcmd.c:588 recvcmd.c:856
 #, c-format
 msgid "Can't create %s."
 msgstr "%s yaratılamadı."
 
-#: recvcmd.c:711
+#: recvcmd.c:709
 msgid "Can't find any tagged messages."
 msgstr "İşaretli hiç bir ileti yok."
 
-#: recvcmd.c:747 send.c:800
+#: recvcmd.c:745 send.c:800
 msgid "No mailing lists found!"
 msgstr "Herhangi bir eposta listesi bulunamadı!"
 
-#: recvcmd.c:834
+#: recvcmd.c:832
 msgid "Can't decode all tagged attachments.  MIME-encapsulate the others?"
 msgstr ""
 "İşaretlenmiş eklerin hepsi çözülemiyor. Kalanlar MIME ile sarmalanmış olarak "
@@ -6404,6 +6414,9 @@ msgstr "Varsayılan seçenekler:"
 #: version.c:414
 msgid "Compile options:"
 msgstr "İnşa seçenekleri:"
+
+#~ msgid "Error bouncing messages!"
+#~ msgstr "İleti geri gönderilirken hata oluştu!"
 
 #~ msgid "Purge %d deleted messages?"
 #~ msgstr "Silmek için işaretlenmiş %d ileti silinsin mi?"

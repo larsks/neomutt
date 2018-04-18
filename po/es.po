@@ -462,48 +462,58 @@ msgstr "Comando: "
 msgid "Warning: message contains no From: header"
 msgstr "Aviso: El mensaje no contiene una cabecera From:"
 
-#: commands.c:285 recvcmd.c:163
+#: commands.c:285 recvcmd.c:162
+#, fuzzy
 msgid "Bounce message to: "
-msgstr "Rebotar mensaje a: "
+msgid_plural "Bounce tagged messages to: "
+msgstr[0] "Rebotar mensaje a: "
+msgstr[1] "Rebotar mensajes marcados a: "
 
-#: commands.c:287 recvcmd.c:165
+#: commands.c:287
 msgid "Bounce tagged messages to: "
 msgstr "Rebotar mensajes marcados a: "
 
-#: commands.c:296 recvcmd.c:174
+#: commands.c:296 recvcmd.c:172
 msgid "Error parsing address!"
 msgstr "¡Dirección errónea!"
 
-#: commands.c:304 recvcmd.c:182
+#: commands.c:304 recvcmd.c:180
 #, c-format
 msgid "Bad IDN: '%s'"
 msgstr "IDN incorrecto: '%s'"
 
-#: commands.c:315 recvcmd.c:196
-#, c-format
+#: commands.c:315 recvcmd.c:194
+#, fuzzy, c-format
 msgid "Bounce message to %s"
-msgstr "Rebotar mensaje a %s"
+msgid_plural "Bounce messages to %s"
+msgstr[0] "Rebotar mensaje a %s"
+msgstr[1] "Rebotar mensajes a %s"
 
-#: commands.c:315 recvcmd.c:196
+#: commands.c:315
 #, c-format
 msgid "Bounce messages to %s"
 msgstr "Rebotar mensajes a %s"
 
-#: commands.c:330 recvcmd.c:211
+#: commands.c:330 recvcmd.c:209
 #, fuzzy
 msgid "Message not bounced."
-msgstr "Mensaje rebotado."
+msgid_plural "Messages not bounced."
+msgstr[0] "Mensaje rebotado."
+msgstr[1] "Mensajes rebotados."
 
-#: commands.c:330 recvcmd.c:211
+#: commands.c:330
 #, fuzzy
 msgid "Messages not bounced."
 msgstr "Mensajes rebotados."
 
-#: commands.c:340 recvcmd.c:230
+#: commands.c:340 recvcmd.c:228
+#, fuzzy
 msgid "Message bounced."
-msgstr "Mensaje rebotado."
+msgid_plural "Messages bounced."
+msgstr[0] "Mensaje rebotado."
+msgstr[1] "Mensajes rebotados."
 
-#: commands.c:340 recvcmd.c:230
+#: commands.c:340
 msgid "Messages bounced."
 msgstr "Mensajes rebotados."
 
@@ -6143,49 +6153,46 @@ msgstr "Suprimir sólo es soportado con archivos adjuntos tipo multiparte."
 msgid "You may only bounce message/rfc822 parts."
 msgstr "Solo puede rebotar partes tipo message/rfc822."
 
-#: recvcmd.c:232
+#: recvcmd.c:230
 #, fuzzy
 msgid "Error bouncing message!"
-msgstr "Error al enviar el mensaje."
+msgid_plural "Error bouncing messages!"
+msgstr[0] "Error al enviar el mensaje."
+msgstr[1] "Error al enviar el mensaje."
 
-#: recvcmd.c:232
-#, fuzzy
-msgid "Error bouncing messages!"
-msgstr "Error al enviar el mensaje."
-
-#: recvcmd.c:414
+#: recvcmd.c:412
 #, c-format
 msgid "Can't open temporary file %s."
 msgstr "No se pudo abrir el archivo temporal %s"
 
-#: recvcmd.c:443
+#: recvcmd.c:441
 msgid "Forward as attachments?"
 msgstr "¿Reenviar como archivos adjuntos?"
 
-#: recvcmd.c:461
+#: recvcmd.c:459
 msgid "Can't decode all tagged attachments.  MIME-forward the others?"
 msgstr ""
 "No se pudieron decodificar todos los archivos adjuntos marcados.  ¿Reenviar "
 "los otros como MIME?"
 
-#: recvcmd.c:581
+#: recvcmd.c:579
 msgid "Forward MIME encapsulated?"
 msgstr "¿Reenviar con encapsulado MIME?"
 
-#: recvcmd.c:590 recvcmd.c:858
+#: recvcmd.c:588 recvcmd.c:856
 #, c-format
 msgid "Can't create %s."
 msgstr "No se pudo crear %s."
 
-#: recvcmd.c:711
+#: recvcmd.c:709
 msgid "Can't find any tagged messages."
 msgstr "No fue encontrado ningún mensaje marcado."
 
-#: recvcmd.c:747 send.c:800
+#: recvcmd.c:745 send.c:800
 msgid "No mailing lists found!"
 msgstr "¡Ninguna lista de correo encontrada!"
 
-#: recvcmd.c:834
+#: recvcmd.c:832
 msgid "Can't decode all tagged attachments.  MIME-encapsulate the others?"
 msgstr ""
 "No se pudieron decodificar todos los archivos adjuntos marcados.  "
@@ -6571,6 +6578,10 @@ msgstr "Opciones especificadas al compilar:"
 #: version.c:414
 msgid "Compile options:"
 msgstr "Opciones especificadas al compilar:"
+
+#, fuzzy
+#~ msgid "Error bouncing messages!"
+#~ msgstr "Error al enviar el mensaje."
 
 #~ msgid "Purge %d deleted messages?"
 #~ msgstr "¿Expulsar %d mensajes suprimidos?"

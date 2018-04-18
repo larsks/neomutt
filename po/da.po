@@ -452,46 +452,57 @@ msgstr "Kommando: "
 msgid "Warning: message contains no From: header"
 msgstr "Advarsel: brevet har ingen From:-header"
 
-#: commands.c:285 recvcmd.c:163
+#: commands.c:285 recvcmd.c:162
+#, fuzzy
 msgid "Bounce message to: "
-msgstr "Gensend brev til: "
+msgid_plural "Bounce tagged messages to: "
+msgstr[0] "Gensend brev til: "
+msgstr[1] "Gensend udvalgte breve til: "
 
-#: commands.c:287 recvcmd.c:165
+#: commands.c:287
 msgid "Bounce tagged messages to: "
 msgstr "Gensend udvalgte breve til: "
 
-#: commands.c:296 recvcmd.c:174
+#: commands.c:296 recvcmd.c:172
 msgid "Error parsing address!"
 msgstr "Ugyldig adresse!"
 
-#: commands.c:304 recvcmd.c:182
+#: commands.c:304 recvcmd.c:180
 #, c-format
 msgid "Bad IDN: '%s'"
 msgstr "Forkert IDN: '%s'"
 
-#: commands.c:315 recvcmd.c:196
-#, c-format
+#: commands.c:315 recvcmd.c:194
+#, fuzzy, c-format
 msgid "Bounce message to %s"
-msgstr "Gensend brev til %s"
+msgid_plural "Bounce messages to %s"
+msgstr[0] "Gensend brev til %s"
+msgstr[1] "Gensend breve til %s"
 
-#: commands.c:315 recvcmd.c:196
+#: commands.c:315
 #, c-format
 msgid "Bounce messages to %s"
 msgstr "Gensend breve til %s"
 
-#: commands.c:330 recvcmd.c:211
+#: commands.c:330 recvcmd.c:209
+#, fuzzy
 msgid "Message not bounced."
-msgstr "Brevet er ikke gensendt."
+msgid_plural "Messages not bounced."
+msgstr[0] "Brevet er ikke gensendt."
+msgstr[1] "Brevene er ikke gensendt."
 
-#: commands.c:330 recvcmd.c:211
+#: commands.c:330
 msgid "Messages not bounced."
 msgstr "Brevene er ikke gensendt."
 
-#: commands.c:340 recvcmd.c:230
+#: commands.c:340 recvcmd.c:228
+#, fuzzy
 msgid "Message bounced."
-msgstr "Brevet er gensendt."
+msgid_plural "Messages bounced."
+msgstr[0] "Brevet er gensendt."
+msgstr[1] "Brevene er gensendt."
 
-#: commands.c:340 recvcmd.c:230
+#: commands.c:340
 msgid "Messages bounced."
 msgstr "Brevene er gensendt."
 
@@ -5916,45 +5927,44 @@ msgstr "Sletning af brevdele fra udelte breve er ikke understøttet."
 msgid "You may only bounce message/rfc822 parts."
 msgstr "Du kan kun gensende message/rfc822-brevdele."
 
-#: recvcmd.c:232
+#: recvcmd.c:230
+#, fuzzy
 msgid "Error bouncing message!"
-msgstr "Fejl ved gensending af brev!"
+msgid_plural "Error bouncing messages!"
+msgstr[0] "Fejl ved gensending af brev!"
+msgstr[1] "Fejl ved gensending af breve!"
 
-#: recvcmd.c:232
-msgid "Error bouncing messages!"
-msgstr "Fejl ved gensending af breve!"
-
-#: recvcmd.c:414
+#: recvcmd.c:412
 #, c-format
 msgid "Can't open temporary file %s."
 msgstr "Kan ikke åbne midlertidig fil %s."
 
-#: recvcmd.c:443
+#: recvcmd.c:441
 msgid "Forward as attachments?"
 msgstr "Videresend som bilag?"
 
-#: recvcmd.c:461
+#: recvcmd.c:459
 msgid "Can't decode all tagged attachments.  MIME-forward the others?"
 msgstr "Kan ikke afkode alle udvalgte brevdele. MIME-videresend de øvrige?"
 
-#: recvcmd.c:581
+#: recvcmd.c:579
 msgid "Forward MIME encapsulated?"
 msgstr "Videresend MIME-indkapslet?"
 
-#: recvcmd.c:590 recvcmd.c:858
+#: recvcmd.c:588 recvcmd.c:856
 #, c-format
 msgid "Can't create %s."
 msgstr "Kan ikke oprette %s."
 
-#: recvcmd.c:711
+#: recvcmd.c:709
 msgid "Can't find any tagged messages."
 msgstr "Kan ikke finde nogen udvalgte breve."
 
-#: recvcmd.c:747 send.c:800
+#: recvcmd.c:745 send.c:800
 msgid "No mailing lists found!"
 msgstr "Ingen postlister fundet!"
 
-#: recvcmd.c:834
+#: recvcmd.c:832
 msgid "Can't decode all tagged attachments.  MIME-encapsulate the others?"
 msgstr "Kan ikke afkode alle udvalgte brevdele. MIME-indkapsl de øvrige?"
 
@@ -6346,6 +6356,9 @@ msgstr "Tilvalg ved oversættelsen:"
 #: version.c:414
 msgid "Compile options:"
 msgstr "Tilvalg ved oversættelsen:"
+
+#~ msgid "Error bouncing messages!"
+#~ msgstr "Fejl ved gensending af breve!"
 
 #~ msgid "Purge %d deleted messages?"
 #~ msgstr "Fjern %d slettede breve?"

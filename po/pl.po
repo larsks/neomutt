@@ -450,46 +450,61 @@ msgstr "Wprowadź polecenie: "
 msgid "Warning: message contains no From: header"
 msgstr "Ostrzeżenie: wiadomość nie zawiera pola From: w nagłówku"
 
-#: commands.c:285 recvcmd.c:163
+#: commands.c:285 recvcmd.c:162
+#, fuzzy
 msgid "Bounce message to: "
-msgstr "Wyślij kopię listu do: "
+msgid_plural "Bounce tagged messages to: "
+msgstr[0] "Wyślij kopię listu do: "
+msgstr[1] "Wyślij kopie zaznaczonych listów do: "
+msgstr[2] "Wyślij kopie zaznaczonych listów do: "
 
-#: commands.c:287 recvcmd.c:165
+#: commands.c:287
 msgid "Bounce tagged messages to: "
 msgstr "Wyślij kopie zaznaczonych listów do: "
 
-#: commands.c:296 recvcmd.c:174
+#: commands.c:296 recvcmd.c:172
 msgid "Error parsing address!"
 msgstr "Błąd interpretacji adresu!"
 
-#: commands.c:304 recvcmd.c:182
+#: commands.c:304 recvcmd.c:180
 #, c-format
 msgid "Bad IDN: '%s'"
 msgstr "Błędny IDN: '%s'"
 
-#: commands.c:315 recvcmd.c:196
-#, c-format
+#: commands.c:315 recvcmd.c:194
+#, fuzzy, c-format
 msgid "Bounce message to %s"
-msgstr "Wyślij kopię listu do %s"
+msgid_plural "Bounce messages to %s"
+msgstr[0] "Wyślij kopię listu do %s"
+msgstr[1] "Wyślij kopie listów do %s"
+msgstr[2] "Wyślij kopie listów do %s"
 
-#: commands.c:315 recvcmd.c:196
+#: commands.c:315
 #, c-format
 msgid "Bounce messages to %s"
 msgstr "Wyślij kopie listów do %s"
 
-#: commands.c:330 recvcmd.c:211
+#: commands.c:330 recvcmd.c:209
+#, fuzzy
 msgid "Message not bounced."
-msgstr "Kopia nie została wysłana."
+msgid_plural "Messages not bounced."
+msgstr[0] "Kopia nie została wysłana."
+msgstr[1] "Kopie nie zostały wysłane."
+msgstr[2] "Kopie nie zostały wysłane."
 
-#: commands.c:330 recvcmd.c:211
+#: commands.c:330
 msgid "Messages not bounced."
 msgstr "Kopie nie zostały wysłane."
 
-#: commands.c:340 recvcmd.c:230
+#: commands.c:340 recvcmd.c:228
+#, fuzzy
 msgid "Message bounced."
-msgstr "Kopia została wysłana."
+msgid_plural "Messages bounced."
+msgstr[0] "Kopia została wysłana."
+msgstr[1] "Kopie zostały wysłane."
+msgstr[2] "Kopie zostały wysłane."
 
-#: commands.c:340 recvcmd.c:230
+#: commands.c:340
 msgid "Messages bounced."
 msgstr "Kopie zostały wysłane."
 
@@ -5875,46 +5890,46 @@ msgstr "Możliwe jest jedynie usuwanie załączników multipart."
 msgid "You may only bounce message/rfc822 parts."
 msgstr "Możesz wysyłać kopie tylko listów zgodnych z RFC 822."
 
-#: recvcmd.c:232
+#: recvcmd.c:230
+#, fuzzy
 msgid "Error bouncing message!"
-msgstr "Błąd wysyłania kopii!"
+msgid_plural "Error bouncing messages!"
+msgstr[0] "Błąd wysyłania kopii!"
+msgstr[1] "Błąd wysyłania kopii!"
+msgstr[2] "Błąd wysyłania kopii!"
 
-#: recvcmd.c:232
-msgid "Error bouncing messages!"
-msgstr "Błąd wysyłania kopii!"
-
-#: recvcmd.c:414
+#: recvcmd.c:412
 #, c-format
 msgid "Can't open temporary file %s."
 msgstr "Nie można otworzyć pliku tymczasowego %s."
 
-#: recvcmd.c:443
+#: recvcmd.c:441
 msgid "Forward as attachments?"
 msgstr "Przesłać dalej jako załączniki?"
 
-#: recvcmd.c:461
+#: recvcmd.c:459
 msgid "Can't decode all tagged attachments.  MIME-forward the others?"
 msgstr ""
 "Nie można zdekodować zaznaczonych zał. Przesłać pozostałe dalej (MIME)?"
 
-#: recvcmd.c:581
+#: recvcmd.c:579
 msgid "Forward MIME encapsulated?"
 msgstr "Przesłać dalej w trybie MIME?"
 
-#: recvcmd.c:590 recvcmd.c:858
+#: recvcmd.c:588 recvcmd.c:856
 #, c-format
 msgid "Can't create %s."
 msgstr "Nie można utworzyć %s."
 
-#: recvcmd.c:711
+#: recvcmd.c:709
 msgid "Can't find any tagged messages."
 msgstr "Nie można znaleźć żadnego z zaznaczonych listów."
 
-#: recvcmd.c:747 send.c:800
+#: recvcmd.c:745 send.c:800
 msgid "No mailing lists found!"
 msgstr "Nie znaleziono list pocztowych!"
 
-#: recvcmd.c:834
+#: recvcmd.c:832
 msgid "Can't decode all tagged attachments.  MIME-encapsulate the others?"
 msgstr ""
 "Nie można zdekodować wszystkich wybranych zał. Załączyć (MIME) pozostałe?"
@@ -6305,6 +6320,9 @@ msgstr "Domyślne opcje:"
 #: version.c:414
 msgid "Compile options:"
 msgstr "Parametry kompilacji:"
+
+#~ msgid "Error bouncing messages!"
+#~ msgstr "Błąd wysyłania kopii!"
 
 #~ msgid "Purge %d deleted messages?"
 #~ msgstr "Usunąć NIEODWOŁALNIE %d zaznaczone listy?"

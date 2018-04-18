@@ -456,46 +456,69 @@ msgstr "Ordú: "
 msgid "Warning: message contains no From: header"
 msgstr ""
 
-#: commands.c:285 recvcmd.c:163
+#: commands.c:285 recvcmd.c:162
+#, fuzzy
 msgid "Bounce message to: "
-msgstr "Scinn teachtaireacht go: "
+msgid_plural "Bounce tagged messages to: "
+msgstr[0] "Scinn teachtaireacht go: "
+msgstr[1] "Scinn teachtaireachtaí clibeáilte go: "
+msgstr[2] "Scinn teachtaireachtaí clibeáilte go: "
+msgstr[3] "Scinn teachtaireachtaí clibeáilte go: "
+msgstr[4] "Scinn teachtaireachtaí clibeáilte go: "
 
-#: commands.c:287 recvcmd.c:165
+#: commands.c:287
 msgid "Bounce tagged messages to: "
 msgstr "Scinn teachtaireachtaí clibeáilte go: "
 
-#: commands.c:296 recvcmd.c:174
+#: commands.c:296 recvcmd.c:172
 msgid "Error parsing address!"
 msgstr "Earráid agus seoladh á pharsáil!"
 
-#: commands.c:304 recvcmd.c:182
+#: commands.c:304 recvcmd.c:180
 #, c-format
 msgid "Bad IDN: '%s'"
 msgstr "DrochIDN: '%s'"
 
-#: commands.c:315 recvcmd.c:196
-#, c-format
+#: commands.c:315 recvcmd.c:194
+#, fuzzy, c-format
 msgid "Bounce message to %s"
-msgstr "Scinn teachtaireacht go %s"
+msgid_plural "Bounce messages to %s"
+msgstr[0] "Scinn teachtaireacht go %s"
+msgstr[1] "Scinn teachtaireachtaí go %s"
+msgstr[2] "Scinn teachtaireachtaí go %s"
+msgstr[3] "Scinn teachtaireachtaí go %s"
+msgstr[4] "Scinn teachtaireachtaí go %s"
 
-#: commands.c:315 recvcmd.c:196
+#: commands.c:315
 #, c-format
 msgid "Bounce messages to %s"
 msgstr "Scinn teachtaireachtaí go %s"
 
-#: commands.c:330 recvcmd.c:211
+#: commands.c:330 recvcmd.c:209
+#, fuzzy
 msgid "Message not bounced."
-msgstr "Níor scinneadh an teachtaireacht."
+msgid_plural "Messages not bounced."
+msgstr[0] "Níor scinneadh an teachtaireacht."
+msgstr[1] "Níor scinneadh na teachtaireachtaí."
+msgstr[2] "Níor scinneadh na teachtaireachtaí."
+msgstr[3] "Níor scinneadh na teachtaireachtaí."
+msgstr[4] "Níor scinneadh na teachtaireachtaí."
 
-#: commands.c:330 recvcmd.c:211
+#: commands.c:330
 msgid "Messages not bounced."
 msgstr "Níor scinneadh na teachtaireachtaí."
 
-#: commands.c:340 recvcmd.c:230
+#: commands.c:340 recvcmd.c:228
+#, fuzzy
 msgid "Message bounced."
-msgstr "Scinneadh an teachtaireacht."
+msgid_plural "Messages bounced."
+msgstr[0] "Scinneadh an teachtaireacht."
+msgstr[1] "Scinneadh na teachtaireachtaí."
+msgstr[2] "Scinneadh na teachtaireachtaí."
+msgstr[3] "Scinneadh na teachtaireachtaí."
+msgstr[4] "Scinneadh na teachtaireachtaí."
 
-#: commands.c:340 recvcmd.c:230
+#: commands.c:340
 msgid "Messages bounced."
 msgstr "Scinneadh na teachtaireachtaí."
 
@@ -6048,47 +6071,49 @@ msgstr "Ní cheadaítear ach iatáin ilpháirt a bheith scriosta."
 msgid "You may only bounce message/rfc822 parts."
 msgstr "Ní cheadaítear ach páirteanna message/rfc822 a scinneadh."
 
-#: recvcmd.c:232
+#: recvcmd.c:230
+#, fuzzy
 msgid "Error bouncing message!"
-msgstr "Earráid agus teachtaireacht á scinneadh!"
+msgid_plural "Error bouncing messages!"
+msgstr[0] "Earráid agus teachtaireacht á scinneadh!"
+msgstr[1] "Earráid agus teachtaireachtaí á scinneadh!"
+msgstr[2] "Earráid agus teachtaireachtaí á scinneadh!"
+msgstr[3] "Earráid agus teachtaireachtaí á scinneadh!"
+msgstr[4] "Earráid agus teachtaireachtaí á scinneadh!"
 
-#: recvcmd.c:232
-msgid "Error bouncing messages!"
-msgstr "Earráid agus teachtaireachtaí á scinneadh!"
-
-#: recvcmd.c:414
+#: recvcmd.c:412
 #, c-format
 msgid "Can't open temporary file %s."
 msgstr "Ní féidir an comhad sealadach %s a oscailt."
 
-#: recvcmd.c:443
+#: recvcmd.c:441
 msgid "Forward as attachments?"
 msgstr "Seol iad ar aghaidh mar iatáin?"
 
-#: recvcmd.c:461
+#: recvcmd.c:459
 msgid "Can't decode all tagged attachments.  MIME-forward the others?"
 msgstr ""
 "Ní féidir gach iatán clibeáilte a dhíchódú.  Cuir na cinn eile ar aghaidh "
 "mar MIME?"
 
-#: recvcmd.c:581
+#: recvcmd.c:579
 msgid "Forward MIME encapsulated?"
 msgstr "Cuir ar aghaidh, cuachta mar MIME?"
 
-#: recvcmd.c:590 recvcmd.c:858
+#: recvcmd.c:588 recvcmd.c:856
 #, c-format
 msgid "Can't create %s."
 msgstr "Ní féidir %s a chruthú."
 
-#: recvcmd.c:711
+#: recvcmd.c:709
 msgid "Can't find any tagged messages."
 msgstr "Ní féidir aon teachtaireacht chlibeáilte a aimsiú."
 
-#: recvcmd.c:747 send.c:800
+#: recvcmd.c:745 send.c:800
 msgid "No mailing lists found!"
 msgstr "Níor aimsíodh aon liosta postála!"
 
-#: recvcmd.c:834
+#: recvcmd.c:832
 msgid "Can't decode all tagged attachments.  MIME-encapsulate the others?"
 msgstr ""
 "Ní féidir gach iatán clibeáilte a dhíchódú.  Cuach na cinn eile mar MIME?"
@@ -6489,6 +6514,9 @@ msgstr "Roghanna tiomsaithe:"
 #: version.c:414
 msgid "Compile options:"
 msgstr "Roghanna tiomsaithe:"
+
+#~ msgid "Error bouncing messages!"
+#~ msgstr "Earráid agus teachtaireachtaí á scinneadh!"
 
 #~ msgid "Purge %d deleted messages?"
 #~ msgstr "Glan %d teachtaireacht scriosta?"

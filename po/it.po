@@ -456,46 +456,57 @@ msgstr "Comando: "
 msgid "Warning: message contains no From: header"
 msgstr "Attenzione: il messaggio non contiene alcun header From:"
 
-#: commands.c:285 recvcmd.c:163
+#: commands.c:285 recvcmd.c:162
+#, fuzzy
 msgid "Bounce message to: "
-msgstr "Rimbalza il messaggio a: "
+msgid_plural "Bounce tagged messages to: "
+msgstr[0] "Rimbalza il messaggio a: "
+msgstr[1] "Rimbalza i messaggi segnati a: "
 
-#: commands.c:287 recvcmd.c:165
+#: commands.c:287
 msgid "Bounce tagged messages to: "
 msgstr "Rimbalza i messaggi segnati a: "
 
-#: commands.c:296 recvcmd.c:174
+#: commands.c:296 recvcmd.c:172
 msgid "Error parsing address!"
 msgstr "Errore nella lettura dell'indirizzo!"
 
-#: commands.c:304 recvcmd.c:182
+#: commands.c:304 recvcmd.c:180
 #, c-format
 msgid "Bad IDN: '%s'"
 msgstr "IDN non valido: '%s'"
 
-#: commands.c:315 recvcmd.c:196
-#, c-format
+#: commands.c:315 recvcmd.c:194
+#, fuzzy, c-format
 msgid "Bounce message to %s"
-msgstr "Rimbalza il messaggio a %s"
+msgid_plural "Bounce messages to %s"
+msgstr[0] "Rimbalza il messaggio a %s"
+msgstr[1] "Rimbalza i messaggi a %s"
 
-#: commands.c:315 recvcmd.c:196
+#: commands.c:315
 #, c-format
 msgid "Bounce messages to %s"
 msgstr "Rimbalza i messaggi a %s"
 
-#: commands.c:330 recvcmd.c:211
+#: commands.c:330 recvcmd.c:209
+#, fuzzy
 msgid "Message not bounced."
-msgstr "Messaggio non rimbalzato."
+msgid_plural "Messages not bounced."
+msgstr[0] "Messaggio non rimbalzato."
+msgstr[1] "Messaggi non rimbalzati."
 
-#: commands.c:330 recvcmd.c:211
+#: commands.c:330
 msgid "Messages not bounced."
 msgstr "Messaggi non rimbalzati."
 
-#: commands.c:340 recvcmd.c:230
+#: commands.c:340 recvcmd.c:228
+#, fuzzy
 msgid "Message bounced."
-msgstr "Messaggio rimbalzato."
+msgid_plural "Messages bounced."
+msgstr[0] "Messaggio rimbalzato."
+msgstr[1] "Messaggi rimbalzati."
 
-#: commands.c:340 recvcmd.c:230
+#: commands.c:340
 msgid "Messages bounced."
 msgstr "Messaggi rimbalzati."
 
@@ -5977,46 +5988,45 @@ msgstr "È gestita solo la cancellazione degli allegati multiparte."
 msgid "You may only bounce message/rfc822 parts."
 msgstr "Puoi rimbalzare solo parti message/rfc822."
 
-#: recvcmd.c:232
+#: recvcmd.c:230
+#, fuzzy
 msgid "Error bouncing message!"
-msgstr "Errore durante l'invio del messaggio!"
+msgid_plural "Error bouncing messages!"
+msgstr[0] "Errore durante l'invio del messaggio!"
+msgstr[1] "Errore durante l'invio del messaggio!"
 
-#: recvcmd.c:232
-msgid "Error bouncing messages!"
-msgstr "Errore durante l'invio del messaggio!"
-
-#: recvcmd.c:414
+#: recvcmd.c:412
 #, c-format
 msgid "Can't open temporary file %s."
 msgstr "Impossibile aprire il file temporaneo %s."
 
-#: recvcmd.c:443
+#: recvcmd.c:441
 msgid "Forward as attachments?"
 msgstr "Inoltro come allegati?"
 
-#: recvcmd.c:461
+#: recvcmd.c:459
 msgid "Can't decode all tagged attachments.  MIME-forward the others?"
 msgstr ""
 "Impossibile decodificare tutti gli allegati segnati. Uso MIME per gli altri?"
 
-#: recvcmd.c:581
+#: recvcmd.c:579
 msgid "Forward MIME encapsulated?"
 msgstr "Inoltro incapsulato in MIME?"
 
-#: recvcmd.c:590 recvcmd.c:858
+#: recvcmd.c:588 recvcmd.c:856
 #, c-format
 msgid "Can't create %s."
 msgstr "Impossibile creare %s."
 
-#: recvcmd.c:711
+#: recvcmd.c:709
 msgid "Can't find any tagged messages."
 msgstr "Non ci sono messaggi segnati."
 
-#: recvcmd.c:747 send.c:800
+#: recvcmd.c:745 send.c:800
 msgid "No mailing lists found!"
 msgstr "Non è stata trovata alcuna mailing list!"
 
-#: recvcmd.c:834
+#: recvcmd.c:832
 msgid "Can't decode all tagged attachments.  MIME-encapsulate the others?"
 msgstr ""
 "Impossibile decodificare tutti gli allegati segnati. Uso MIME per gli altri?"
@@ -6400,6 +6410,9 @@ msgstr "Opzioni di compilazione:"
 #: version.c:414
 msgid "Compile options:"
 msgstr "Opzioni di compilazione:"
+
+#~ msgid "Error bouncing messages!"
+#~ msgstr "Errore durante l'invio del messaggio!"
 
 #~ msgid "Purge %d deleted messages?"
 #~ msgstr "Eliminare %d messaggi cancellati?"

@@ -464,46 +464,57 @@ msgstr "Команда: "
 msgid "Warning: message contains no From: header"
 msgstr ""
 
-#: commands.c:285 recvcmd.c:163
+#: commands.c:285 recvcmd.c:162
+#, fuzzy
 msgid "Bounce message to: "
-msgstr "Препращане на писмото към: "
+msgid_plural "Bounce tagged messages to: "
+msgstr[0] "Препращане на писмото към: "
+msgstr[1] "Препращане на маркираните писма към: "
 
-#: commands.c:287 recvcmd.c:165
+#: commands.c:287
 msgid "Bounce tagged messages to: "
 msgstr "Препращане на маркираните писма към: "
 
-#: commands.c:296 recvcmd.c:174
+#: commands.c:296 recvcmd.c:172
 msgid "Error parsing address!"
 msgstr "Грешка при разчитане на адресът!"
 
-#: commands.c:304 recvcmd.c:182
+#: commands.c:304 recvcmd.c:180
 #, c-format
 msgid "Bad IDN: '%s'"
 msgstr "Лош IDN: '%s'"
 
-#: commands.c:315 recvcmd.c:196
-#, c-format
+#: commands.c:315 recvcmd.c:194
+#, fuzzy, c-format
 msgid "Bounce message to %s"
-msgstr "Препращане на писмото към %s"
+msgid_plural "Bounce messages to %s"
+msgstr[0] "Препращане на писмото към %s"
+msgstr[1] "Препращане на писмото към %s"
 
-#: commands.c:315 recvcmd.c:196
+#: commands.c:315
 #, c-format
 msgid "Bounce messages to %s"
 msgstr "Препращане на писмото към %s"
 
-#: commands.c:330 recvcmd.c:211
+#: commands.c:330 recvcmd.c:209
+#, fuzzy
 msgid "Message not bounced."
-msgstr "Писмото не е препратено."
+msgid_plural "Messages not bounced."
+msgstr[0] "Писмото не е препратено."
+msgstr[1] "Писмата не са препратени."
 
-#: commands.c:330 recvcmd.c:211
+#: commands.c:330
 msgid "Messages not bounced."
 msgstr "Писмата не са препратени."
 
-#: commands.c:340 recvcmd.c:230
+#: commands.c:340 recvcmd.c:228
+#, fuzzy
 msgid "Message bounced."
-msgstr "Писмото е препратено."
+msgid_plural "Messages bounced."
+msgstr[0] "Писмото е препратено."
+msgstr[1] "Писмата са препратени."
 
-#: commands.c:340 recvcmd.c:230
+#: commands.c:340
 msgid "Messages bounced."
 msgstr "Писмата са препратени."
 
@@ -6126,47 +6137,46 @@ msgstr "Поддържа се само изтриване на приложен�
 msgid "You may only bounce message/rfc822 parts."
 msgstr "Може да изпращате отново само message/rfc822 части."
 
-#: recvcmd.c:232
+#: recvcmd.c:230
+#, fuzzy
 msgid "Error bouncing message!"
-msgstr "Грешка при препращане на писмото!"
+msgid_plural "Error bouncing messages!"
+msgstr[0] "Грешка при препращане на писмото!"
+msgstr[1] "Грешка при препращане на писмата!"
 
-#: recvcmd.c:232
-msgid "Error bouncing messages!"
-msgstr "Грешка при препращане на писмата!"
-
-#: recvcmd.c:414
+#: recvcmd.c:412
 #, c-format
 msgid "Can't open temporary file %s."
 msgstr "Грешка при отваряне на временния файл %s."
 
-#: recvcmd.c:443
+#: recvcmd.c:441
 msgid "Forward as attachments?"
 msgstr "Желаете ли да ги препратите като приложения?"
 
-#: recvcmd.c:461
+#: recvcmd.c:459
 msgid "Can't decode all tagged attachments.  MIME-forward the others?"
 msgstr ""
 "Декодирането на всички маркирани приложения е невъзможно. Желаете ли да "
 "препратите с MIME останалите?"
 
-#: recvcmd.c:581
+#: recvcmd.c:579
 msgid "Forward MIME encapsulated?"
 msgstr "Желаете ли да капсулирате с MIME преди препращане?"
 
-#: recvcmd.c:590 recvcmd.c:858
+#: recvcmd.c:588 recvcmd.c:856
 #, c-format
 msgid "Can't create %s."
 msgstr "Грешка при създаване на %s."
 
-#: recvcmd.c:711
+#: recvcmd.c:709
 msgid "Can't find any tagged messages."
 msgstr "Няма маркирани писма."
 
-#: recvcmd.c:747 send.c:800
+#: recvcmd.c:745 send.c:800
 msgid "No mailing lists found!"
 msgstr "Няма mailing list-ове!"
 
-#: recvcmd.c:834
+#: recvcmd.c:832
 msgid "Can't decode all tagged attachments.  MIME-encapsulate the others?"
 msgstr ""
 "Декодирането на всички маркирани приложения е невъзможно. Желаете ли да "
@@ -6552,6 +6562,9 @@ msgstr "Опции при компилация:"
 #: version.c:414
 msgid "Compile options:"
 msgstr "Опции при компилация:"
+
+#~ msgid "Error bouncing messages!"
+#~ msgstr "Грешка при препращане на писмата!"
 
 #~ msgid "Purge %d deleted messages?"
 #~ msgstr "Желаете ли да изтриете  %d отбелязани за изтриване писма?"

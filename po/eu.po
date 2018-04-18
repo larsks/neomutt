@@ -451,46 +451,57 @@ msgstr "Komandoa: "
 msgid "Warning: message contains no From: header"
 msgstr ""
 
-#: commands.c:285 recvcmd.c:163
+#: commands.c:285 recvcmd.c:162
+#, fuzzy
 msgid "Bounce message to: "
-msgstr "Mezuak hona errebotatu: "
+msgid_plural "Bounce tagged messages to: "
+msgstr[0] "Mezuak hona errebotatu: "
+msgstr[1] "Markatutako mezuak hona errebotatu: "
 
-#: commands.c:287 recvcmd.c:165
+#: commands.c:287
 msgid "Bounce tagged messages to: "
 msgstr "Markatutako mezuak hona errebotatu: "
 
-#: commands.c:296 recvcmd.c:174
+#: commands.c:296 recvcmd.c:172
 msgid "Error parsing address!"
 msgstr "Errorea helbidea analizatzean!"
 
-#: commands.c:304 recvcmd.c:182
+#: commands.c:304 recvcmd.c:180
 #, c-format
 msgid "Bad IDN: '%s'"
 msgstr "IDN Okerra: '%s'"
 
-#: commands.c:315 recvcmd.c:196
-#, c-format
+#: commands.c:315 recvcmd.c:194
+#, fuzzy, c-format
 msgid "Bounce message to %s"
-msgstr "Mezua %s-ra errebotatu"
+msgid_plural "Bounce messages to %s"
+msgstr[0] "Mezua %s-ra errebotatu"
+msgstr[1] "Mezuak %s-ra errebotatu"
 
-#: commands.c:315 recvcmd.c:196
+#: commands.c:315
 #, c-format
 msgid "Bounce messages to %s"
 msgstr "Mezuak %s-ra errebotatu"
 
-#: commands.c:330 recvcmd.c:211
+#: commands.c:330 recvcmd.c:209
+#, fuzzy
 msgid "Message not bounced."
-msgstr "Mezua ez da errebotatu."
+msgid_plural "Messages not bounced."
+msgstr[0] "Mezua ez da errebotatu."
+msgstr[1] "Mezuak ez dira errebotatu."
 
-#: commands.c:330 recvcmd.c:211
+#: commands.c:330
 msgid "Messages not bounced."
 msgstr "Mezuak ez dira errebotatu."
 
-#: commands.c:340 recvcmd.c:230
+#: commands.c:340 recvcmd.c:228
+#, fuzzy
 msgid "Message bounced."
-msgstr "Mezua errebotaturik."
+msgid_plural "Messages bounced."
+msgstr[0] "Mezua errebotaturik."
+msgstr[1] "Mezuak errebotaturik."
 
-#: commands.c:340 recvcmd.c:230
+#: commands.c:340
 msgid "Messages bounced."
 msgstr "Mezuak errebotaturik."
 
@@ -5993,47 +6004,46 @@ msgstr "Zati anitzetako gehigarrien ezabaketa bakarrik onartzen da."
 msgid "You may only bounce message/rfc822 parts."
 msgstr "Bakarrik message/rfc822 motako zatiak errebota ditzakezu."
 
-#: recvcmd.c:232
+#: recvcmd.c:230
+#, fuzzy
 msgid "Error bouncing message!"
-msgstr "Errorea mezua errebotatzerakoan!"
+msgid_plural "Error bouncing messages!"
+msgstr[0] "Errorea mezua errebotatzerakoan!"
+msgstr[1] "Errorea mezuak errebotatzerakoan!"
 
-#: recvcmd.c:232
-msgid "Error bouncing messages!"
-msgstr "Errorea mezuak errebotatzerakoan!"
-
-#: recvcmd.c:414
+#: recvcmd.c:412
 #, c-format
 msgid "Can't open temporary file %s."
 msgstr "Ezin da %s behin-behineko fitxategia ireki."
 
-#: recvcmd.c:443
+#: recvcmd.c:441
 msgid "Forward as attachments?"
 msgstr "Gehigarri bezala berbidali?"
 
-#: recvcmd.c:461
+#: recvcmd.c:459
 msgid "Can't decode all tagged attachments.  MIME-forward the others?"
 msgstr ""
 "Ezin dira markaturiko mezu guztiak deskodifikatu.  Besteak MIME bezala "
 "bidali?"
 
-#: recvcmd.c:581
+#: recvcmd.c:579
 msgid "Forward MIME encapsulated?"
 msgstr "MIME enkapsulaturik berbidali?"
 
-#: recvcmd.c:590 recvcmd.c:858
+#: recvcmd.c:588 recvcmd.c:856
 #, c-format
 msgid "Can't create %s."
 msgstr "Ezin da %s sortu."
 
-#: recvcmd.c:711
+#: recvcmd.c:709
 msgid "Can't find any tagged messages."
 msgstr "Ezin da markaturiko mezurik aurkitu."
 
-#: recvcmd.c:747 send.c:800
+#: recvcmd.c:745 send.c:800
 msgid "No mailing lists found!"
 msgstr "Ez da eposta zerrendarik aurkitu!"
 
-#: recvcmd.c:834
+#: recvcmd.c:832
 msgid "Can't decode all tagged attachments.  MIME-encapsulate the others?"
 msgstr ""
 "Ezin dira markaturiko mezu guztiak deskodifikatu.  MIME enkapsulatu besteak?"
@@ -6410,6 +6420,9 @@ msgstr "Konpilazio aukerak:"
 #: version.c:414
 msgid "Compile options:"
 msgstr "Konpilazio aukerak:"
+
+#~ msgid "Error bouncing messages!"
+#~ msgstr "Errorea mezuak errebotatzerakoan!"
 
 #~ msgid "Purge %d deleted messages?"
 #~ msgstr "Ezabatutako %d mezuak betirako ezabatu?"

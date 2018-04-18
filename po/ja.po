@@ -450,46 +450,57 @@ msgstr "コマンド: "
 msgid "Warning: message contains no From: header"
 msgstr "警告: メッセージに From: ヘッダがない"
 
-#: commands.c:285 recvcmd.c:163
+#: commands.c:285 recvcmd.c:162
+#, fuzzy
 msgid "Bounce message to: "
-msgstr "メッセージの再送先: "
+msgid_plural "Bounce tagged messages to: "
+msgstr[0] "メッセージの再送先: "
+msgstr[1] "タグ付きメッセージの再送先: "
 
-#: commands.c:287 recvcmd.c:165
+#: commands.c:287
 msgid "Bounce tagged messages to: "
 msgstr "タグ付きメッセージの再送先: "
 
-#: commands.c:296 recvcmd.c:174
+#: commands.c:296 recvcmd.c:172
 msgid "Error parsing address!"
 msgstr "アドレス解析エラー!"
 
-#: commands.c:304 recvcmd.c:182
+#: commands.c:304 recvcmd.c:180
 #, c-format
 msgid "Bad IDN: '%s'"
 msgstr "不正な IDN: '%s'"
 
-#: commands.c:315 recvcmd.c:196
-#, c-format
+#: commands.c:315 recvcmd.c:194
+#, fuzzy, c-format
 msgid "Bounce message to %s"
-msgstr "%s へメッセージ再送"
+msgid_plural "Bounce messages to %s"
+msgstr[0] "%s へメッセージ再送"
+msgstr[1] "%s へメッセージ再送"
 
-#: commands.c:315 recvcmd.c:196
+#: commands.c:315
 #, c-format
 msgid "Bounce messages to %s"
 msgstr "%s へメッセージ再送"
 
-#: commands.c:330 recvcmd.c:211
+#: commands.c:330 recvcmd.c:209
+#, fuzzy
 msgid "Message not bounced."
-msgstr "メッセージは再送されなかった。"
+msgid_plural "Messages not bounced."
+msgstr[0] "メッセージは再送されなかった。"
+msgstr[1] "メッセージは再送されなかった。"
 
-#: commands.c:330 recvcmd.c:211
+#: commands.c:330
 msgid "Messages not bounced."
 msgstr "メッセージは再送されなかった。"
 
-#: commands.c:340 recvcmd.c:230
+#: commands.c:340 recvcmd.c:228
+#, fuzzy
 msgid "Message bounced."
-msgstr "メッセージを再送した。"
+msgid_plural "Messages bounced."
+msgstr[0] "メッセージを再送した。"
+msgstr[1] "メッセージを再送した。"
 
-#: commands.c:340 recvcmd.c:230
+#: commands.c:340
 msgid "Messages bounced."
 msgstr "メッセージを再送した。"
 
@@ -5917,45 +5928,44 @@ msgstr "マルチパート添付ファイルの削除のみサポートされて
 msgid "You may only bounce message/rfc822 parts."
 msgstr "message/rfc822 パートのみ再送してもよい。"
 
-#: recvcmd.c:232
+#: recvcmd.c:230
+#, fuzzy
 msgid "Error bouncing message!"
-msgstr "メッセージ再送エラー!"
+msgid_plural "Error bouncing messages!"
+msgstr[0] "メッセージ再送エラー!"
+msgstr[1] "メッセージ再送エラー!"
 
-#: recvcmd.c:232
-msgid "Error bouncing messages!"
-msgstr "メッセージ再送エラー!"
-
-#: recvcmd.c:414
+#: recvcmd.c:412
 #, c-format
 msgid "Can't open temporary file %s."
 msgstr "一時ファイル %s をオープンできない。"
 
-#: recvcmd.c:443
+#: recvcmd.c:441
 msgid "Forward as attachments?"
 msgstr "添付ファイルとして転送?"
 
-#: recvcmd.c:461
+#: recvcmd.c:459
 msgid "Can't decode all tagged attachments.  MIME-forward the others?"
 msgstr "タグ付き添付ファイルすべての復号化は失敗。成功分だけ MIME 転送?"
 
-#: recvcmd.c:581
+#: recvcmd.c:579
 msgid "Forward MIME encapsulated?"
 msgstr "MIME カプセル化して転送?"
 
-#: recvcmd.c:590 recvcmd.c:858
+#: recvcmd.c:588 recvcmd.c:856
 #, c-format
 msgid "Can't create %s."
 msgstr "%s を作成できない。"
 
-#: recvcmd.c:711
+#: recvcmd.c:709
 msgid "Can't find any tagged messages."
 msgstr "タグ付きメッセージが一つも見つからない。"
 
-#: recvcmd.c:747 send.c:800
+#: recvcmd.c:745 send.c:800
 msgid "No mailing lists found!"
 msgstr "メーリングリストが見つからなかった!"
 
-#: recvcmd.c:834
+#: recvcmd.c:832
 msgid "Can't decode all tagged attachments.  MIME-encapsulate the others?"
 msgstr "タグ付き添付ファイルすべての復号化は失敗。成功分だけ MIME カプセル化?"
 
@@ -6340,6 +6350,9 @@ msgstr "コンパイル時オプション:"
 #: version.c:414
 msgid "Compile options:"
 msgstr "コンパイル時オプション:"
+
+#~ msgid "Error bouncing messages!"
+#~ msgstr "メッセージ再送エラー!"
 
 #~ msgid "Purge %d deleted messages?"
 #~ msgstr "削除された %d メッセージを廃棄?"

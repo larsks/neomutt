@@ -456,46 +456,53 @@ msgstr "Perintah: "
 msgid "Warning: message contains no From: header"
 msgstr ""
 
-#: commands.c:285 recvcmd.c:163
+#: commands.c:285 recvcmd.c:162
+#, fuzzy
 msgid "Bounce message to: "
-msgstr "Bounce surat ke: "
+msgid_plural "Bounce tagged messages to: "
+msgstr[0] "Bounce surat ke: "
 
-#: commands.c:287 recvcmd.c:165
+#: commands.c:287
 msgid "Bounce tagged messages to: "
 msgstr "Bounce surat yang telah ditandai ke: "
 
-#: commands.c:296 recvcmd.c:174
+#: commands.c:296 recvcmd.c:172
 msgid "Error parsing address!"
 msgstr "Gagal menguraikan alamat!"
 
-#: commands.c:304 recvcmd.c:182
+#: commands.c:304 recvcmd.c:180
 #, c-format
 msgid "Bad IDN: '%s'"
 msgstr "IDN salah: '%s'"
 
-#: commands.c:315 recvcmd.c:196
-#, c-format
+#: commands.c:315 recvcmd.c:194
+#, fuzzy, c-format
 msgid "Bounce message to %s"
-msgstr "Bounce surat ke %s"
+msgid_plural "Bounce messages to %s"
+msgstr[0] "Bounce surat ke %s"
 
-#: commands.c:315 recvcmd.c:196
+#: commands.c:315
 #, c-format
 msgid "Bounce messages to %s"
 msgstr "Bounce surat-surat ke %s"
 
-#: commands.c:330 recvcmd.c:211
+#: commands.c:330 recvcmd.c:209
+#, fuzzy
 msgid "Message not bounced."
-msgstr "Surat tidak dibounce."
+msgid_plural "Messages not bounced."
+msgstr[0] "Surat tidak dibounce."
 
-#: commands.c:330 recvcmd.c:211
+#: commands.c:330
 msgid "Messages not bounced."
 msgstr "Surat-surat tidak dibounce."
 
-#: commands.c:340 recvcmd.c:230
+#: commands.c:340 recvcmd.c:228
+#, fuzzy
 msgid "Message bounced."
-msgstr "Surat telah dibounce."
+msgid_plural "Messages bounced."
+msgstr[0] "Surat telah dibounce."
 
-#: commands.c:340 recvcmd.c:230
+#: commands.c:340
 msgid "Messages bounced."
 msgstr "Surat-surat telah dibounce."
 
@@ -6000,47 +6007,45 @@ msgstr "Hanya penghapusan lampiran dari surat multi bagian yang didukung."
 msgid "You may only bounce message/rfc822 parts."
 msgstr "Anda hanya dapat menge-bounce bagian-bagian 'message/rfc822'."
 
-#: recvcmd.c:232
+#: recvcmd.c:230
+#, fuzzy
 msgid "Error bouncing message!"
-msgstr "Gagal menge-bounce surat!"
+msgid_plural "Error bouncing messages!"
+msgstr[0] "Gagal menge-bounce surat!"
 
-#: recvcmd.c:232
-msgid "Error bouncing messages!"
-msgstr "Gagal menge-bounce surat-surat!"
-
-#: recvcmd.c:414
+#: recvcmd.c:412
 #, c-format
 msgid "Can't open temporary file %s."
 msgstr "Tidak bisa membuka file sementara %s."
 
-#: recvcmd.c:443
+#: recvcmd.c:441
 msgid "Forward as attachments?"
 msgstr "Forward sebagai lampiran?"
 
-#: recvcmd.c:461
+#: recvcmd.c:459
 msgid "Can't decode all tagged attachments.  MIME-forward the others?"
 msgstr ""
 "Tidak dapat menguraikan semua lampiran yang ditandai. MIME-forward yg "
 "lainnya?"
 
-#: recvcmd.c:581
+#: recvcmd.c:579
 msgid "Forward MIME encapsulated?"
 msgstr "Forward dalam MIME?"
 
-#: recvcmd.c:590 recvcmd.c:858
+#: recvcmd.c:588 recvcmd.c:856
 #, c-format
 msgid "Can't create %s."
 msgstr "Tidak bisa membuat %s."
 
-#: recvcmd.c:711
+#: recvcmd.c:709
 msgid "Can't find any tagged messages."
 msgstr "Tidak dapat menemukan surat yang ditandai."
 
-#: recvcmd.c:747 send.c:800
+#: recvcmd.c:745 send.c:800
 msgid "No mailing lists found!"
 msgstr "Tidak ada mailing list yang ditemukan!"
 
-#: recvcmd.c:834
+#: recvcmd.c:832
 msgid "Can't decode all tagged attachments.  MIME-encapsulate the others?"
 msgstr ""
 "Tidak dapat menguraikan semua lampiran yang ditandai. Ubah yg lainnya ke "
@@ -6423,6 +6428,9 @@ msgstr "Opsi2 saat kompilasi:"
 #: version.c:414
 msgid "Compile options:"
 msgstr "Opsi2 saat kompilasi:"
+
+#~ msgid "Error bouncing messages!"
+#~ msgstr "Gagal menge-bounce surat-surat!"
 
 #~ msgid "Purge %d deleted messages?"
 #~ msgstr "Benar-benar hapus %d surat yang ditandai akan dihapus?"

@@ -451,46 +451,57 @@ msgstr "Kommando: "
 msgid "Warning: message contains no From: header"
 msgstr ""
 
-#: commands.c:285 recvcmd.c:163
+#: commands.c:285 recvcmd.c:162
+#, fuzzy
 msgid "Bounce message to: "
-msgstr "Återsänd meddelandet till: "
+msgid_plural "Bounce tagged messages to: "
+msgstr[0] "Återsänd meddelandet till: "
+msgstr[1] "Återsänd märkta meddelanden till: "
 
-#: commands.c:287 recvcmd.c:165
+#: commands.c:287
 msgid "Bounce tagged messages to: "
 msgstr "Återsänd märkta meddelanden till: "
 
-#: commands.c:296 recvcmd.c:174
+#: commands.c:296 recvcmd.c:172
 msgid "Error parsing address!"
 msgstr "Fel vid tolkning av adress!"
 
-#: commands.c:304 recvcmd.c:182
+#: commands.c:304 recvcmd.c:180
 #, c-format
 msgid "Bad IDN: '%s'"
 msgstr "Felaktigt IDN: \"%s\""
 
-#: commands.c:315 recvcmd.c:196
-#, c-format
+#: commands.c:315 recvcmd.c:194
+#, fuzzy, c-format
 msgid "Bounce message to %s"
-msgstr "Återsänd meddelande till %s"
+msgid_plural "Bounce messages to %s"
+msgstr[0] "Återsänd meddelande till %s"
+msgstr[1] "Återsänd meddelanden till %s"
 
-#: commands.c:315 recvcmd.c:196
+#: commands.c:315
 #, c-format
 msgid "Bounce messages to %s"
 msgstr "Återsänd meddelanden till %s"
 
-#: commands.c:330 recvcmd.c:211
+#: commands.c:330 recvcmd.c:209
+#, fuzzy
 msgid "Message not bounced."
-msgstr "Meddelande återsändes inte."
+msgid_plural "Messages not bounced."
+msgstr[0] "Meddelande återsändes inte."
+msgstr[1] "Meddelanden återsändes inte."
 
-#: commands.c:330 recvcmd.c:211
+#: commands.c:330
 msgid "Messages not bounced."
 msgstr "Meddelanden återsändes inte."
 
-#: commands.c:340 recvcmd.c:230
+#: commands.c:340 recvcmd.c:228
+#, fuzzy
 msgid "Message bounced."
-msgstr "Meddelande återsänt."
+msgid_plural "Messages bounced."
+msgstr[0] "Meddelande återsänt."
+msgstr[1] "Meddelanden återsända."
 
-#: commands.c:340 recvcmd.c:230
+#: commands.c:340
 msgid "Messages bounced."
 msgstr "Meddelanden återsända."
 
@@ -5996,45 +6007,44 @@ msgstr "Endast radering av \"multipart\"-bilagor stöds."
 msgid "You may only bounce message/rfc822 parts."
 msgstr "Du kan bara återsända \"message/rfc822\"-delar."
 
-#: recvcmd.c:232
+#: recvcmd.c:230
+#, fuzzy
 msgid "Error bouncing message!"
-msgstr "Fel vid återsändning av meddelande!"
+msgid_plural "Error bouncing messages!"
+msgstr[0] "Fel vid återsändning av meddelande!"
+msgstr[1] "Fel vid återsändning av meddelanden!"
 
-#: recvcmd.c:232
-msgid "Error bouncing messages!"
-msgstr "Fel vid återsändning av meddelanden!"
-
-#: recvcmd.c:414
+#: recvcmd.c:412
 #, c-format
 msgid "Can't open temporary file %s."
 msgstr "Kan inte öppna tillfällig fil %s."
 
-#: recvcmd.c:443
+#: recvcmd.c:441
 msgid "Forward as attachments?"
 msgstr "Vidarebefordra som bilagor?"
 
-#: recvcmd.c:461
+#: recvcmd.c:459
 msgid "Can't decode all tagged attachments.  MIME-forward the others?"
 msgstr "Kan inte avkoda alla märkta bilagor. MIME-vidarebefordra de övriga?"
 
-#: recvcmd.c:581
+#: recvcmd.c:579
 msgid "Forward MIME encapsulated?"
 msgstr "Vidarebefordra MIME inkapslat?"
 
-#: recvcmd.c:590 recvcmd.c:858
+#: recvcmd.c:588 recvcmd.c:856
 #, c-format
 msgid "Can't create %s."
 msgstr "Kan inte skapa %s."
 
-#: recvcmd.c:711
+#: recvcmd.c:709
 msgid "Can't find any tagged messages."
 msgstr "Kan inte hitta några märkta meddelanden."
 
-#: recvcmd.c:747 send.c:800
+#: recvcmd.c:745 send.c:800
 msgid "No mailing lists found!"
 msgstr "Inga sändlistor hittades!"
 
-#: recvcmd.c:834
+#: recvcmd.c:832
 msgid "Can't decode all tagged attachments.  MIME-encapsulate the others?"
 msgstr "Kan inte avkoda alla märkta bilagor. MIME-inkapsla de övriga?"
 
@@ -6432,6 +6442,9 @@ msgstr "Kompileringsval:"
 #: version.c:414
 msgid "Compile options:"
 msgstr "Kompileringsval:"
+
+#~ msgid "Error bouncing messages!"
+#~ msgstr "Fel vid återsändning av meddelanden!"
 
 #~ msgid "Purge %d deleted messages?"
 #~ msgstr "Rensa %d raderade meddelanden?"

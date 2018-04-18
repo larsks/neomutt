@@ -453,46 +453,61 @@ msgstr "Příkaz: "
 msgid "Warning: message contains no From: header"
 msgstr "Pozor: zpráva neobsahuje hlavičku From:"
 
-#: commands.c:285 recvcmd.c:163
+#: commands.c:285 recvcmd.c:162
+#, fuzzy
 msgid "Bounce message to: "
-msgstr "Zaslat kopii zprávy na: "
+msgid_plural "Bounce tagged messages to: "
+msgstr[0] "Zaslat kopii zprávy na: "
+msgstr[1] "Zaslat kopii označených zpráv na: "
+msgstr[2] "Zaslat kopii označených zpráv na: "
 
-#: commands.c:287 recvcmd.c:165
+#: commands.c:287
 msgid "Bounce tagged messages to: "
 msgstr "Zaslat kopii označených zpráv na: "
 
-#: commands.c:296 recvcmd.c:174
+#: commands.c:296 recvcmd.c:172
 msgid "Error parsing address!"
 msgstr "Chyba při zpracování adresy!"
 
-#: commands.c:304 recvcmd.c:182
+#: commands.c:304 recvcmd.c:180
 #, c-format
 msgid "Bad IDN: '%s'"
 msgstr "Chybné IDN: „%s“"
 
-#: commands.c:315 recvcmd.c:196
-#, c-format
+#: commands.c:315 recvcmd.c:194
+#, fuzzy, c-format
 msgid "Bounce message to %s"
-msgstr "Zaslat kopii zprávy na %s"
+msgid_plural "Bounce messages to %s"
+msgstr[0] "Zaslat kopii zprávy na %s"
+msgstr[1] "Zaslat kopii zpráv na %s"
+msgstr[2] "Zaslat kopii zpráv na %s"
 
-#: commands.c:315 recvcmd.c:196
+#: commands.c:315
 #, c-format
 msgid "Bounce messages to %s"
 msgstr "Zaslat kopii zpráv na %s"
 
-#: commands.c:330 recvcmd.c:211
+#: commands.c:330 recvcmd.c:209
+#, fuzzy
 msgid "Message not bounced."
-msgstr "Kopie zprávy nebyla odeslána."
+msgid_plural "Messages not bounced."
+msgstr[0] "Kopie zprávy nebyla odeslána."
+msgstr[1] "Kopie zpráv nebyly odeslány."
+msgstr[2] "Kopie zpráv nebyly odeslány."
 
-#: commands.c:330 recvcmd.c:211
+#: commands.c:330
 msgid "Messages not bounced."
 msgstr "Kopie zpráv nebyly odeslány."
 
-#: commands.c:340 recvcmd.c:230
+#: commands.c:340 recvcmd.c:228
+#, fuzzy
 msgid "Message bounced."
-msgstr "Kopie zprávy byla odeslána."
+msgid_plural "Messages bounced."
+msgstr[0] "Kopie zprávy byla odeslána."
+msgstr[1] "Kopie zpráv byly odeslány."
+msgstr[2] "Kopie zpráv byly odeslány."
 
-#: commands.c:340 recvcmd.c:230
+#: commands.c:340
 msgid "Messages bounced."
 msgstr "Kopie zpráv byly odeslány."
 
@@ -5870,45 +5885,45 @@ msgstr "Podporováno je pouze mazání příloh o více částech."
 msgid "You may only bounce message/rfc822 parts."
 msgstr "Přeposílat v nezměněné podobě lze pouze části typu „message/rfc822“."
 
-#: recvcmd.c:232
+#: recvcmd.c:230
+#, fuzzy
 msgid "Error bouncing message!"
-msgstr "Chyba při přeposílání zprávy!"
+msgid_plural "Error bouncing messages!"
+msgstr[0] "Chyba při přeposílání zprávy!"
+msgstr[1] "Chyba při přeposílání zpráv!"
+msgstr[2] "Chyba při přeposílání zpráv!"
 
-#: recvcmd.c:232
-msgid "Error bouncing messages!"
-msgstr "Chyba při přeposílání zpráv!"
-
-#: recvcmd.c:414
+#: recvcmd.c:412
 #, c-format
 msgid "Can't open temporary file %s."
 msgstr "Dočasný soubor %s nelze otevřít."
 
-#: recvcmd.c:443
+#: recvcmd.c:441
 msgid "Forward as attachments?"
 msgstr "Přeposlat jako přílohy?"
 
-#: recvcmd.c:461
+#: recvcmd.c:459
 msgid "Can't decode all tagged attachments.  MIME-forward the others?"
 msgstr "Všechny označené přílohy nelze dekódovat. Přeposlat je v MIME formátu?"
 
-#: recvcmd.c:581
+#: recvcmd.c:579
 msgid "Forward MIME encapsulated?"
 msgstr "Přeposlat zprávu zapouzdřenou do MIME formátu?"
 
-#: recvcmd.c:590 recvcmd.c:858
+#: recvcmd.c:588 recvcmd.c:856
 #, c-format
 msgid "Can't create %s."
 msgstr "Soubor %s nelze vytvořit."
 
-#: recvcmd.c:711
+#: recvcmd.c:709
 msgid "Can't find any tagged messages."
 msgstr "Žádná zpráva není označena."
 
-#: recvcmd.c:747 send.c:800
+#: recvcmd.c:745 send.c:800
 msgid "No mailing lists found!"
 msgstr "Žádné poštovní konference nebyly nalezeny!"
 
-#: recvcmd.c:834
+#: recvcmd.c:832
 msgid "Can't decode all tagged attachments.  MIME-encapsulate the others?"
 msgstr ""
 "Všechny označené přílohy nelze dekódovat. Zapouzdřit je do MIME formátu?"
@@ -6299,6 +6314,9 @@ msgstr "Výchzí volby:"
 #: version.c:414
 msgid "Compile options:"
 msgstr "Přeloženo s volbami:"
+
+#~ msgid "Error bouncing messages!"
+#~ msgstr "Chyba při přeposílání zpráv!"
 
 #~ msgid "Purge %d deleted messages?"
 #~ msgstr "Zahodit smazané zprávy (%d)?"

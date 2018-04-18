@@ -506,50 +506,61 @@ msgstr "Ordre: "
 msgid "Warning: message contains no From: header"
 msgstr "Avís: El missatge no té capçalera «From:»."
 
-#: commands.c:285 recvcmd.c:163
+#: commands.c:285 recvcmd.c:162
+#, fuzzy
 msgid "Bounce message to: "
-msgstr "Redirigeix el missatge a: "
+msgid_plural "Bounce tagged messages to: "
+msgstr[0] "Redirigeix el missatge a: "
+msgstr[1] "Redirigeix els missatges marcats a: "
 
-#: commands.c:287 recvcmd.c:165
+#: commands.c:287
 msgid "Bounce tagged messages to: "
 msgstr "Redirigeix els missatges marcats a: "
 
-#: commands.c:296 recvcmd.c:174
+#: commands.c:296 recvcmd.c:172
 msgid "Error parsing address!"
 msgstr "Error en interpretar l’adreça."
 
-#: commands.c:304 recvcmd.c:182
+#: commands.c:304 recvcmd.c:180
 #, c-format
 msgid "Bad IDN: '%s'"
 msgstr "L’IDN no és vàlid: %s"
 
 # ivb (2001/12/02)
 # ivb  El programa posa l’interrogant.
-#: commands.c:315 recvcmd.c:196
-#, c-format
+#: commands.c:315 recvcmd.c:194
+#, fuzzy, c-format
 msgid "Bounce message to %s"
-msgstr "Voleu redirigir el missatge a «%s»"
+msgid_plural "Bounce messages to %s"
+msgstr[0] "Voleu redirigir el missatge a «%s»"
+msgstr[1] "Voleu redirigir els missatges a «%s»"
 
 # ivb (2001/12/02)
 # ivb  El programa posa l’interrogant.
-#: commands.c:315 recvcmd.c:196
+#: commands.c:315
 #, c-format
 msgid "Bounce messages to %s"
 msgstr "Voleu redirigir els missatges a «%s»"
 
-#: commands.c:330 recvcmd.c:211
+#: commands.c:330 recvcmd.c:209
+#, fuzzy
 msgid "Message not bounced."
-msgstr "No s’ha redirigit el missatge."
+msgid_plural "Messages not bounced."
+msgstr[0] "No s’ha redirigit el missatge."
+msgstr[1] "No s’han redirigit els missatges."
 
-#: commands.c:330 recvcmd.c:211
+#: commands.c:330
 msgid "Messages not bounced."
 msgstr "No s’han redirigit els missatges."
 
-#: commands.c:340 recvcmd.c:230
+#: commands.c:340 recvcmd.c:228
+#, fuzzy
 msgid "Message bounced."
-msgstr "S’ha redirigit el missatge."
+msgid_plural "Messages bounced."
+msgstr[0] "S’ha redirigit el missatge."
+msgstr[1] "S’han redirigit els missatges."
 
-#: commands.c:340 recvcmd.c:230
+#: commands.c:340
 msgid "Messages bounced."
 msgstr "S’han redirigit els missatges."
 
@@ -6253,51 +6264,50 @@ msgstr "Només es poden esborrar les adjuncions dels missatges «multipart»."
 msgid "You may only bounce message/rfc822 parts."
 msgstr "Només es poden redirigir parts de tipus «message/rfc822»."
 
-#: recvcmd.c:232
+#: recvcmd.c:230
+#, fuzzy
 msgid "Error bouncing message!"
-msgstr "Error en redirigir el missatge."
+msgid_plural "Error bouncing messages!"
+msgstr[0] "Error en redirigir el missatge."
+msgstr[1] "Error en redirigir els missatges."
 
-#: recvcmd.c:232
-msgid "Error bouncing messages!"
-msgstr "Error en redirigir els missatges."
-
-#: recvcmd.c:414
+#: recvcmd.c:412
 #, c-format
 msgid "Can't open temporary file %s."
 msgstr "No s’ha pogut obrir el fitxer temporal «%s»."
 
-#: recvcmd.c:443
+#: recvcmd.c:441
 msgid "Forward as attachments?"
 msgstr "Voleu reenviar com a adjuncions?"
 
 # ivb (2001/12/08)
 # ivb  ABREUJAT!
 # ivb  No s’han pogut descodificar totes les adjuncions marcades.  Voleu reenviar les altres emprant MIME?
-#: recvcmd.c:461
+#: recvcmd.c:459
 msgid "Can't decode all tagged attachments.  MIME-forward the others?"
 msgstr "Reenviar amb MIME les adjuncions marcades no descodificables?"
 
-#: recvcmd.c:581
+#: recvcmd.c:579
 msgid "Forward MIME encapsulated?"
 msgstr "Voleu reenviar amb encapsulament MIME?"
 
-#: recvcmd.c:590 recvcmd.c:858
+#: recvcmd.c:588 recvcmd.c:856
 #, c-format
 msgid "Can't create %s."
 msgstr "No s’ha pogut crear «%s»."
 
-#: recvcmd.c:711
+#: recvcmd.c:709
 msgid "Can't find any tagged messages."
 msgstr "No s’ha trobat cap missatge marcat."
 
-#: recvcmd.c:747 send.c:800
+#: recvcmd.c:745 send.c:800
 msgid "No mailing lists found!"
 msgstr "No s’ha trobat cap llista de correu."
 
 # ivb (2001/12/08)
 # ivb  ABREUJAT!
 # ivb  No s’han pogut descodificar totes les adjuncions marcades.  Voleu encapsular la resta emprant MIME?
-#: recvcmd.c:834
+#: recvcmd.c:832
 msgid "Can't decode all tagged attachments.  MIME-encapsulate the others?"
 msgstr "Encapsular amb MIME les adjuncions marcades no descodificables?"
 
@@ -6706,6 +6716,9 @@ msgstr "Opcions de compilació:"
 #: version.c:414
 msgid "Compile options:"
 msgstr "Opcions de compilació:"
+
+#~ msgid "Error bouncing messages!"
+#~ msgstr "Error en redirigir els missatges."
 
 #~ msgid "Purge %d deleted messages?"
 #~ msgstr "Voleu eliminar %d missatges esborrats?"

@@ -452,46 +452,57 @@ msgstr "Commando: "
 msgid "Warning: message contains no From: header"
 msgstr "Waarschuwing: bericht bevat geen 'From:'-kopregel"
 
-#: commands.c:285 recvcmd.c:163
+#: commands.c:285 recvcmd.c:162
+#, fuzzy
 msgid "Bounce message to: "
-msgstr "Bericht doorsturen naar: "
+msgid_plural "Bounce tagged messages to: "
+msgstr[0] "Bericht doorsturen naar: "
+msgstr[1] "Gemarkeerde berichten doorsturen naar: "
 
-#: commands.c:287 recvcmd.c:165
+#: commands.c:287
 msgid "Bounce tagged messages to: "
 msgstr "Gemarkeerde berichten doorsturen naar: "
 
-#: commands.c:296 recvcmd.c:174
+#: commands.c:296 recvcmd.c:172
 msgid "Error parsing address!"
 msgstr "Ongeldig adres!"
 
-#: commands.c:304 recvcmd.c:182
+#: commands.c:304 recvcmd.c:180
 #, c-format
 msgid "Bad IDN: '%s'"
 msgstr "Ongeldig IDN: '%s'"
 
-#: commands.c:315 recvcmd.c:196
-#, c-format
+#: commands.c:315 recvcmd.c:194
+#, fuzzy, c-format
 msgid "Bounce message to %s"
-msgstr "Bericht doorsturen aan %s"
+msgid_plural "Bounce messages to %s"
+msgstr[0] "Bericht doorsturen aan %s"
+msgstr[1] "Berichten doorsturen aan %s"
 
-#: commands.c:315 recvcmd.c:196
+#: commands.c:315
 #, c-format
 msgid "Bounce messages to %s"
 msgstr "Berichten doorsturen aan %s"
 
-#: commands.c:330 recvcmd.c:211
+#: commands.c:330 recvcmd.c:209
+#, fuzzy
 msgid "Message not bounced."
-msgstr "Bericht niet doorgestuurd."
+msgid_plural "Messages not bounced."
+msgstr[0] "Bericht niet doorgestuurd."
+msgstr[1] "Berichten niet doorgestuurd."
 
-#: commands.c:330 recvcmd.c:211
+#: commands.c:330
 msgid "Messages not bounced."
 msgstr "Berichten niet doorgestuurd."
 
-#: commands.c:340 recvcmd.c:230
+#: commands.c:340 recvcmd.c:228
+#, fuzzy
 msgid "Message bounced."
-msgstr "Bericht doorgestuurd."
+msgid_plural "Messages bounced."
+msgstr[0] "Bericht doorgestuurd."
+msgstr[1] "Berichten doorgestuurd."
 
-#: commands.c:340 recvcmd.c:230
+#: commands.c:340
 msgid "Messages bounced."
 msgstr "Berichten doorgestuurd."
 
@@ -5942,45 +5953,44 @@ msgstr "Kan alleen multipart-bijlagen wissen."
 msgid "You may only bounce message/rfc822 parts."
 msgstr "U kunt alleen message/rfc882-gedeelten doorsturen!"
 
-#: recvcmd.c:232
+#: recvcmd.c:230
+#, fuzzy
 msgid "Error bouncing message!"
-msgstr "Er is een fout opgetreden tijdens het doorsturen van het bericht!"
+msgid_plural "Error bouncing messages!"
+msgstr[0] "Er is een fout opgetreden tijdens het doorsturen van het bericht!"
+msgstr[1] "Er is een fout opgetreden tijdens het doorsturen van de berichten!"
 
-#: recvcmd.c:232
-msgid "Error bouncing messages!"
-msgstr "Er is een fout opgetreden tijdens het doorsturen van de berichten!"
-
-#: recvcmd.c:414
+#: recvcmd.c:412
 #, c-format
 msgid "Can't open temporary file %s."
 msgstr "Kan tijdelijk bestand %s niet aanmaken."
 
-#: recvcmd.c:443
+#: recvcmd.c:441
 msgid "Forward as attachments?"
 msgstr "Doorsturen als bijlagen?"
 
-#: recvcmd.c:461
+#: recvcmd.c:459
 msgid "Can't decode all tagged attachments.  MIME-forward the others?"
 msgstr "Kan niet alle bijlagen decoderen. De rest doorsturen met MIME?"
 
-#: recvcmd.c:581
+#: recvcmd.c:579
 msgid "Forward MIME encapsulated?"
 msgstr "Doorsturen als MIME-bijlage?"
 
-#: recvcmd.c:590 recvcmd.c:858
+#: recvcmd.c:588 recvcmd.c:856
 #, c-format
 msgid "Can't create %s."
 msgstr "Kan bestand %s niet aanmaken."
 
-#: recvcmd.c:711
+#: recvcmd.c:709
 msgid "Can't find any tagged messages."
 msgstr "Kan geen geselecteerde berichten vinden."
 
-#: recvcmd.c:747 send.c:800
+#: recvcmd.c:745 send.c:800
 msgid "No mailing lists found!"
 msgstr "Geen mailing-lists gevonden!"
 
-#: recvcmd.c:834
+#: recvcmd.c:832
 msgid "Can't decode all tagged attachments.  MIME-encapsulate the others?"
 msgstr "Kan niet alle bijlagen decoderen. De rest inpakken met MIME?"
 
@@ -6371,6 +6381,9 @@ msgstr "Opties tijdens compileren:"
 #: version.c:414
 msgid "Compile options:"
 msgstr "Opties tijdens compileren:"
+
+#~ msgid "Error bouncing messages!"
+#~ msgstr "Er is een fout opgetreden tijdens het doorsturen van de berichten!"
 
 #~ msgid "Purge %d deleted messages?"
 #~ msgstr "%d als gewist gemarkeerde berichten verwijderen?"
