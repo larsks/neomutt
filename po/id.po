@@ -42,7 +42,7 @@ msgstr "Pilih"
 #: addrbook.c:46 browser.c:75 browser.c:87 compose.c:160 compose.c:172
 #: conn/ssl.c:1042 conn/ssl_gnutls.c:793 curs_main.c:748 curs_main.c:761
 #: history.c:106 ncrypt/crypt_gpgme.c:4217 ncrypt/pgpkey.c:547
-#: ncrypt/smime.c:428 pager.c:2141 postpone.c:59 query.c:72 recvattach.c:70
+#: ncrypt/smime.c:483 pager.c:2141 postpone.c:59 query.c:72 recvattach.c:70
 msgid "Help"
 msgstr "Bantuan"
 
@@ -686,8 +686,8 @@ msgstr ""
 #. * Since it shares the row with "Encrypt with:", it should not be longer
 #. * than 15-20 character cells.
 #.
-#: compose.c:138 ncrypt/crypt_gpgme.c:4941 ncrypt/pgp.c:1786
-#: ncrypt/smime.c:2075
+#: compose.c:138 ncrypt/crypt_gpgme.c:4940 ncrypt/pgp.c:1786
+#: ncrypt/smime.c:2130
 msgid "Sign as: "
 msgstr "Tandatangani sebagai: "
 
@@ -1156,7 +1156,7 @@ msgid "(r)eject, accept (o)nce"
 msgstr "(t)olak, terima (s)ekali"
 
 #: conn/ssl.c:1040 conn/ssl_gnutls.c:791 ncrypt/crypt_gpgme.c:4211
-#: ncrypt/pgpkey.c:541 ncrypt/smime.c:424
+#: ncrypt/pgpkey.c:541 ncrypt/smime.c:479
 msgid "Exit  "
 msgstr "Keluar  "
 
@@ -1343,7 +1343,7 @@ msgstr "Tidak ada surat."
 msgid "Mailbox is read-only."
 msgstr "Kotak surat hanya bisa dibaca."
 
-#: curs_main.c:79 pager.c:75 recvattach.c:1141
+#: curs_main.c:79 pager.c:75 recvattach.c:1145
 msgid "Function not permitted in attach-message mode."
 msgstr "Fungsi ini tidak diperbolehkan pada mode pelampiran-surat"
 
@@ -1776,7 +1776,7 @@ msgstr "Surat telah dibounce."
 msgid "No message ID to macro."
 msgstr "Tidak ada surat di kotak tersebut."
 
-#: curs_main.c:3123 pager.c:2961 recvattach.c:1384
+#: curs_main.c:3123 pager.c:2961 recvattach.c:1388
 msgid "Reply by mail as poster prefers?"
 msgstr ""
 
@@ -2298,7 +2298,7 @@ msgstr "Berhenti langganan dari %s"
 msgid "Copying %d messages to %s..."
 msgstr "Menyalin %d surat ke %s..."
 
-#: imap/imap.c:1947 imap/imap.c:2240 imap/message.c:1489 muttlib.c:1346
+#: imap/imap.c:1947 imap/imap.c:2240 imap/message.c:1489 muttlib.c:1353
 #, c-format
 msgid "Create %s?"
 msgstr "Buat %s?"
@@ -3028,49 +3028,52 @@ msgstr ""
 #. L10N:
 #. Means "The path you specified as the destination file is a directory."
 #. See the msgid "Save to file: " (alias.c, recvattach.c)
-#: muttlib.c:648
+#.
+#. These three letters correspond to the choices in the string.
+#.
+#: muttlib.c:651
 msgid "File is a directory, save under it? [(y)es, (n)o, (a)ll]"
 msgstr ""
 "File adalah sebuah direktori, simpan di dalamnya? [(y)a, (t)idak, (s)emua]"
 
-#: muttlib.c:648
+#: muttlib.c:651
 msgid "yna"
 msgstr "yts"
 
 #. L10N:
 #. Means "The path you specified as the destination file is a directory."
 #. See the msgid "Save to file: " (alias.c, recvattach.c)
-#: muttlib.c:667
+#: muttlib.c:670
 msgid "File is a directory, save under it?"
 msgstr "File adalah sebuah direktori, simpan di dalamnya?"
 
-#: muttlib.c:672
+#: muttlib.c:675
 msgid "File under directory: "
 msgstr "File di dalam direktori: "
 
-#: muttlib.c:682
+#: muttlib.c:689
 msgid "File exists, (o)verwrite, (a)ppend, or (c)ancel?"
 msgstr "File sudah ada, (t)impa, t(a)mbahkan, atau (b)atal?"
 
-#: muttlib.c:682
+#: muttlib.c:689
 msgid "oac"
 msgstr "tab"
 
-#: muttlib.c:1302
+#: muttlib.c:1309
 msgid "Can't save message to POP mailbox."
 msgstr "Tidak bisa menyimpan surat ke kotak surat POP"
 
-#: muttlib.c:1311
+#: muttlib.c:1318
 #, c-format
 msgid "Append messages to %s?"
 msgstr "Tambahkan surat-surat ke %s?"
 
-#: muttlib.c:1323
+#: muttlib.c:1330
 #, fuzzy
 msgid "Can't save message to news server."
 msgstr "Tidak bisa menyunting surat di server POP"
 
-#: muttlib.c:1332
+#: muttlib.c:1339
 #, c-format
 msgid "%s is not a mailbox!"
 msgstr "%s bukan kotak surat!"
@@ -3822,7 +3825,7 @@ msgstr "gpgme_op_keylist_next gagal: %s"
 msgid "All matching keys are marked expired/revoked."
 msgstr "Semua kunci yang cocok ditandai kadaluwarsa/dicabut."
 
-#: ncrypt/crypt_gpgme.c:4213 ncrypt/pgpkey.c:543 ncrypt/smime.c:426
+#: ncrypt/crypt_gpgme.c:4213 ncrypt/pgpkey.c:543 ncrypt/smime.c:481
 msgid "Select  "
 msgstr "Pilih  "
 
@@ -3866,54 +3869,55 @@ msgstr "%s \"%s\"."
 msgid "This key can't be used: expired/disabled/revoked."
 msgstr "Kunci ini tidak dapat digunakan: kadaluwarsa/disabled/dicabut."
 
-#: ncrypt/crypt_gpgme.c:4288 ncrypt/pgpkey.c:640 ncrypt/smime.c:456
-msgid "ID is expired/disabled/revoked."
-msgstr "ID telah kadaluwarsa/disabled/dicabut."
+#: ncrypt/crypt_gpgme.c:4288 ncrypt/pgpkey.c:640 ncrypt/smime.c:511
+#, fuzzy
+msgid "ID is expired/disabled/revoked. Do you really want to use the key?"
+msgstr ""
+"ID telah kadaluwarsa/disabled/dicabut. Anda yakin mau menggunakan kunci tsb?"
 
 #: ncrypt/crypt_gpgme.c:4295 ncrypt/pgpkey.c:648
-msgid "ID is not valid."
-msgstr "ID tidak valid."
+#, fuzzy
+msgid "ID is not valid. Do you really want to use the key?"
+msgstr "ID tidak valid. Anda yakin mau menggunakan kunci tsb?"
 
 #: ncrypt/crypt_gpgme.c:4298 ncrypt/pgpkey.c:651
-msgid "ID is only marginally valid."
-msgstr "ID hanya valid secara marginal."
+#, fuzzy
+msgid "ID is only marginally valid. Do you really want to use the key?"
+msgstr "ID hanya valid secara marginal. Anda yakin mau menggunakan kunci tsb?"
 
-#: ncrypt/crypt_gpgme.c:4305 ncrypt/pgpkey.c:645 ncrypt/smime.c:459
-msgid "ID has undefined validity."
-msgstr "Validitas ID tidak terdifinisikan."
+#: ncrypt/crypt_gpgme.c:4305 ncrypt/pgpkey.c:645 ncrypt/smime.c:514
+#, fuzzy
+msgid "ID has undefined validity. Do you really want to use the key?"
+msgstr ""
+"Validitas ID tidak terdifinisikan. Anda yakin mau menggunakan kunci tsb?"
 
-#: ncrypt/crypt_gpgme.c:4311 ncrypt/pgpkey.c:655 ncrypt/smime.c:466
-#, c-format
-msgid "%s Do you really want to use the key?"
-msgstr "%s Anda yakin mau menggunakan kunci tsb?"
-
-#: ncrypt/crypt_gpgme.c:4365 ncrypt/crypt_gpgme.c:4474 ncrypt/pgpkey.c:867
+#: ncrypt/crypt_gpgme.c:4364 ncrypt/crypt_gpgme.c:4473 ncrypt/pgpkey.c:867
 #: ncrypt/pgpkey.c:990
 #, c-format
 msgid "Looking for keys matching \"%s\"..."
 msgstr "Mencari kunci yg cocok dengan \"%s\"..."
 
-#: ncrypt/crypt_gpgme.c:4588 ncrypt/pgpkey.c:728 ncrypt/smime.c:760
+#: ncrypt/crypt_gpgme.c:4587 ncrypt/pgpkey.c:728 ncrypt/smime.c:815
 #, c-format
 msgid "No matching keys found for \"%s\""
 msgstr ""
 
-#: ncrypt/crypt_gpgme.c:4639 ncrypt/pgp.c:1263
+#: ncrypt/crypt_gpgme.c:4638 ncrypt/pgp.c:1263
 #, c-format
 msgid "Use keyID = \"%s\" for %s?"
 msgstr "Gunakan keyID = '%s' untuk %s?"
 
-#: ncrypt/crypt_gpgme.c:4690 ncrypt/pgp.c:1312 ncrypt/smime.c:779
-#: ncrypt/smime.c:887
+#: ncrypt/crypt_gpgme.c:4689 ncrypt/pgp.c:1312 ncrypt/smime.c:834
+#: ncrypt/smime.c:942
 #, c-format
 msgid "Enter keyID for %s: "
 msgstr "Masukkan keyID untuk %s: "
 
-#: ncrypt/crypt_gpgme.c:4750 ncrypt/pgpkey.c:747
+#: ncrypt/crypt_gpgme.c:4749 ncrypt/pgpkey.c:747
 msgid "Please enter the key ID: "
 msgstr "Masukkan key ID: "
 
-#: ncrypt/crypt_gpgme.c:4762
+#: ncrypt/crypt_gpgme.c:4761
 #, fuzzy, c-format
 msgid "Error exporting key: %s\n"
 msgstr "Error saat mengambil informasi tentang kunci: "
@@ -3922,20 +3926,20 @@ msgstr "Error saat mengambil informasi tentang kunci: "
 #. MIME description for exported (attached) keys.
 #. You can translate this entry to a non-ASCII string (it will be encoded),
 #. but it may be safer to keep it untranslated.
-#: ncrypt/crypt_gpgme.c:4781
+#: ncrypt/crypt_gpgme.c:4780
 #, fuzzy, c-format
 msgid "PGP Key 0x%s."
 msgstr "Kunci PGP %s."
 
-#: ncrypt/crypt_gpgme.c:4824
+#: ncrypt/crypt_gpgme.c:4823
 msgid "GPGME: OpenPGP protocol not available"
 msgstr ""
 
-#: ncrypt/crypt_gpgme.c:4832
+#: ncrypt/crypt_gpgme.c:4831
 msgid "GPGME: CMS protocol not available"
 msgstr ""
 
-#: ncrypt/crypt_gpgme.c:4870
+#: ncrypt/crypt_gpgme.c:4869
 #, fuzzy
 msgid "S/MIME (s)ign, sign (a)s, (p)gp, (c)lear, or (o)ppenc mode off? "
 msgstr ""
@@ -3943,11 +3947,11 @@ msgstr ""
 "(b)ersih? "
 
 #. L10N: S/MIME options (opportunistic encryption is on)
-#: ncrypt/crypt_gpgme.c:4872
+#: ncrypt/crypt_gpgme.c:4871
 msgid "sapco"
 msgstr "etsdpb"
 
-#: ncrypt/crypt_gpgme.c:4879
+#: ncrypt/crypt_gpgme.c:4878
 #, fuzzy
 msgid "PGP (s)ign, sign (a)s, s/(m)ime, (c)lear, or (o)ppenc mode off? "
 msgstr ""
@@ -3955,12 +3959,12 @@ msgstr ""
 "(b)ersih? "
 
 #. L10N: PGP options (opportunistic encryption is on)
-#: ncrypt/crypt_gpgme.c:4881
+#: ncrypt/crypt_gpgme.c:4880
 msgid "samco"
 msgstr "etsdmb"
 
 #. L10N: S/MIME options (opportunistic encryption is off)
-#: ncrypt/crypt_gpgme.c:4894
+#: ncrypt/crypt_gpgme.c:4893
 #, fuzzy
 msgid ""
 "S/MIME (e)ncrypt, (s)ign, sign (a)s, (b)oth, (p)gp, (c)lear, or (o)ppenc "
@@ -3970,13 +3974,13 @@ msgstr ""
 "(b)ersih? "
 
 #. L10N: S/MIME options (opportunistic encryption is off)
-#: ncrypt/crypt_gpgme.c:4897
+#: ncrypt/crypt_gpgme.c:4896
 #, fuzzy
 msgid "esabpco"
 msgstr "etsdpb"
 
 #. L10N: PGP options (opportunistic encryption is off)
-#: ncrypt/crypt_gpgme.c:4903
+#: ncrypt/crypt_gpgme.c:4902
 #, fuzzy
 msgid ""
 "PGP (e)ncrypt, (s)ign, sign (a)s, (b)oth, s/(m)ime, (c)lear, or (o)ppenc "
@@ -3986,12 +3990,12 @@ msgstr ""
 "(b)ersih? "
 
 #. L10N: PGP options (opportunistic encryption is off)
-#: ncrypt/crypt_gpgme.c:4906
+#: ncrypt/crypt_gpgme.c:4905
 #, fuzzy
 msgid "esabmco"
 msgstr "etsdmb"
 
-#: ncrypt/crypt_gpgme.c:4919
+#: ncrypt/crypt_gpgme.c:4918
 #, fuzzy
 msgid "S/MIME (e)ncrypt, (s)ign, sign (a)s, (b)oth, (p)gp or (c)lear? "
 msgstr ""
@@ -3999,12 +4003,12 @@ msgstr ""
 "(b)ersih? "
 
 #. L10N: S/MIME options
-#: ncrypt/crypt_gpgme.c:4921
+#: ncrypt/crypt_gpgme.c:4920
 #, fuzzy
 msgid "esabpc"
 msgstr "etsdpb"
 
-#: ncrypt/crypt_gpgme.c:4928
+#: ncrypt/crypt_gpgme.c:4927
 #, fuzzy
 msgid "PGP (e)ncrypt, (s)ign, sign (a)s, (b)oth, s/(m)ime or (c)lear? "
 msgstr ""
@@ -4012,16 +4016,16 @@ msgstr ""
 "(b)ersih? "
 
 #. L10N: PGP options
-#: ncrypt/crypt_gpgme.c:4930
+#: ncrypt/crypt_gpgme.c:4929
 #, fuzzy
 msgid "esabmc"
 msgstr "etsdmb"
 
-#: ncrypt/crypt_gpgme.c:5081
+#: ncrypt/crypt_gpgme.c:5080
 msgid "Failed to verify sender"
 msgstr "Gagal memverifikasi pengirim"
 
-#: ncrypt/crypt_gpgme.c:5084
+#: ncrypt/crypt_gpgme.c:5083
 msgid "Failed to figure out sender"
 msgstr "Gagal menentukan pengirim"
 
@@ -4189,84 +4193,139 @@ msgstr "Kunci PGP %s."
 msgid "Enter S/MIME passphrase:"
 msgstr "Masukkan passphrase S/MIME: "
 
-#: ncrypt/smime.c:371
+#. L10N:
+#. * This translation must be padded with spaces to the right such that it
+#. * has the same length as the other translations.
+#. *
+#. * The translation strings which need to be padded are:
+#. * Expired, Invalid, Revoked, Trusted, Unverified, Verified, and Unknown.
+#.
+#: ncrypt/smime.c:378
 msgid "Expired   "
 msgstr "Kadaluwarsa"
 
-#: ncrypt/smime.c:374
+#. L10N: Describes the trust state of a S/MIME key.
+#. *
+#. * This translation must be padded with spaces to the right such that it
+#. * has the same length as the other translations.
+#. *
+#. * The translation strings which need to be padded are:
+#. * Expired, Invalid, Revoked, Trusted, Unverified, Verified, and Unknown.
+#.
+#: ncrypt/smime.c:389
 msgid "Invalid   "
 msgstr "Tdk valid "
 
-#: ncrypt/smime.c:377
+#. L10N: Describes the trust state of a S/MIME key.
+#. *
+#. * This translation must be padded with spaces to the right such that it
+#. * has the same length as the other translations.
+#. *
+#. * The translation strings which need to be padded are:
+#. * Expired, Invalid, Revoked, Trusted, Unverified, Verified, and Unknown.
+#.
+#: ncrypt/smime.c:400
 msgid "Revoked   "
 msgstr "Dicabut   "
 
-#: ncrypt/smime.c:380
+#. L10N: Describes the trust state of a S/MIME key.
+#. *
+#. * This translation must be padded with spaces to the right such that it
+#. * has the same length as the other translations.
+#. *
+#. * The translation strings which need to be padded are:
+#. * Expired, Invalid, Revoked, Trusted, Unverified, Verified, and Unknown.
+#.
+#: ncrypt/smime.c:411
 msgid "Trusted   "
 msgstr "Dipercaya "
 
-#: ncrypt/smime.c:383
+#. L10N: Describes the trust state of a S/MIME key.
+#. *
+#. * This translation must be padded with spaces to the right such that it
+#. * has the same length as the other translations.
+#. *
+#. * The translation strings which need to be padded are:
+#. * Expired, Invalid, Revoked, Trusted, Unverified, Verified, and Unknown.
+#.
+#: ncrypt/smime.c:422
 msgid "Unverified"
 msgstr "Blm verif."
 
-#: ncrypt/smime.c:386
+#. L10N: Describes the trust state of a S/MIME key.
+#. *
+#. * This translation must be padded with spaces to the right such that it
+#. * has the same length as the other translations.
+#. *
+#. * The translation strings which need to be padded are:
+#. * Expired, Invalid, Revoked, Trusted, Unverified, Verified, and Unknown.
+#.
+#: ncrypt/smime.c:433
 msgid "Verified  "
 msgstr "Sudah verif."
 
-#: ncrypt/smime.c:389
+#. L10N: Describes the trust state of a S/MIME key.
+#. *
+#. * This translation must be padded with spaces to the right such that it
+#. * has the same length as the other translations.
+#. *
+#. * The translation strings which need to be padded are:
+#. * Expired, Invalid, Revoked, Trusted, Unverified, Verified, and Unknown.
+#.
+#: ncrypt/smime.c:444
 msgid "Unknown   "
 msgstr "Tdk diketahui"
 
-#: ncrypt/smime.c:420
+#: ncrypt/smime.c:475
 #, c-format
 msgid "S/MIME certificates matching \"%s\"."
 msgstr "Sertifikat2 S/MIME yg cocok dg \"%s\"."
 
-#: ncrypt/smime.c:462
+#: ncrypt/smime.c:517
 #, fuzzy
-msgid "ID is not trusted."
-msgstr "ID tidak valid."
+msgid "ID is not trusted. Do you really want to use the key?"
+msgstr "ID tidak valid. Anda yakin mau menggunakan kunci tsb?"
 
-#: ncrypt/smime.c:746
+#: ncrypt/smime.c:801
 msgid "Enter keyID: "
 msgstr "Masukkan keyID: "
 
-#: ncrypt/smime.c:893
+#: ncrypt/smime.c:948
 #, c-format
 msgid "No (valid) certificate found for %s."
 msgstr "Tidak ditemukan sertifikat (yg valid) utk %s."
 
-#: ncrypt/smime.c:941 ncrypt/smime.c:970 ncrypt/smime.c:1036
-#: ncrypt/smime.c:1077 ncrypt/smime.c:1140 ncrypt/smime.c:1220
+#: ncrypt/smime.c:996 ncrypt/smime.c:1025 ncrypt/smime.c:1091
+#: ncrypt/smime.c:1132 ncrypt/smime.c:1195 ncrypt/smime.c:1275
 msgid "Error: unable to create OpenSSL subprocess!"
 msgstr "Error: tidak bisa membuat subproses utk OpenSSL!"
 
-#: ncrypt/smime.c:1201
+#: ncrypt/smime.c:1256
 #, fuzzy
 msgid "Label for certificate: "
 msgstr "Tidak bisa mengambil sertifikat"
 
-#: ncrypt/smime.c:1295
+#: ncrypt/smime.c:1350
 msgid "no certfile"
 msgstr "tdk ada certfile"
 
-#: ncrypt/smime.c:1298
+#: ncrypt/smime.c:1353
 msgid "no mbox"
 msgstr "tdk ada mbox"
 
-#: ncrypt/smime.c:1425 ncrypt/smime.c:1571
+#: ncrypt/smime.c:1480 ncrypt/smime.c:1626
 msgid "No output from OpenSSL..."
 msgstr "Tdk ada keluaran dr OpenSSL..."
 
-#: ncrypt/smime.c:1488
+#: ncrypt/smime.c:1543
 msgid "Can't sign: No key specified. Use Sign As."
 msgstr "Tdk bisa tandatangan: Kunci tdk diberikan. Gunakan Tandatangan Sbg."
 
-#: ncrypt/smime.c:1536
+#: ncrypt/smime.c:1591
 msgid "Can't open OpenSSL subprocess!"
 msgstr "Tidak bisa membuka subproses OpenSSL!"
 
-#: ncrypt/smime.c:1721 ncrypt/smime.c:1840
+#: ncrypt/smime.c:1776 ncrypt/smime.c:1895
 msgid ""
 "[-- End of OpenSSL output --]\n"
 "\n"
@@ -4274,19 +4333,19 @@ msgstr ""
 "[-- Akhir keluaran OpenSSL --]\n"
 "\n"
 
-#: ncrypt/smime.c:1798 ncrypt/smime.c:1810
+#: ncrypt/smime.c:1853 ncrypt/smime.c:1865
 msgid "[-- Error: unable to create OpenSSL subprocess! --]\n"
 msgstr "[-- Error: tidak bisa membuat subproses utk OpenSSL! --]\n"
 
-#: ncrypt/smime.c:1844
+#: ncrypt/smime.c:1899
 msgid "[-- The following data is S/MIME encrypted --]\n"
 msgstr "[-- Data berikut dienkripsi dg S/MIME --]\n"
 
-#: ncrypt/smime.c:1848
+#: ncrypt/smime.c:1903
 msgid "[-- The following data is S/MIME signed --]\n"
 msgstr "[-- Data berikut ditandatangani dg S/MIME --]\n"
 
-#: ncrypt/smime.c:1916
+#: ncrypt/smime.c:1971
 msgid ""
 "\n"
 "[-- End of S/MIME encrypted data. --]\n"
@@ -4294,7 +4353,7 @@ msgstr ""
 "\n"
 "[-- Akhir data yang dienkripsi dg S/MIME. --]\n"
 
-#: ncrypt/smime.c:1918
+#: ncrypt/smime.c:1973
 msgid ""
 "\n"
 "[-- End of S/MIME signed data. --]\n"
@@ -4303,7 +4362,7 @@ msgstr ""
 "[-- Akhir data yg ditandatangani dg S/MIME. --]\n"
 
 #. L10N: S/MIME options (opportunistic encryption is on)
-#: ncrypt/smime.c:2037
+#: ncrypt/smime.c:2092
 #, fuzzy
 msgid ""
 "S/MIME (s)ign, encrypt (w)ith, sign (a)s, (c)lear, or (o)ppenc mode off? "
@@ -4312,12 +4371,12 @@ msgstr ""
 "atau (b)ersih? "
 
 #. L10N: S/MIME options (opportunistic encryption is on)
-#: ncrypt/smime.c:2040
+#: ncrypt/smime.c:2095
 msgid "swaco"
 msgstr "etgsdb"
 
 #. L10N: S/MIME options (opportunistic encryption is off)
-#: ncrypt/smime.c:2050
+#: ncrypt/smime.c:2105
 #, fuzzy
 msgid ""
 "S/MIME (e)ncrypt, (s)ign, encrypt (w)ith, sign (a)s, (b)oth, (c)lear, or "
@@ -4327,13 +4386,13 @@ msgstr ""
 "atau (b)ersih? "
 
 #. L10N: S/MIME options (opportunistic encryption is off)
-#: ncrypt/smime.c:2053
+#: ncrypt/smime.c:2108
 #, fuzzy
 msgid "eswabco"
 msgstr "etgsdb"
 
 #. L10N: S/MIME options
-#: ncrypt/smime.c:2062
+#: ncrypt/smime.c:2117
 msgid ""
 "S/MIME (e)ncrypt, (s)ign, encrypt (w)ith, sign (a)s, (b)oth, or (c)lear? "
 msgstr ""
@@ -4341,36 +4400,44 @@ msgstr ""
 "atau (b)ersih? "
 
 #. L10N: S/MIME options
-#: ncrypt/smime.c:2065
+#: ncrypt/smime.c:2120
 #, fuzzy
 msgid "eswabc"
 msgstr "etgsdb"
 
-#: ncrypt/smime.c:2130
+#. L10N:
+#. * These four letters correspond to the choices in the string:
+#. * Choose algorithm familiy: 1: DES, 2: RC2, 3: AES, or (c)clear
+#.
+#: ncrypt/smime.c:2188
 msgid "Choose algorithm family: 1: DES, 2: RC2, 3: AES, or (c)lear? "
 msgstr "Pilih algoritma: 1: DES, 2: RC2, 3: AES, atau (b)atal? "
 
-#: ncrypt/smime.c:2133
+#: ncrypt/smime.c:2191
 msgid "123c"
 msgstr "123b"
 
-#: ncrypt/smime.c:2136
+#. L10N:
+#. * These two letters correspond to the choices in the string:
+#. * 1: DES, 2: Triple-DES
+#.
+#: ncrypt/smime.c:2198
 msgid "1: DES, 2: Triple-DES "
 msgstr ""
 
-#: ncrypt/smime.c:2136
+#: ncrypt/smime.c:2198
 msgid "12"
 msgstr ""
 
-#: ncrypt/smime.c:2149
+#: ncrypt/smime.c:2215
 msgid "1: RC2-40, 2: RC2-64, 3: RC2-128 "
 msgstr ""
 
-#: ncrypt/smime.c:2149 ncrypt/smime.c:2165
+#: ncrypt/smime.c:2215 ncrypt/smime.c:2235
 msgid "123"
 msgstr ""
 
-#: ncrypt/smime.c:2165
+#: ncrypt/smime.c:2235
 msgid "1: AES128, 2: AES192, 3: AES256 "
 msgstr ""
 
@@ -5860,55 +5927,59 @@ msgstr "Filter melalui: "
 msgid "Pipe to: "
 msgstr "Pipe ke: "
 
-#: recvattach.c:762
+#. L10N:
+#. * %s gets replaced by a MIME type, e.g. "text/plain" or
+#. * application/octet-stream.
+#.
+#: recvattach.c:766
 #, fuzzy, c-format
 msgid "I don't know how to print %s attachments!"
 msgstr "Saya tidak tahu bagaimana mencetak lampiran %s!"
 
-#: recvattach.c:837
+#: recvattach.c:841
 msgid "Print tagged attachment(s)?"
 msgstr "Cetak lampiran yang ditandai?"
 
-#: recvattach.c:838
+#: recvattach.c:842
 msgid "Print attachment?"
 msgstr "Cetak lampiran?"
 
-#: recvattach.c:895
+#: recvattach.c:899
 msgid "Structural changes to decrypted attachments are not supported"
 msgstr ""
 
-#: recvattach.c:1042
+#: recvattach.c:1046
 msgid "Can't decrypt encrypted message!"
 msgstr "Tidak dapat men-decrypt surat ini!"
 
-#: recvattach.c:1168
+#: recvattach.c:1172
 msgid "Attachments"
 msgstr "Lampiran"
 
-#: recvattach.c:1206
+#: recvattach.c:1210
 msgid "There are no subparts to show!"
 msgstr "Tidak ada sub-bagian yg bisa ditampilkan!"
 
-#: recvattach.c:1261
+#: recvattach.c:1265
 msgid "Can't delete attachment from POP server."
 msgstr "Tidak bisa menghapus lampiran dari server POP."
 
-#: recvattach.c:1270
+#: recvattach.c:1274
 #, fuzzy
 msgid "Can't delete attachment from news server."
 msgstr "Tidak bisa menghapus lampiran dari server POP."
 
-#: recvattach.c:1277
+#: recvattach.c:1281
 msgid "Deletion of attachments from encrypted messages is unsupported."
 msgstr "Penghapusan lampiran dari surat yg dienkripsi tidak didukung."
 
-#: recvattach.c:1283
+#: recvattach.c:1287
 #, fuzzy
 msgid ""
 "Deletion of attachments from signed messages may invalidate the signature."
 msgstr "Penghapusan lampiran dari surat yg dienkripsi tidak didukung."
 
-#: recvattach.c:1301 recvattach.c:1316
+#: recvattach.c:1305 recvattach.c:1320
 msgid "Only deletion of multipart attachments is supported."
 msgstr "Hanya penghapusan lampiran dari surat multi bagian yang didukung."
 
@@ -6339,6 +6410,22 @@ msgstr "Opsi2 saat kompilasi:"
 #: version.c:414
 msgid "Compile options:"
 msgstr "Opsi2 saat kompilasi:"
+
+#~ msgid "ID is expired/disabled/revoked."
+#~ msgstr "ID telah kadaluwarsa/disabled/dicabut."
+
+#~ msgid "ID is not valid."
+#~ msgstr "ID tidak valid."
+
+#~ msgid "ID is only marginally valid."
+#~ msgstr "ID hanya valid secara marginal."
+
+#~ msgid "ID has undefined validity."
+#~ msgstr "Validitas ID tidak terdifinisikan."
+
+#, fuzzy
+#~ msgid "ID is not trusted."
+#~ msgstr "ID tidak valid."
 
 #~ msgid "Error talking to %s (%s)"
 #~ msgstr "Kesalahan waktu menghubungi ke server %s (%s)"
