@@ -3081,11 +3081,6 @@ msgstr "Uživatelské jméno na %s: "
 msgid "Password for %s@%s: "
 msgstr "Heslo pro %s@%s: "
 
-#: mutt_lua.c:399
-#, c-format
-msgid "%s: %s"
-msgstr "%s: %s"
-
 #: mutt_notmuch.c:205 mutt_notmuch.c:1715 mutt_notmuch.c:1900
 #, c-format
 msgid "failed to parse notmuch uri: %s"
@@ -6314,6 +6309,9 @@ msgstr "Výchzí volby:"
 #: version.c:414
 msgid "Compile options:"
 msgstr "Přeloženo s volbami:"
+
+#~ msgid "%s: %s"
+#~ msgstr "%s: %s"
 
 #~ msgid "Error bouncing messages!"
 #~ msgstr "Chyba při přeposílání zpráv!"

@@ -3097,11 +3097,6 @@ msgstr "%s のユーザ名: "
 msgid "Password for %s@%s: "
 msgstr "%s@%s のパスワード: "
 
-#: mutt_lua.c:399
-#, c-format
-msgid "%s: %s"
-msgstr ""
-
 #: mutt_notmuch.c:205 mutt_notmuch.c:1715 mutt_notmuch.c:1900
 #, fuzzy, c-format
 msgid "failed to parse notmuch uri: %s"

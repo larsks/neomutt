@@ -3189,11 +3189,6 @@ msgstr "在 %s 的使用者名稱："
 msgid "Password for %s@%s: "
 msgstr "%s@%s 的密碼："
 
-#: mutt_lua.c:399
-#, c-format
-msgid "%s: %s"
-msgstr ""
-
 #: mutt_notmuch.c:205 mutt_notmuch.c:1715 mutt_notmuch.c:1900
 #, c-format
 msgid "failed to parse notmuch uri: %s"
