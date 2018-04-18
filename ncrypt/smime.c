@@ -2126,12 +2126,20 @@ int smime_send_menu(struct Header *msg)
         msg->security |= ENCRYPT;
         do
         {
+          /* L10N:
+           * These four letters correspond to the choices in the string:
+           * Choose algorithm familiy: 1: DES, 2: RC2, 3: AES, or (c)clear
+           */
           switch (mutt_multi_choice(_("Choose algorithm family:"
                                       " 1: DES, 2: RC2, 3: AES,"
                                       " or (c)lear? "),
                                     _("123c")))
           {
             case 1:
+              /* L10N:
+               * These two letters correspond to the choices in the string:
+               * 1: DES, 2: Triple-DES
+               */
               switch (choice = mutt_multi_choice(_("1: DES, 2: Triple-DES "), _("12")))
               {
                 case 1:
@@ -2144,6 +2152,10 @@ int smime_send_menu(struct Header *msg)
               break;
 
             case 2:
+              /* L10N:
+               * These three letters correspond to the choices in the string:
+               * 1: RC2-40, 2: RC2-64, 3: RC2-128
+               */
               switch (choice = mutt_multi_choice(
                           _("1: RC2-40, 2: RC2-64, 3: RC2-128 "), _("123")))
               {
@@ -2160,6 +2172,10 @@ int smime_send_menu(struct Header *msg)
               break;
 
             case 3:
+              /* L10N:
+               * These three letters correspond to the choices in the string:
+               * 1: AES128, 2: AES192, 3: AES256
+               */
               switch (choice = mutt_multi_choice(
                           _("1: AES128, 2: AES192, 3: AES256 "), _("123")))
               {
