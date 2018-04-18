@@ -115,7 +115,7 @@ msgstr "Namensschema kann nicht erfüllt werden, fortfahren?"
 msgid "Mailcap compose entry requires %%s"
 msgstr "\"compose\"-Eintrag in der Mailcap-Datei erfordert %%s"
 
-#: attach.c:139 attach.c:272 commands.c:236 compose.c:1563 compress.c:433
+#: attach.c:139 attach.c:272 commands.c:236 compose.c:1564 compress.c:433
 #: curs_lib.c:213 curs_lib.c:453 curs_main.c:936 curs_main.c:979 pager.c:2264
 #: sendlib.c:1447
 #, c-format
@@ -813,126 +813,129 @@ msgid "Bad IDN in \"%s\": '%s'"
 msgstr "Ungültige IDN in \"%s\": '%s'"
 
 #: compose.c:1040
-msgid "Attaching selected files..."
-msgstr "Hänge ausgewählte Dateien an..."
+#, fuzzy
+msgid "Attaching selected file..."
+msgid_plural "Attaching selected files..."
+msgstr[0] "Hänge ausgewählte Dateien an..."
+msgstr[1] "Hänge ausgewählte Dateien an..."
 
-#: compose.c:1052
+#: compose.c:1053
 #, c-format
 msgid "Unable to attach %s!"
 msgstr "Kann %s nicht anhängen!"
 
-#: compose.c:1072
+#: compose.c:1073
 msgid "Open mailbox to attach message from"
 msgstr "Öffne Mailbox, aus der angehängt werden soll"
 
-#: compose.c:1083
+#: compose.c:1084
 msgid "Open newsgroup to attach message from"
 msgstr "Öffne Newsgroup, aus der angehängt werden soll"
 
-#: compose.c:1127
+#: compose.c:1128
 #, c-format
 msgid "Unable to open mailbox %s"
 msgstr "Kann Mailbox %s nicht öffnen"
 
-#: compose.c:1135
+#: compose.c:1136
 msgid "No messages in that folder."
 msgstr "Keine Nachrichten in dieser Mailbox."
 
-#: compose.c:1145
+#: compose.c:1146
 msgid "Tag the messages you want to attach!"
 msgstr "Bitte die Nachrichten markieren, die angehängt werden sollen!"
 
-#: compose.c:1171
+#: compose.c:1172
 msgid "Unable to attach!"
 msgstr "Kann das nicht anhängen!"
 
-#: compose.c:1210
+#: compose.c:1211
 msgid "Recoding only affects text attachments."
 msgstr "Ändern der Kodierung betrifft nur Textanhänge."
 
-#: compose.c:1215
+#: compose.c:1216
 msgid "The current attachment won't be converted."
 msgstr "Der aktuelle Anhang wird nicht konvertiert werden."
 
-#: compose.c:1217
+#: compose.c:1218
 msgid "The current attachment will be converted."
 msgstr "Der aktuelle Anhang wird konvertiert werden."
 
-#: compose.c:1290
+#: compose.c:1291
 msgid "Invalid encoding."
 msgstr "Ungültige Kodierung."
 
-#: compose.c:1314
+#: compose.c:1315
 msgid "Save a copy of this message?"
 msgstr "Soll eine Kopie dieser Nachricht gespeichert werden?"
 
-#: compose.c:1370
+#: compose.c:1371
 msgid "Send attachment with name: "
 msgstr "Anhang mit folgendem Name senden: "
 
-#: compose.c:1387
+#: compose.c:1388
 msgid "Rename to: "
 msgstr "Umbenennen in: "
 
 #. L10N:
 #. "stat" is a system call. Do "man 2 stat" for more information.
-#: compose.c:1394 editmsg.c:107 editmsg.c:143 sendlib.c:908
+#: compose.c:1395 editmsg.c:107 editmsg.c:143 sendlib.c:908
 #, c-format
 msgid "Can't stat %s: %s"
 msgstr "Kann Verzeichniseintrag für Datei %s nicht lesen: %s"
 
-#: compose.c:1420
+#: compose.c:1421
 msgid "New file: "
 msgstr "Neue Datei: "
 
-#: compose.c:1435
+#: compose.c:1436
 msgid "Content-Type is of the form base/sub"
 msgstr "Content-Type ist von der Art Basis-/Untertyp"
 
-#: compose.c:1442
+#: compose.c:1443
 #, c-format
 msgid "Unknown Content-Type %s"
 msgstr "Unbekannter Content-Type %s"
 
-#: compose.c:1450
+#: compose.c:1451
 #, c-format
 msgid "Can't create file %s"
 msgstr "Kann Datei %s nicht anlegen"
 
-#: compose.c:1459
+#: compose.c:1460
 msgid "What we have here is a failure to make an attachment"
 msgstr "Anhang kann nicht erzeugt werden"
 
-#: compose.c:1522
+#: compose.c:1523
 msgid "Postpone this message?"
 msgstr "Nachricht zurückstellen?"
 
-#: compose.c:1581
+#: compose.c:1582
 msgid "Write message to mailbox"
 msgstr "Schreibe Nachricht in Mailbox"
 
-#: compose.c:1584
+#: compose.c:1585
 #, c-format
 msgid "Writing message to %s ..."
 msgstr "Schreibe Nachricht nach %s ..."
 
-#: compose.c:1593
+#: compose.c:1594
 msgid "Message written."
 msgstr "Nachricht geschrieben."
 
-#: compose.c:1602
+#: compose.c:1603
 msgid "No PGP backend configured"
 msgstr "Kein PGP-Backend eingerichtet"
 
-#: compose.c:1610
+#: compose.c:1611
 msgid "S/MIME already selected. Clear and continue ? "
 msgstr "S/MIME bereits ausgewählt. Löschen und fortfahren? "
 
-#: compose.c:1636
+#: compose.c:1637
 msgid "No S/MIME backend configured"
 msgstr "Kein S/MIME-Backend eingerichtet"
 
-#: compose.c:1644
+#: compose.c:1645
 msgid "PGP already selected. Clear and continue ? "
 msgstr "PGP bereits ausgewählt. Löschen und fortfahren? "
 
@@ -1688,9 +1691,11 @@ msgstr "Kann Nachricht nicht bearbeiten"
 #. L10N: This is displayed when the x-label on one or more
 #. * messages is edited.
 #: curs_main.c:2918 pager.c:3200
-#, c-format
-msgid "%d labels changed."
-msgstr "%d Etiketten verändert."
+#, fuzzy, c-format
+msgid "%d label changed."
+msgid_plural "%d labels changed."
+msgstr[0] "%d Etiketten verändert."
+msgstr[1] "%d Etiketten verändert."
 
 #. L10N: This is displayed when editing an x-label, but no messages
 #. * were updated.  Possibly due to canceling at the prompt or if the new
@@ -2243,12 +2248,12 @@ msgstr "Abonniere %s"
 msgid "Unsubscribed from %s"
 msgstr "Abonnement von %s abbestellt"
 
-#: imap/imap.c:1932 imap/message.c:1452
+#: imap/imap.c:1932
 #, c-format
 msgid "Copying %d messages to %s..."
 msgstr "Kopiere %d Nachrichten nach %s..."
 
-#: imap/imap.c:1947 imap/imap.c:2240 imap/message.c:1489 muttlib.c:1353
+#: imap/imap.c:1947 imap/imap.c:2240 imap/message.c:1490 muttlib.c:1353
 #, c-format
 msgid "Create %s?"
 msgstr "%s erstellen?"
@@ -2267,36 +2272,41 @@ msgid "Expunge failed"
 msgstr "Löschen fehlgeschlagen"
 
 #: imap/imap.c:2405
-#, c-format
-msgid "Marking %d messages deleted..."
-msgstr "Markiere %d Nachrichten zum Löschen..."
+#, fuzzy, c-format
+msgid "Marking %d message deleted..."
+msgid_plural "Marking %d messages deleted..."
+msgstr[0] "Markiere %d Nachrichten zum Löschen..."
+msgstr[1] "Markiere %d Nachrichten zum Löschen..."
 
-#: imap/imap.c:2437
-#, c-format
-msgid "Saving changed messages... [%d/%d]"
-msgstr "Speichere veränderte Nachrichten... [%d/%d]"
+#. L10N: The plural is choosen by the last %d, i.e. the total number
+#: imap/imap.c:2440
+#, fuzzy, c-format
+msgid "Saving changed message... [%d/%d]"
+msgid_plural "Saving changed messages... [%d/%d]"
+msgstr[0] "Speichere veränderte Nachrichten... [%d/%d]"
+msgstr[1] "Speichere veränderte Nachrichten... [%d/%d]"
 
-#: imap/imap.c:2491
+#: imap/imap.c:2496
 msgid "Error saving flags. Close anyway?"
 msgstr "Fehler beim Speichern der Status-Indikatoren. Trotzdem schließen?"
 
-#: imap/imap.c:2499
+#: imap/imap.c:2504
 msgid "Error saving flags"
 msgstr "Fehler beim Speichern der Status-Indikatoren"
 
-#: imap/imap.c:2521
+#: imap/imap.c:2526
 msgid "Expunging messages from server..."
 msgstr "Lösche Nachrichten auf dem Server..."
 
-#: imap/imap.c:2527
+#: imap/imap.c:2532
 msgid "imap_sync_mailbox: EXPUNGE failed"
 msgstr "imap_sync_mailbox: EXPUNGE fehlgeschlagen"
 
-#: imap/imap.c:2573
+#: imap/imap.c:2578
 msgid "IMAP server doesn't support custom flags"
 msgstr "IMAP-Server unterstützt keine selbstdefinierten Status-Indikatoren"
 
-#: imap/imap.c:2617
+#: imap/imap.c:2622
 msgid "Invalid IMAP flags"
 msgstr "Ungültige IMAP-Status-Indikatoren"
 
@@ -2320,11 +2330,11 @@ msgstr "Konnte Temporärdatei %s nicht erzeugen"
 msgid "Evaluating cache..."
 msgstr "Werte Cache aus..."
 
-#: imap/message.c:1033 imap/message.c:1097 nntp.c:1612 pop.c:595
+#: imap/message.c:1033 imap/message.c:1097 nntp.c:1612 pop.c:598
 msgid "Fetching message..."
 msgstr "Hole Nachricht..."
 
-#: imap/message.c:1084 pop.c:591
+#: imap/message.c:1084 pop.c:594
 msgid "The message index is incorrect. Try reopening the mailbox."
 msgstr ""
 "Der Nachrichtenindex ist fehlerhaft. Versuchen Sie, die Mailbox erneut zu "
@@ -2334,7 +2344,14 @@ msgstr ""
 msgid "Uploading message..."
 msgstr "Lade Nachricht auf den Server..."
 
-#: imap/message.c:1456
+#: imap/message.c:1452
+#, fuzzy, c-format
+msgid "Copying %d message to %s..."
+msgid_plural "Copying %d messages to %s..."
+msgstr[0] "Kopiere %d Nachrichten nach %s..."
+msgstr[1] "Kopiere %d Nachrichten nach %s..."
+
+#: imap/message.c:1457
 #, c-format
 msgid "Copying message %d to %s..."
 msgstr "Kopiere Nachricht %d nach %s..."
@@ -4381,7 +4398,7 @@ msgstr "Kein News-Server definiert!"
 msgid "%s is an invalid news server specification!"
 msgstr "%s ist eine ungültige News-Server-Angabe!"
 
-#: nntp.c:64 nntp.c:594 pop.c:963 pop_lib.c:405
+#: nntp.c:64 nntp.c:594 pop.c:970 pop_lib.c:405
 msgid "Server closed connection!"
 msgstr "Server hat Verbindung beendet!"
 
@@ -4445,7 +4462,7 @@ msgstr "Artikel %d wurde nicht auf dem Server gefunden."
 msgid "Can't post article: %s"
 msgstr "Kann Artikel nicht veröffentlichen: %s"
 
-#: nntp.c:1841 nntp.c:2259 pop.c:789 pop.c:856
+#: nntp.c:1841 nntp.c:2259 pop.c:792 pop.c:859
 msgid "Checking for new messages..."
 msgstr "Prüfe auf neue Nachrichten..."
 
@@ -5636,54 +5653,61 @@ msgstr "Kann Header nicht in Temporärdatei schreiben!"
 msgid "Command UIDL is not supported by server."
 msgstr "Kommando UIDL wird vom Server nicht unterstützt."
 
-#: pop.c:314
-#, c-format
-msgid "%d messages have been lost. Try reopening the mailbox."
-msgstr ""
+#: pop.c:315
+#, fuzzy, c-format
+msgid "%d message has been lost. Try reopening the mailbox."
+msgid_plural "%d messages have been lost. Try reopening the mailbox."
+msgstr[0] ""
+"%d Nachrichten verloren gegangen. Die Mailbox sollte erneut geöffnet werden."
+msgstr[1] ""
 "%d Nachrichten verloren gegangen. Die Mailbox sollte erneut geöffnet werden."
 
-#: pop.c:431 pop.c:836
+#: pop.c:434 pop.c:839
 #, c-format
 msgid "%s is an invalid POP path"
 msgstr "%s ist ein ungültiger POP-Pfad"
 
-#: pop.c:474
+#: pop.c:477
 msgid "Fetching list of messages..."
 msgstr "Hole Liste der Nachrichten..."
 
-#: pop.c:635
+#: pop.c:638
 msgid "Can't write message to temporary file!"
 msgstr "Kann Nachricht nicht in Temporäratei schreiben!"
 
-#: pop.c:709
+#: pop.c:712
 msgid "Marking messages deleted..."
 msgstr "Markiere Nachrichten zum Löschen..."
 
-#: pop.c:820
+#: pop.c:823
 msgid "POP host is not defined."
 msgstr "Es wurde kein POP-Server definiert."
 
-#: pop.c:884
+#: pop.c:887
 msgid "No new mail in POP mailbox."
 msgstr "Keine neuen Nachrichten auf dem POP-Server."
 
-#: pop.c:891
+#: pop.c:894
 msgid "Delete messages from server?"
 msgstr "Lösche Nachrichten auf dem Server?"
 
-#: pop.c:893
+#: pop.c:896
 #, c-format
 msgid "Reading new messages (%d bytes)..."
 msgstr "Lese neue Nachrichten (%d Bytes)..."
 
-#: pop.c:936
+#: pop.c:939
 msgid "Error while writing mailbox!"
 msgstr "Fehler beim Versuch, die Mailbox zu schreiben!"
 
-#: pop.c:940
-#, c-format
-msgid "%s [%d of %d messages read]"
-msgstr "%s [%d von %d Nachrichten gelesen]"
+#. L10N: The plural is picked by the second numerical argument, i.e.
+#. * the %d right before 'messages', i.e. the total number of messages.
+#: pop.c:945
+#, fuzzy, c-format
+msgid "%s [%d of %d message read]"
+msgid_plural "%s [%d of %d messages read]"
+msgstr[0] "%s [%d von %d Nachrichten gelesen]"
+msgstr[1] "%s [%d von %d Nachrichten gelesen]"
 
 #: pop_auth.c:90
 msgid "Authenticating (SASL)..."

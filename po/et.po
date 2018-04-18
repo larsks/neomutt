@@ -111,7 +111,7 @@ msgstr "Nimemuster ei sobi, jätkan?"
 msgid "Mailcap compose entry requires %%s"
 msgstr "Mailcap koostamise kirje nõuab %%s"
 
-#: attach.c:139 attach.c:272 commands.c:236 compose.c:1563 compress.c:433
+#: attach.c:139 attach.c:272 commands.c:236 compose.c:1564 compress.c:433
 #: curs_lib.c:213 curs_lib.c:453 curs_main.c:936 curs_main.c:979 pager.c:2264
 #: sendlib.c:1447
 #, c-format
@@ -823,128 +823,131 @@ msgid "Bad IDN in \"%s\": '%s'"
 msgstr ""
 
 #: compose.c:1040
-msgid "Attaching selected files..."
-msgstr "Lisan valitud failid..."
+#, fuzzy
+msgid "Attaching selected file..."
+msgid_plural "Attaching selected files..."
+msgstr[0] "Lisan valitud failid..."
+msgstr[1] "Lisan valitud failid..."
 
-#: compose.c:1052
+#: compose.c:1053
 #, c-format
 msgid "Unable to attach %s!"
 msgstr "%s ei õnnestu lisada!"
 
-#: compose.c:1072
+#: compose.c:1073
 msgid "Open mailbox to attach message from"
 msgstr "Avage postkast, millest lisada teade"
 
-#: compose.c:1083
+#: compose.c:1084
 #, fuzzy
 msgid "Open newsgroup to attach message from"
 msgstr "Avage postkast, millest lisada teade"
 
-#: compose.c:1127
+#: compose.c:1128
 #, fuzzy, c-format
 msgid "Unable to open mailbox %s"
 msgstr "Postkasti ei saa lukustada!"
 
-#: compose.c:1135
+#: compose.c:1136
 msgid "No messages in that folder."
 msgstr "Selles kaustas ei ole teateid."
 
-#: compose.c:1145
+#: compose.c:1146
 msgid "Tag the messages you want to attach!"
 msgstr "Märkige teada, mida soovite lisada!"
 
-#: compose.c:1171
+#: compose.c:1172
 msgid "Unable to attach!"
 msgstr "Ei õnnestu lisada!"
 
-#: compose.c:1210
+#: compose.c:1211
 msgid "Recoding only affects text attachments."
 msgstr "Ümberkodeerimine puudutab ainult tekstilisasid."
 
-#: compose.c:1215
+#: compose.c:1216
 msgid "The current attachment won't be converted."
 msgstr "Käesolevat lisa ei teisendata."
 
-#: compose.c:1217
+#: compose.c:1218
 msgid "The current attachment will be converted."
 msgstr "Käesolev lisa teisendatakse."
 
-#: compose.c:1290
+#: compose.c:1291
 msgid "Invalid encoding."
 msgstr "Vigane kodeering."
 
-#: compose.c:1314
+#: compose.c:1315
 msgid "Save a copy of this message?"
 msgstr "Salvestan sellest teatest koopia?"
 
-#: compose.c:1370
+#: compose.c:1371
 #, fuzzy
 msgid "Send attachment with name: "
 msgstr "vaata lisa tekstina"
 
-#: compose.c:1387
+#: compose.c:1388
 msgid "Rename to: "
 msgstr "Uus nimi: "
 
 #. L10N:
 #. "stat" is a system call. Do "man 2 stat" for more information.
-#: compose.c:1394 editmsg.c:107 editmsg.c:143 sendlib.c:908
+#: compose.c:1395 editmsg.c:107 editmsg.c:143 sendlib.c:908
 #, c-format
 msgid "Can't stat %s: %s"
 msgstr "Ei saa lugeda %s atribuute: %s"
 
-#: compose.c:1420
+#: compose.c:1421
 msgid "New file: "
 msgstr "Uus fail: "
 
-#: compose.c:1435
+#: compose.c:1436
 msgid "Content-Type is of the form base/sub"
 msgstr "Content-Type on kujul baas/alam"
 
-#: compose.c:1442
+#: compose.c:1443
 #, c-format
 msgid "Unknown Content-Type %s"
 msgstr "Tundmatu Content-Type %s"
 
-#: compose.c:1450
+#: compose.c:1451
 #, c-format
 msgid "Can't create file %s"
 msgstr "Faili %s ei saa luua"
 
-#: compose.c:1459
+#: compose.c:1460
 msgid "What we have here is a failure to make an attachment"
 msgstr "See mis siin nüüd on, on viga lisa loomisel"
 
-#: compose.c:1522
+#: compose.c:1523
 msgid "Postpone this message?"
 msgstr "Panen teate postitusootele?"
 
-#: compose.c:1581
+#: compose.c:1582
 msgid "Write message to mailbox"
 msgstr "Kirjuta teade postkasti"
 
-#: compose.c:1584
+#: compose.c:1585
 #, c-format
 msgid "Writing message to %s ..."
 msgstr "Kirjutan teate faili %s ..."
 
-#: compose.c:1593
+#: compose.c:1594
 msgid "Message written."
 msgstr "Teade on kirjutatud."
 
-#: compose.c:1602
+#: compose.c:1603
 msgid "No PGP backend configured"
 msgstr ""
 
-#: compose.c:1610
+#: compose.c:1611
 msgid "S/MIME already selected. Clear and continue ? "
 msgstr "S/MIME on juba valitud. Puhasta ja jätka ? "
 
-#: compose.c:1636
+#: compose.c:1637
 msgid "No S/MIME backend configured"
 msgstr ""
 
-#: compose.c:1644
+#: compose.c:1645
 msgid "PGP already selected. Clear and continue ? "
 msgstr "PGP on juba valitud. Puhasta ja jätka ? "
 
@@ -1735,8 +1738,10 @@ msgstr "Teadet ei õnnestu kirjutada"
 #. * messages is edited.
 #: curs_main.c:2918 pager.c:3200
 #, fuzzy, c-format
-msgid "%d labels changed."
-msgstr "Postkasti ei muudetud."
+msgid "%d label changed."
+msgid_plural "%d labels changed."
+msgstr[0] "Postkasti ei muudetud."
+msgstr[1] "Postkasti ei muudetud."
 
 #. L10N: This is displayed when editing an x-label, but no messages
 #. * were updated.  Possibly due to canceling at the prompt or if the new
@@ -2314,12 +2319,12 @@ msgstr "Tellin %s..."
 msgid "Unsubscribed from %s"
 msgstr "Loobun kaustast %s..."
 
-#: imap/imap.c:1932 imap/message.c:1452
+#: imap/imap.c:1932
 #, c-format
 msgid "Copying %d messages to %s..."
 msgstr "Kopeerin %d teadet kausta %s..."
 
-#: imap/imap.c:1947 imap/imap.c:2240 imap/message.c:1489 muttlib.c:1353
+#: imap/imap.c:1947 imap/imap.c:2240 imap/message.c:1490 muttlib.c:1353
 #, c-format
 msgid "Create %s?"
 msgstr "Loon %s?"
@@ -2338,37 +2343,42 @@ msgid "Expunge failed"
 msgstr "Kustutamine ebaõnnestus."
 
 #: imap/imap.c:2405
-#, c-format
-msgid "Marking %d messages deleted..."
-msgstr "märgin %d teadet kustutatuks..."
-
-#: imap/imap.c:2437
 #, fuzzy, c-format
-msgid "Saving changed messages... [%d/%d]"
-msgstr "Salvestan teadete olekud... [%d/%d]"
+msgid "Marking %d message deleted..."
+msgid_plural "Marking %d messages deleted..."
+msgstr[0] "märgin %d teadet kustutatuks..."
+msgstr[1] "märgin %d teadet kustutatuks..."
 
-#: imap/imap.c:2491
+#. L10N: The plural is choosen by the last %d, i.e. the total number
+#: imap/imap.c:2440
+#, fuzzy, c-format
+msgid "Saving changed message... [%d/%d]"
+msgid_plural "Saving changed messages... [%d/%d]"
+msgstr[0] "Salvestan teadete olekud... [%d/%d]"
+msgstr[1] "Salvestan teadete olekud... [%d/%d]"
+
+#: imap/imap.c:2496
 msgid "Error saving flags. Close anyway?"
 msgstr ""
 
-#: imap/imap.c:2499
+#: imap/imap.c:2504
 #, fuzzy
 msgid "Error saving flags"
 msgstr "Viga aadressi analüüsimisel!"
 
-#: imap/imap.c:2521
+#: imap/imap.c:2526
 msgid "Expunging messages from server..."
 msgstr "Kustutan serveril teateid..."
 
-#: imap/imap.c:2527
+#: imap/imap.c:2532
 msgid "imap_sync_mailbox: EXPUNGE failed"
 msgstr "imap_sync_mailbox: EXPUNGE ebaõnnestus"
 
-#: imap/imap.c:2573
+#: imap/imap.c:2578
 msgid "IMAP server doesn't support custom flags"
 msgstr ""
 
-#: imap/imap.c:2617
+#: imap/imap.c:2622
 #, fuzzy
 msgid "Invalid IMAP flags"
 msgstr "Vigane    "
@@ -2393,11 +2403,11 @@ msgstr "Ajutise faili %s loomine ebaõnnestus"
 msgid "Evaluating cache..."
 msgstr "Laen teadete päiseid... [%d/%d]"
 
-#: imap/message.c:1033 imap/message.c:1097 nntp.c:1612 pop.c:595
+#: imap/message.c:1033 imap/message.c:1097 nntp.c:1612 pop.c:598
 msgid "Fetching message..."
 msgstr "Laen teadet..."
 
-#: imap/message.c:1084 pop.c:591
+#: imap/message.c:1084 pop.c:594
 msgid "The message index is incorrect. Try reopening the mailbox."
 msgstr "Teadete indeks on vigane. Proovige postkasti uuesti avada."
 
@@ -2406,7 +2416,14 @@ msgstr "Teadete indeks on vigane. Proovige postkasti uuesti avada."
 msgid "Uploading message..."
 msgstr "Saadan teadet ..."
 
-#: imap/message.c:1456
+#: imap/message.c:1452
+#, fuzzy, c-format
+msgid "Copying %d message to %s..."
+msgid_plural "Copying %d messages to %s..."
+msgstr[0] "Kopeerin %d teadet kausta %s..."
+msgstr[1] "Kopeerin %d teadet kausta %s..."
+
+#: imap/message.c:1457
 #, c-format
 msgid "Copying message %d to %s..."
 msgstr "Kopeerin teadet %d kausta %s..."
@@ -4513,7 +4530,7 @@ msgstr ""
 msgid "%s is an invalid news server specification!"
 msgstr "%s on vigane POP tee"
 
-#: nntp.c:64 nntp.c:594 pop.c:963 pop_lib.c:405
+#: nntp.c:64 nntp.c:594 pop.c:970 pop_lib.c:405
 msgid "Server closed connection!"
 msgstr "Server sulges ühenduse!"
 
@@ -4580,7 +4597,7 @@ msgstr ""
 msgid "Can't post article: %s"
 msgstr "Ei saa lugeda %s atribuute: %s"
 
-#: nntp.c:1841 nntp.c:2259 pop.c:789 pop.c:856
+#: nntp.c:1841 nntp.c:2259 pop.c:792 pop.c:859
 msgid "Checking for new messages..."
 msgstr "Kontrollin, kas on uusi teateid..."
 
@@ -5819,54 +5836,60 @@ msgstr "Päist ei õnnestu ajutissse faili kirjutada!"
 msgid "Command UIDL is not supported by server."
 msgstr "Server ei toeta UIDL käsklust."
 
-#: pop.c:314
+#: pop.c:315
 #, fuzzy, c-format
-msgid "%d messages have been lost. Try reopening the mailbox."
-msgstr "Teadete indeks on vigane. Proovige postkasti uuesti avada."
+msgid "%d message has been lost. Try reopening the mailbox."
+msgid_plural "%d messages have been lost. Try reopening the mailbox."
+msgstr[0] "Teadete indeks on vigane. Proovige postkasti uuesti avada."
+msgstr[1] "Teadete indeks on vigane. Proovige postkasti uuesti avada."
 
-#: pop.c:431 pop.c:836
+#: pop.c:434 pop.c:839
 #, c-format
 msgid "%s is an invalid POP path"
 msgstr "%s on vigane POP tee"
 
-#: pop.c:474
+#: pop.c:477
 msgid "Fetching list of messages..."
 msgstr "Laen teadete nimekirja..."
 
-#: pop.c:635
+#: pop.c:638
 msgid "Can't write message to temporary file!"
 msgstr "Teadet ei õnnestu ajutisse faili kirjutada!"
 
-#: pop.c:709
+#: pop.c:712
 #, fuzzy
 msgid "Marking messages deleted..."
 msgstr "märgin %d teadet kustutatuks..."
 
-#: pop.c:820
+#: pop.c:823
 msgid "POP host is not defined."
 msgstr "POP serverit ei ole määratud."
 
-#: pop.c:884
+#: pop.c:887
 msgid "No new mail in POP mailbox."
 msgstr "Uusi teateid POP postkastis pole."
 
-#: pop.c:891
+#: pop.c:894
 msgid "Delete messages from server?"
 msgstr "Kustutan teated serverist?"
 
-#: pop.c:893
+#: pop.c:896
 #, c-format
 msgid "Reading new messages (%d bytes)..."
 msgstr "Loen uusi teateid (%d baiti)..."
 
-#: pop.c:936
+#: pop.c:939
 msgid "Error while writing mailbox!"
 msgstr "Viga postkasti kirjutamisel!"
 
-#: pop.c:940
-#, c-format
-msgid "%s [%d of %d messages read]"
-msgstr "%s [%d/%d teadet loetud]"
+#. L10N: The plural is picked by the second numerical argument, i.e.
+#. * the %d right before 'messages', i.e. the total number of messages.
+#: pop.c:945
+#, fuzzy, c-format
+msgid "%s [%d of %d message read]"
+msgid_plural "%s [%d of %d messages read]"
+msgstr[0] "%s [%d/%d teadet loetud]"
+msgstr[1] "%s [%d/%d teadet loetud]"
 
 #: pop_auth.c:90
 msgid "Authenticating (SASL)..."

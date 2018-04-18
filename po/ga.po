@@ -113,7 +113,7 @@ msgstr "Ní féidir ainmtheimpléad comhoiriúnach a fháil; lean ar aghaidh?"
 msgid "Mailcap compose entry requires %%s"
 msgstr "Tá gá le %%s in iontráil chumtha Mailcap"
 
-#: attach.c:139 attach.c:272 commands.c:236 compose.c:1563 compress.c:433
+#: attach.c:139 attach.c:272 commands.c:236 compose.c:1564 compress.c:433
 #: curs_lib.c:213 curs_lib.c:453 curs_main.c:936 curs_main.c:979 pager.c:2264
 #: sendlib.c:1447
 #, c-format
@@ -824,128 +824,134 @@ msgid "Bad IDN in \"%s\": '%s'"
 msgstr "DrochIDN i \"%s\": '%s'"
 
 #: compose.c:1040
-msgid "Attaching selected files..."
-msgstr "Comhaid roghnaithe á gceangal..."
+#, fuzzy
+msgid "Attaching selected file..."
+msgid_plural "Attaching selected files..."
+msgstr[0] "Comhaid roghnaithe á gceangal..."
+msgstr[1] "Comhaid roghnaithe á gceangal..."
+msgstr[2] "Comhaid roghnaithe á gceangal..."
+msgstr[3] "Comhaid roghnaithe á gceangal..."
+msgstr[4] "Comhaid roghnaithe á gceangal..."
 
-#: compose.c:1052
+#: compose.c:1053
 #, c-format
 msgid "Unable to attach %s!"
 msgstr "Ní féidir %s a cheangal!"
 
-#: compose.c:1072
+#: compose.c:1073
 msgid "Open mailbox to attach message from"
 msgstr "Oscail an bosca poist as a gceanglóidh tú teachtaireacht"
 
-#: compose.c:1083
+#: compose.c:1084
 #, fuzzy
 msgid "Open newsgroup to attach message from"
 msgstr "Oscail an bosca poist as a gceanglóidh tú teachtaireacht"
 
-#: compose.c:1127
+#: compose.c:1128
 #, fuzzy, c-format
 msgid "Unable to open mailbox %s"
 msgstr "Ní féidir an bosca poist a chur faoi ghlas!"
 
-#: compose.c:1135
+#: compose.c:1136
 msgid "No messages in that folder."
 msgstr "Níl aon teachtaireacht san fhillteán sin."
 
-#: compose.c:1145
+#: compose.c:1146
 msgid "Tag the messages you want to attach!"
 msgstr "Clibeáil na teachtaireachtaí le ceangal!"
 
-#: compose.c:1171
+#: compose.c:1172
 msgid "Unable to attach!"
 msgstr "Ní féidir a cheangal!"
 
-#: compose.c:1210
+#: compose.c:1211
 msgid "Recoding only affects text attachments."
 msgstr "Téann ath-ionchódú i bhfeidhm ar iatáin téacs amháin."
 
-#: compose.c:1215
+#: compose.c:1216
 msgid "The current attachment won't be converted."
 msgstr "Ní thiontófar an t-iatán reatha."
 
-#: compose.c:1217
+#: compose.c:1218
 msgid "The current attachment will be converted."
 msgstr "Tiontófar an t-iatán reatha."
 
-#: compose.c:1290
+#: compose.c:1291
 msgid "Invalid encoding."
 msgstr "Ionchódú neamhbhailí."
 
-#: compose.c:1314
+#: compose.c:1315
 msgid "Save a copy of this message?"
 msgstr "Sábháil cóip den teachtaireacht seo?"
 
-#: compose.c:1370
+#: compose.c:1371
 #, fuzzy
 msgid "Send attachment with name: "
 msgstr "féach ar an iatán mar théacs"
 
-#: compose.c:1387
+#: compose.c:1388
 msgid "Rename to: "
 msgstr "Athainmnigh go: "
 
 #. L10N:
 #. "stat" is a system call. Do "man 2 stat" for more information.
-#: compose.c:1394 editmsg.c:107 editmsg.c:143 sendlib.c:908
+#: compose.c:1395 editmsg.c:107 editmsg.c:143 sendlib.c:908
 #, c-format
 msgid "Can't stat %s: %s"
 msgstr "ní féidir %s a 'stat': %s"
 
-#: compose.c:1420
+#: compose.c:1421
 msgid "New file: "
 msgstr "Comhad nua: "
 
-#: compose.c:1435
+#: compose.c:1436
 msgid "Content-Type is of the form base/sub"
 msgstr "Is san fhoirm base/sub é Content-Type"
 
-#: compose.c:1442
+#: compose.c:1443
 #, c-format
 msgid "Unknown Content-Type %s"
 msgstr "Content-Type anaithnid %s"
 
-#: compose.c:1450
+#: compose.c:1451
 #, c-format
 msgid "Can't create file %s"
 msgstr "Ní féidir an comhad %s a chruthú"
 
-#: compose.c:1459
+#: compose.c:1460
 msgid "What we have here is a failure to make an attachment"
 msgstr "Ní féidir iatán a chruthú"
 
-#: compose.c:1522
+#: compose.c:1523
 msgid "Postpone this message?"
 msgstr "Cuir an teachtaireacht ar athlá?"
 
-#: compose.c:1581
+#: compose.c:1582
 msgid "Write message to mailbox"
 msgstr "Scríobh teachtaireacht sa bhosca poist"
 
-#: compose.c:1584
+#: compose.c:1585
 #, c-format
 msgid "Writing message to %s ..."
 msgstr "Teachtaireacht á scríobh i %s ..."
 
-#: compose.c:1593
+#: compose.c:1594
 msgid "Message written."
 msgstr "Teachtaireacht scríofa."
 
-#: compose.c:1602
+#: compose.c:1603
 msgid "No PGP backend configured"
 msgstr ""
 
-#: compose.c:1610
+#: compose.c:1611
 msgid "S/MIME already selected. Clear and continue ? "
 msgstr "S/MIME roghnaithe cheana.  Glan agus lean ar aghaidh? "
 
-#: compose.c:1636
+#: compose.c:1637
 msgid "No S/MIME backend configured"
 msgstr ""
 
-#: compose.c:1644
+#: compose.c:1645
 msgid "PGP already selected. Clear and continue ? "
 msgstr "PGP roghnaithe cheana.  Glan agus lean ar aghaidh? "
 
@@ -1729,8 +1735,13 @@ msgstr "Ní féidir teachtaireacht a scríobh "
 #. * messages is edited.
 #: curs_main.c:2918 pager.c:3200
 #, fuzzy, c-format
-msgid "%d labels changed."
-msgstr "Bosca poist gan athrú."
+msgid "%d label changed."
+msgid_plural "%d labels changed."
+msgstr[0] "Bosca poist gan athrú."
+msgstr[1] "Bosca poist gan athrú."
+msgstr[2] "Bosca poist gan athrú."
+msgstr[3] "Bosca poist gan athrú."
+msgstr[4] "Bosca poist gan athrú."
 
 #. L10N: This is displayed when editing an x-label, but no messages
 #. * were updated.  Possibly due to canceling at the prompt or if the new
@@ -2296,12 +2307,12 @@ msgstr "Liostáilte le %s"
 msgid "Unsubscribed from %s"
 msgstr "Díliostáilte ó %s"
 
-#: imap/imap.c:1932 imap/message.c:1452
+#: imap/imap.c:1932
 #, c-format
 msgid "Copying %d messages to %s..."
 msgstr "%d teachtaireacht á gcóipeáil go %s..."
 
-#: imap/imap.c:1947 imap/imap.c:2240 imap/message.c:1489 muttlib.c:1353
+#: imap/imap.c:1947 imap/imap.c:2240 imap/message.c:1490 muttlib.c:1353
 #, c-format
 msgid "Create %s?"
 msgstr "Cruthaigh %s?"
@@ -2320,36 +2331,47 @@ msgid "Expunge failed"
 msgstr "Theip ar scriosadh"
 
 #: imap/imap.c:2405
-#, c-format
-msgid "Marking %d messages deleted..."
-msgstr "Ag marcáil %d teachtaireacht mar scriosta..."
+#, fuzzy, c-format
+msgid "Marking %d message deleted..."
+msgid_plural "Marking %d messages deleted..."
+msgstr[0] "Ag marcáil %d teachtaireacht mar scriosta..."
+msgstr[1] "Ag marcáil %d teachtaireacht mar scriosta..."
+msgstr[2] "Ag marcáil %d teachtaireacht mar scriosta..."
+msgstr[3] "Ag marcáil %d teachtaireacht mar scriosta..."
+msgstr[4] "Ag marcáil %d teachtaireacht mar scriosta..."
 
-#: imap/imap.c:2437
-#, c-format
-msgid "Saving changed messages... [%d/%d]"
-msgstr "Teachtaireachtaí athraithe á sábháil... [%d/%d]"
+#. L10N: The plural is choosen by the last %d, i.e. the total number
+#: imap/imap.c:2440
+#, fuzzy, c-format
+msgid "Saving changed message... [%d/%d]"
+msgid_plural "Saving changed messages... [%d/%d]"
+msgstr[0] "Teachtaireachtaí athraithe á sábháil... [%d/%d]"
+msgstr[1] "Teachtaireachtaí athraithe á sábháil... [%d/%d]"
+msgstr[2] "Teachtaireachtaí athraithe á sábháil... [%d/%d]"
+msgstr[3] "Teachtaireachtaí athraithe á sábháil... [%d/%d]"
+msgstr[4] "Teachtaireachtaí athraithe á sábháil... [%d/%d]"
 
-#: imap/imap.c:2491
+#: imap/imap.c:2496
 msgid "Error saving flags. Close anyway?"
 msgstr "Earráid agus bratacha á sábháil. Dún mar sin féin?"
 
-#: imap/imap.c:2499
+#: imap/imap.c:2504
 msgid "Error saving flags"
 msgstr "Earráid agus bratacha á sábháil"
 
-#: imap/imap.c:2521
+#: imap/imap.c:2526
 msgid "Expunging messages from server..."
 msgstr "Teachtaireachtaí á scriosadh ón fhreastalaí..."
 
-#: imap/imap.c:2527
+#: imap/imap.c:2532
 msgid "imap_sync_mailbox: EXPUNGE failed"
 msgstr "imap_sync_mailbox: Theip ar scriosadh"
 
-#: imap/imap.c:2573
+#: imap/imap.c:2578
 msgid "IMAP server doesn't support custom flags"
 msgstr ""
 
-#: imap/imap.c:2617
+#: imap/imap.c:2622
 #, fuzzy
 msgid "Invalid IMAP flags"
 msgstr "Neamhbhailí  "
@@ -2374,11 +2396,11 @@ msgstr "Níorbh fhéidir comhad sealadach %s a chruthú"
 msgid "Evaluating cache..."
 msgstr "Taisce á scrúdú... [%d/%d]"
 
-#: imap/message.c:1033 imap/message.c:1097 nntp.c:1612 pop.c:595
+#: imap/message.c:1033 imap/message.c:1097 nntp.c:1612 pop.c:598
 msgid "Fetching message..."
 msgstr "Teachtaireacht á fáil..."
 
-#: imap/message.c:1084 pop.c:591
+#: imap/message.c:1084 pop.c:594
 msgid "The message index is incorrect. Try reopening the mailbox."
 msgstr ""
 "Tá innéacs na dteachtaireachtaí mícheart. Bain triail as an mbosca poist a "
@@ -2388,7 +2410,17 @@ msgstr ""
 msgid "Uploading message..."
 msgstr "Teachtaireacht á huasluchtú..."
 
-#: imap/message.c:1456
+#: imap/message.c:1452
+#, fuzzy, c-format
+msgid "Copying %d message to %s..."
+msgid_plural "Copying %d messages to %s..."
+msgstr[0] "%d teachtaireacht á gcóipeáil go %s..."
+msgstr[1] "%d teachtaireacht á gcóipeáil go %s..."
+msgstr[2] "%d teachtaireacht á gcóipeáil go %s..."
+msgstr[3] "%d teachtaireacht á gcóipeáil go %s..."
+msgstr[4] "%d teachtaireacht á gcóipeáil go %s..."
+
+#: imap/message.c:1457
 #, c-format
 msgid "Copying message %d to %s..."
 msgstr "Teachtaireacht %d á cóipeáil go %s..."
@@ -4452,7 +4484,7 @@ msgstr ""
 msgid "%s is an invalid news server specification!"
 msgstr "%s: is conair POP neamhbhailí"
 
-#: nntp.c:64 nntp.c:594 pop.c:963 pop_lib.c:405
+#: nntp.c:64 nntp.c:594 pop.c:970 pop_lib.c:405
 msgid "Server closed connection!"
 msgstr "Dhún an freastalaí an nasc!"
 
@@ -4519,7 +4551,7 @@ msgstr ""
 msgid "Can't post article: %s"
 msgstr "ní féidir %s a 'stat': %s"
 
-#: nntp.c:1841 nntp.c:2259 pop.c:789 pop.c:856
+#: nntp.c:1841 nntp.c:2259 pop.c:792 pop.c:859
 msgid "Checking for new messages..."
 msgstr "Ag seiceáil do theachtaireachtaí nua..."
 
@@ -5757,56 +5789,76 @@ msgstr "ní féidir ceanntásc a scríobh chuig comhad sealadach!"
 msgid "Command UIDL is not supported by server."
 msgstr "Ní ghlacann an freastalaí leis an ordú UIDL."
 
-#: pop.c:314
+#: pop.c:315
 #, fuzzy, c-format
-msgid "%d messages have been lost. Try reopening the mailbox."
-msgstr ""
+msgid "%d message has been lost. Try reopening the mailbox."
+msgid_plural "%d messages have been lost. Try reopening the mailbox."
+msgstr[0] ""
+"Tá innéacs na dteachtaireachtaí mícheart. Bain triail as an mbosca poist a "
+"athoscailt."
+msgstr[1] ""
+"Tá innéacs na dteachtaireachtaí mícheart. Bain triail as an mbosca poist a "
+"athoscailt."
+msgstr[2] ""
+"Tá innéacs na dteachtaireachtaí mícheart. Bain triail as an mbosca poist a "
+"athoscailt."
+msgstr[3] ""
+"Tá innéacs na dteachtaireachtaí mícheart. Bain triail as an mbosca poist a "
+"athoscailt."
+msgstr[4] ""
 "Tá innéacs na dteachtaireachtaí mícheart. Bain triail as an mbosca poist a "
 "athoscailt."
 
-#: pop.c:431 pop.c:836
+#: pop.c:434 pop.c:839
 #, c-format
 msgid "%s is an invalid POP path"
 msgstr "%s: is conair POP neamhbhailí"
 
-#: pop.c:474
+#: pop.c:477
 msgid "Fetching list of messages..."
 msgstr "Liosta teachtaireachtaí á fháil..."
 
-#: pop.c:635
+#: pop.c:638
 msgid "Can't write message to temporary file!"
 msgstr "ní féidir teachtaireacht a scríobh i gcomhad sealadach!"
 
-#: pop.c:709
+#: pop.c:712
 #, fuzzy
 msgid "Marking messages deleted..."
 msgstr "Ag marcáil %d teachtaireacht mar scriosta..."
 
-#: pop.c:820
+#: pop.c:823
 msgid "POP host is not defined."
 msgstr "ní bhfuarthas an t-óstríomhaire POP."
 
-#: pop.c:884
+#: pop.c:887
 msgid "No new mail in POP mailbox."
 msgstr "Níl aon phost nua sa bhosca POP."
 
-#: pop.c:891
+#: pop.c:894
 msgid "Delete messages from server?"
 msgstr "Scrios teachtaireachtaí ón fhreastalaí?"
 
-#: pop.c:893
+#: pop.c:896
 #, c-format
 msgid "Reading new messages (%d bytes)..."
 msgstr "Teachtaireachtaí nua á léamh (%d beart)..."
 
-#: pop.c:936
+#: pop.c:939
 msgid "Error while writing mailbox!"
 msgstr "Earráid agus bosca poist á scríobh!"
 
-#: pop.c:940
-#, c-format
-msgid "%s [%d of %d messages read]"
-msgstr "%s [léadh %d as %d teachtaireacht]"
+#. L10N: The plural is picked by the second numerical argument, i.e.
+#. * the %d right before 'messages', i.e. the total number of messages.
+#: pop.c:945
+#, fuzzy, c-format
+msgid "%s [%d of %d message read]"
+msgid_plural "%s [%d of %d messages read]"
+msgstr[0] "%s [léadh %d as %d teachtaireacht]"
+msgstr[1] "%s [léadh %d as %d teachtaireacht]"
+msgstr[2] "%s [léadh %d as %d teachtaireacht]"
+msgstr[3] "%s [léadh %d as %d teachtaireacht]"
+msgstr[4] "%s [léadh %d as %d teachtaireacht]"
 
 #: pop_auth.c:90
 msgid "Authenticating (SASL)..."

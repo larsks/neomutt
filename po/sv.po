@@ -110,7 +110,7 @@ msgstr "Kan inte para ihop namnmall, fortsätt?"
 msgid "Mailcap compose entry requires %%s"
 msgstr "\"compose\"-posten i mailcap kräver %%s"
 
-#: attach.c:139 attach.c:272 commands.c:236 compose.c:1563 compress.c:433
+#: attach.c:139 attach.c:272 commands.c:236 compose.c:1564 compress.c:433
 #: curs_lib.c:213 curs_lib.c:453 curs_main.c:936 curs_main.c:979 pager.c:2264
 #: sendlib.c:1447
 #, c-format
@@ -819,128 +819,131 @@ msgid "Bad IDN in \"%s\": '%s'"
 msgstr "Felaktigt IDN i \"%s\": \"%s\""
 
 #: compose.c:1040
-msgid "Attaching selected files..."
-msgstr "Bifogar valda filer..."
+#, fuzzy
+msgid "Attaching selected file..."
+msgid_plural "Attaching selected files..."
+msgstr[0] "Bifogar valda filer..."
+msgstr[1] "Bifogar valda filer..."
 
-#: compose.c:1052
+#: compose.c:1053
 #, c-format
 msgid "Unable to attach %s!"
 msgstr "Kunde inte bifoga %s!"
 
-#: compose.c:1072
+#: compose.c:1073
 msgid "Open mailbox to attach message from"
 msgstr "Öppna brevlåda att bifoga meddelande från"
 
-#: compose.c:1083
+#: compose.c:1084
 #, fuzzy
 msgid "Open newsgroup to attach message from"
 msgstr "Öppna brevlåda att bifoga meddelande från"
 
-#: compose.c:1127
+#: compose.c:1128
 #, fuzzy, c-format
 msgid "Unable to open mailbox %s"
 msgstr "Kunde inte låsa brevlåda!"
 
-#: compose.c:1135
+#: compose.c:1136
 msgid "No messages in that folder."
 msgstr "Inga meddelanden i den foldern."
 
-#: compose.c:1145
+#: compose.c:1146
 msgid "Tag the messages you want to attach!"
 msgstr "Märk de meddelanden du vill bifoga!"
 
-#: compose.c:1171
+#: compose.c:1172
 msgid "Unable to attach!"
 msgstr "Kunde inte bifoga!"
 
-#: compose.c:1210
+#: compose.c:1211
 msgid "Recoding only affects text attachments."
 msgstr "Omkodning påverkar bara textbilagor."
 
-#: compose.c:1215
+#: compose.c:1216
 msgid "The current attachment won't be converted."
 msgstr "Den aktiva bilagan kommer inte att bli konverterad."
 
-#: compose.c:1217
+#: compose.c:1218
 msgid "The current attachment will be converted."
 msgstr "Den aktiva bilagan kommer att bli konverterad."
 
-#: compose.c:1290
+#: compose.c:1291
 msgid "Invalid encoding."
 msgstr "Ogiltig kodning."
 
-#: compose.c:1314
+#: compose.c:1315
 msgid "Save a copy of this message?"
 msgstr "Spara en kopia detta meddelande?"
 
-#: compose.c:1370
+#: compose.c:1371
 #, fuzzy
 msgid "Send attachment with name: "
 msgstr "visa bilaga som text"
 
-#: compose.c:1387
+#: compose.c:1388
 msgid "Rename to: "
 msgstr "Byt namn till: "
 
 #. L10N:
 #. "stat" is a system call. Do "man 2 stat" for more information.
-#: compose.c:1394 editmsg.c:107 editmsg.c:143 sendlib.c:908
+#: compose.c:1395 editmsg.c:107 editmsg.c:143 sendlib.c:908
 #, c-format
 msgid "Can't stat %s: %s"
 msgstr "Kan inte ta status på %s: %s"
 
-#: compose.c:1420
+#: compose.c:1421
 msgid "New file: "
 msgstr "Ny fil: "
 
-#: compose.c:1435
+#: compose.c:1436
 msgid "Content-Type is of the form base/sub"
 msgstr "\"Content-Type\" har formen bas/undertyp"
 
-#: compose.c:1442
+#: compose.c:1443
 #, c-format
 msgid "Unknown Content-Type %s"
 msgstr "Okänd \"Content-Type\" %s"
 
-#: compose.c:1450
+#: compose.c:1451
 #, c-format
 msgid "Can't create file %s"
 msgstr "Kan inte skapa fil %s"
 
-#: compose.c:1459
+#: compose.c:1460
 msgid "What we have here is a failure to make an attachment"
 msgstr "Vad vi har här är ett misslyckande att skapa en bilaga."
 
-#: compose.c:1522
+#: compose.c:1523
 msgid "Postpone this message?"
 msgstr "Skjut upp det här meddelandet?"
 
-#: compose.c:1581
+#: compose.c:1582
 msgid "Write message to mailbox"
 msgstr "Skriv meddelande till brevlåda"
 
-#: compose.c:1584
+#: compose.c:1585
 #, c-format
 msgid "Writing message to %s ..."
 msgstr "Skriver meddelande till %s ..."
 
-#: compose.c:1593
+#: compose.c:1594
 msgid "Message written."
 msgstr "Meddelande skrivet."
 
-#: compose.c:1602
+#: compose.c:1603
 msgid "No PGP backend configured"
 msgstr ""
 
-#: compose.c:1610
+#: compose.c:1611
 msgid "S/MIME already selected. Clear and continue ? "
 msgstr "S/MIME redan valt. Rensa och fortsätt? "
 
-#: compose.c:1636
+#: compose.c:1637
 msgid "No S/MIME backend configured"
 msgstr ""
 
-#: compose.c:1644
+#: compose.c:1645
 msgid "PGP already selected. Clear and continue ? "
 msgstr "PGP redan valt. Rensa och fortsätt? "
 
@@ -1722,8 +1725,10 @@ msgstr "Kan inte skriva meddelande"
 #. * messages is edited.
 #: curs_main.c:2918 pager.c:3200
 #, fuzzy, c-format
-msgid "%d labels changed."
-msgstr "Brevlåda är oförändrad."
+msgid "%d label changed."
+msgid_plural "%d labels changed."
+msgstr[0] "Brevlåda är oförändrad."
+msgstr[1] "Brevlåda är oförändrad."
 
 #. L10N: This is displayed when editing an x-label, but no messages
 #. * were updated.  Possibly due to canceling at the prompt or if the new
@@ -2285,12 +2290,12 @@ msgstr "Prenumererar på %s..."
 msgid "Unsubscribed from %s"
 msgstr "Avslutar prenumeration på %s"
 
-#: imap/imap.c:1932 imap/message.c:1452
+#: imap/imap.c:1932
 #, c-format
 msgid "Copying %d messages to %s..."
 msgstr "Kopierar %d meddelanden till %s..."
 
-#: imap/imap.c:1947 imap/imap.c:2240 imap/message.c:1489 muttlib.c:1353
+#: imap/imap.c:1947 imap/imap.c:2240 imap/message.c:1490 muttlib.c:1353
 #, c-format
 msgid "Create %s?"
 msgstr "Skapa %s?"
@@ -2309,37 +2314,42 @@ msgid "Expunge failed"
 msgstr "Radering misslyckades"
 
 #: imap/imap.c:2405
-#, c-format
-msgid "Marking %d messages deleted..."
-msgstr "Märker %d meddelanden som raderade..."
+#, fuzzy, c-format
+msgid "Marking %d message deleted..."
+msgid_plural "Marking %d messages deleted..."
+msgstr[0] "Märker %d meddelanden som raderade..."
+msgstr[1] "Märker %d meddelanden som raderade..."
 
-#: imap/imap.c:2437
-#, c-format
-msgid "Saving changed messages... [%d/%d]"
-msgstr "Sparar ändrade meddelanden... [%d/%d]"
+#. L10N: The plural is choosen by the last %d, i.e. the total number
+#: imap/imap.c:2440
+#, fuzzy, c-format
+msgid "Saving changed message... [%d/%d]"
+msgid_plural "Saving changed messages... [%d/%d]"
+msgstr[0] "Sparar ändrade meddelanden... [%d/%d]"
+msgstr[1] "Sparar ändrade meddelanden... [%d/%d]"
 
-#: imap/imap.c:2491
+#: imap/imap.c:2496
 msgid "Error saving flags. Close anyway?"
 msgstr "Fel vid sparande av flaggor. Stäng ändå?"
 
-#: imap/imap.c:2499
+#: imap/imap.c:2504
 msgid "Error saving flags"
 msgstr "Fel vid sparande av flaggor"
 
-#: imap/imap.c:2521
+#: imap/imap.c:2526
 msgid "Expunging messages from server..."
 msgstr "Raderar meddelanden från server..."
 
-#: imap/imap.c:2527
+#: imap/imap.c:2532
 msgid "imap_sync_mailbox: EXPUNGE failed"
 msgstr "imap_sync_mailbox: EXPUNGE misslyckades"
 
-#: imap/imap.c:2573
+#: imap/imap.c:2578
 #, fuzzy
 msgid "IMAP server doesn't support custom flags"
 msgstr "SMTP-server stöder inte autentisering"
 
-#: imap/imap.c:2617
+#: imap/imap.c:2622
 #, fuzzy
 msgid "Invalid IMAP flags"
 msgstr "Ogiltig   "
@@ -2363,11 +2373,11 @@ msgstr "Kunde inte skapa tillfällig fil %s"
 msgid "Evaluating cache..."
 msgstr "Utvärderar cache..."
 
-#: imap/message.c:1033 imap/message.c:1097 nntp.c:1612 pop.c:595
+#: imap/message.c:1033 imap/message.c:1097 nntp.c:1612 pop.c:598
 msgid "Fetching message..."
 msgstr "Hämtar meddelande..."
 
-#: imap/message.c:1084 pop.c:591
+#: imap/message.c:1084 pop.c:594
 msgid "The message index is incorrect. Try reopening the mailbox."
 msgstr "Brevindexet är fel. Försök att öppna brevlådan igen."
 
@@ -2375,7 +2385,14 @@ msgstr "Brevindexet är fel. Försök att öppna brevlådan igen."
 msgid "Uploading message..."
 msgstr "Laddar upp meddelande..."
 
-#: imap/message.c:1456
+#: imap/message.c:1452
+#, fuzzy, c-format
+msgid "Copying %d message to %s..."
+msgid_plural "Copying %d messages to %s..."
+msgstr[0] "Kopierar %d meddelanden till %s..."
+msgstr[1] "Kopierar %d meddelanden till %s..."
+
+#: imap/message.c:1457
 #, c-format
 msgid "Copying message %d to %s..."
 msgstr "Kopierar meddelande %d till %s..."
@@ -4440,7 +4457,7 @@ msgstr ""
 msgid "%s is an invalid news server specification!"
 msgstr "%s är en ogilitig POP-sökväg"
 
-#: nntp.c:64 nntp.c:594 pop.c:963 pop_lib.c:405
+#: nntp.c:64 nntp.c:594 pop.c:970 pop_lib.c:405
 msgid "Server closed connection!"
 msgstr "Servern stängde förbindelsen!"
 
@@ -4508,7 +4525,7 @@ msgstr ""
 msgid "Can't post article: %s"
 msgstr "Kan inte ta status på %s: %s"
 
-#: nntp.c:1841 nntp.c:2259 pop.c:789 pop.c:856
+#: nntp.c:1841 nntp.c:2259 pop.c:792 pop.c:859
 msgid "Checking for new messages..."
 msgstr "Kollar efter nya meddelanden..."
 
@@ -5737,53 +5754,59 @@ msgstr "Kan inte skriva huvud till tillfällig fil!"
 msgid "Command UIDL is not supported by server."
 msgstr "Kommandot UIDL stöds inte av servern."
 
-#: pop.c:314
+#: pop.c:315
 #, fuzzy, c-format
-msgid "%d messages have been lost. Try reopening the mailbox."
-msgstr "Brevindexet är fel. Försök att öppna brevlådan igen."
+msgid "%d message has been lost. Try reopening the mailbox."
+msgid_plural "%d messages have been lost. Try reopening the mailbox."
+msgstr[0] "Brevindexet är fel. Försök att öppna brevlådan igen."
+msgstr[1] "Brevindexet är fel. Försök att öppna brevlådan igen."
 
-#: pop.c:431 pop.c:836
+#: pop.c:434 pop.c:839
 #, c-format
 msgid "%s is an invalid POP path"
 msgstr "%s är en ogilitig POP-sökväg"
 
-#: pop.c:474
+#: pop.c:477
 msgid "Fetching list of messages..."
 msgstr "Hämtar lista över meddelanden..."
 
-#: pop.c:635
+#: pop.c:638
 msgid "Can't write message to temporary file!"
 msgstr "Kan inte skriva meddelande till tillfällig fil!"
 
-#: pop.c:709
+#: pop.c:712
 msgid "Marking messages deleted..."
 msgstr "Markerar raderade meddelanden..."
 
-#: pop.c:820
+#: pop.c:823
 msgid "POP host is not defined."
 msgstr "POP-värd är inte definierad."
 
-#: pop.c:884
+#: pop.c:887
 msgid "No new mail in POP mailbox."
 msgstr "Inga nya brev i POP-brevlåda."
 
-#: pop.c:891
+#: pop.c:894
 msgid "Delete messages from server?"
 msgstr "Radera meddelanden från server?"
 
-#: pop.c:893
+#: pop.c:896
 #, c-format
 msgid "Reading new messages (%d bytes)..."
 msgstr "Läser nya meddelanden (%d byte)..."
 
-#: pop.c:936
+#: pop.c:939
 msgid "Error while writing mailbox!"
 msgstr "Fel vid skrivning av brevlåda!"
 
-#: pop.c:940
-#, c-format
-msgid "%s [%d of %d messages read]"
-msgstr "%s [%d av %d meddelanden lästa]"
+#. L10N: The plural is picked by the second numerical argument, i.e.
+#. * the %d right before 'messages', i.e. the total number of messages.
+#: pop.c:945
+#, fuzzy, c-format
+msgid "%s [%d of %d message read]"
+msgid_plural "%s [%d of %d messages read]"
+msgstr[0] "%s [%d av %d meddelanden lästa]"
+msgstr[1] "%s [%d av %d meddelanden lästa]"
 
 #: pop_auth.c:90
 msgid "Authenticating (SASL)..."

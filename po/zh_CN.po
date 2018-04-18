@@ -113,7 +113,7 @@ msgstr "无法匹配名称模板，继续？"
 msgid "Mailcap compose entry requires %%s"
 msgstr "Mailcap 编写项目需要 %%s"
 
-#: attach.c:139 attach.c:272 commands.c:236 compose.c:1563 compress.c:433
+#: attach.c:139 attach.c:272 commands.c:236 compose.c:1564 compress.c:433
 #: curs_lib.c:213 curs_lib.c:453 curs_main.c:936 curs_main.c:979 pager.c:2264
 #: sendlib.c:1447
 #, c-format
@@ -823,128 +823,130 @@ msgid "Bad IDN in \"%s\": '%s'"
 msgstr "在\"%s\"中有错误的 IDN: '%s'"
 
 #: compose.c:1040
-msgid "Attaching selected files..."
-msgstr "正在附加已选择的文件..."
+#, fuzzy
+msgid "Attaching selected file..."
+msgid_plural "Attaching selected files..."
+msgstr[0] "正在附加已选择的文件..."
 
-#: compose.c:1052
+#: compose.c:1053
 #, c-format
 msgid "Unable to attach %s!"
 msgstr "无法附加 %s！"
 
-#: compose.c:1072
+#: compose.c:1073
 msgid "Open mailbox to attach message from"
 msgstr "打开信箱并从中附加信件"
 
-#: compose.c:1083
+#: compose.c:1084
 #, fuzzy
 msgid "Open newsgroup to attach message from"
 msgstr "打开信箱并从中附加信件"
 
-#: compose.c:1127
+#: compose.c:1128
 #, fuzzy, c-format
 msgid "Unable to open mailbox %s"
 msgstr "无法锁住信箱！"
 
-#: compose.c:1135
+#: compose.c:1136
 msgid "No messages in that folder."
 msgstr "文件夹中没有信件。"
 
-#: compose.c:1145
+#: compose.c:1146
 msgid "Tag the messages you want to attach!"
 msgstr "请标记您要附加的信件！"
 
-#: compose.c:1171
+#: compose.c:1172
 msgid "Unable to attach!"
 msgstr "无法附加！"
 
-#: compose.c:1210
+#: compose.c:1211
 msgid "Recoding only affects text attachments."
 msgstr "重新编码只对文本附件有效。"
 
-#: compose.c:1215
+#: compose.c:1216
 msgid "The current attachment won't be converted."
 msgstr "当前附件不会被转换。"
 
-#: compose.c:1217
+#: compose.c:1218
 msgid "The current attachment will be converted."
 msgstr "当前附件将被转换。"
 
-#: compose.c:1290
+#: compose.c:1291
 msgid "Invalid encoding."
 msgstr "无效的编码。"
 
-#: compose.c:1314
+#: compose.c:1315
 msgid "Save a copy of this message?"
 msgstr "保存这封信件的副本吗？"
 
-#: compose.c:1370
+#: compose.c:1371
 #, fuzzy
 msgid "Send attachment with name: "
 msgstr "将附件保存到 Fcc 吗？"
 
-#: compose.c:1387
+#: compose.c:1388
 msgid "Rename to: "
 msgstr "改名为："
 
 #. L10N:
 #. "stat" is a system call. Do "man 2 stat" for more information.
-#: compose.c:1394 editmsg.c:107 editmsg.c:143 sendlib.c:908
+#: compose.c:1395 editmsg.c:107 editmsg.c:143 sendlib.c:908
 #, c-format
 msgid "Can't stat %s: %s"
 msgstr "无法 stat %s：%s"
 
-#: compose.c:1420
+#: compose.c:1421
 msgid "New file: "
 msgstr "新文件："
 
-#: compose.c:1435
+#: compose.c:1436
 msgid "Content-Type is of the form base/sub"
 msgstr "内容类型(Content-Type)的格式是 base/sub"
 
-#: compose.c:1442
+#: compose.c:1443
 #, c-format
 msgid "Unknown Content-Type %s"
 msgstr "未知的内容类型(Content-Type)%s"
 
-#: compose.c:1450
+#: compose.c:1451
 #, c-format
 msgid "Can't create file %s"
 msgstr "无法建立文件 %s"
 
-#: compose.c:1459
+#: compose.c:1460
 msgid "What we have here is a failure to make an attachment"
 msgstr "目前情况是我们无法加上附件"
 
-#: compose.c:1522
+#: compose.c:1523
 msgid "Postpone this message?"
 msgstr "推迟这封信件？"
 
-#: compose.c:1581
+#: compose.c:1582
 msgid "Write message to mailbox"
 msgstr "将信件写入到信箱"
 
-#: compose.c:1584
+#: compose.c:1585
 #, c-format
 msgid "Writing message to %s ..."
 msgstr "写入信件到 %s ..."
 
-#: compose.c:1593
+#: compose.c:1594
 msgid "Message written."
 msgstr "信件已写入。"
 
-#: compose.c:1602
+#: compose.c:1603
 msgid "No PGP backend configured"
 msgstr ""
 
-#: compose.c:1610
+#: compose.c:1611
 msgid "S/MIME already selected. Clear and continue ? "
 msgstr "已经选择了 S/MIME 。清除并继续？"
 
-#: compose.c:1636
+#: compose.c:1637
 msgid "No S/MIME backend configured"
 msgstr ""
 
-#: compose.c:1644
+#: compose.c:1645
 msgid "PGP already selected. Clear and continue ? "
 msgstr "已经选择了 PGP。清除并继续？"
 
@@ -1728,8 +1730,9 @@ msgstr "无法写入信件"
 #. * messages is edited.
 #: curs_main.c:2918 pager.c:3200
 #, fuzzy, c-format
-msgid "%d labels changed."
-msgstr "信箱没有改变。"
+msgid "%d label changed."
+msgid_plural "%d labels changed."
+msgstr[0] "信箱没有改变。"
 
 #. L10N: This is displayed when editing an x-label, but no messages
 #. * were updated.  Possibly due to canceling at the prompt or if the new
@@ -2288,12 +2291,12 @@ msgstr "已订阅 %s..."
 msgid "Unsubscribed from %s"
 msgstr "已取消订阅 %s..."
 
-#: imap/imap.c:1932 imap/message.c:1452
+#: imap/imap.c:1932
 #, c-format
 msgid "Copying %d messages to %s..."
 msgstr "正在复制 %d 个信件到 %s ..."
 
-#: imap/imap.c:1947 imap/imap.c:2240 imap/message.c:1489 muttlib.c:1353
+#: imap/imap.c:1947 imap/imap.c:2240 imap/message.c:1490 muttlib.c:1353
 #, c-format
 msgid "Create %s?"
 msgstr "创建 %s 吗？"
@@ -2312,37 +2315,40 @@ msgid "Expunge failed"
 msgstr "执行删除失败"
 
 #: imap/imap.c:2405
-#, c-format
-msgid "Marking %d messages deleted..."
-msgstr "已标记的 %d 封信件已删除..."
+#, fuzzy, c-format
+msgid "Marking %d message deleted..."
+msgid_plural "Marking %d messages deleted..."
+msgstr[0] "已标记的 %d 封信件已删除..."
 
-#: imap/imap.c:2437
-#, c-format
-msgid "Saving changed messages... [%d/%d]"
-msgstr "正在储存已改变的信件... [%d/%d]"
+#. L10N: The plural is choosen by the last %d, i.e. the total number
+#: imap/imap.c:2440
+#, fuzzy, c-format
+msgid "Saving changed message... [%d/%d]"
+msgid_plural "Saving changed messages... [%d/%d]"
+msgstr[0] "正在储存已改变的信件... [%d/%d]"
 
-#: imap/imap.c:2491
+#: imap/imap.c:2496
 msgid "Error saving flags. Close anyway?"
 msgstr "保存标记出错。仍然关闭吗？"
 
-#: imap/imap.c:2499
+#: imap/imap.c:2504
 msgid "Error saving flags"
 msgstr "保存标记时出错"
 
-#: imap/imap.c:2521
+#: imap/imap.c:2526
 msgid "Expunging messages from server..."
 msgstr "正在服务器上执行信件删除..."
 
-#: imap/imap.c:2527
+#: imap/imap.c:2532
 msgid "imap_sync_mailbox: EXPUNGE failed"
 msgstr "imap_sync_mailbox: EXPUNGE(执行删除)失败"
 
-#: imap/imap.c:2573
+#: imap/imap.c:2578
 #, fuzzy
 msgid "IMAP server doesn't support custom flags"
 msgstr "SMTP 服务器不支持认证"
 
-#: imap/imap.c:2617
+#: imap/imap.c:2622
 #, fuzzy
 msgid "Invalid IMAP flags"
 msgstr "无效  "
@@ -2366,11 +2372,11 @@ msgstr "无法创建临时文件 %s"
 msgid "Evaluating cache..."
 msgstr "正在评估缓存..."
 
-#: imap/message.c:1033 imap/message.c:1097 nntp.c:1612 pop.c:595
+#: imap/message.c:1033 imap/message.c:1097 nntp.c:1612 pop.c:598
 msgid "Fetching message..."
 msgstr "正在取回信件..."
 
-#: imap/message.c:1084 pop.c:591
+#: imap/message.c:1084 pop.c:594
 msgid "The message index is incorrect. Try reopening the mailbox."
 msgstr "信件索引不正确。请尝试重新打开邮件箱。"
 
@@ -2378,7 +2384,13 @@ msgstr "信件索引不正确。请尝试重新打开邮件箱。"
 msgid "Uploading message..."
 msgstr "正在上传信件..."
 
-#: imap/message.c:1456
+#: imap/message.c:1452
+#, fuzzy, c-format
+msgid "Copying %d message to %s..."
+msgid_plural "Copying %d messages to %s..."
+msgstr[0] "正在复制 %d 个信件到 %s ..."
+
+#: imap/message.c:1457
 #, c-format
 msgid "Copying message %d to %s..."
 msgstr "正在复制信件 %d 到 %s ..."
@@ -4414,7 +4426,7 @@ msgstr "没有被定义的 POP 使用者名称。"
 msgid "%s is an invalid news server specification!"
 msgstr "%s 是无效的 POP 路径"
 
-#: nntp.c:64 nntp.c:594 pop.c:963 pop_lib.c:405
+#: nntp.c:64 nntp.c:594 pop.c:970 pop_lib.c:405
 msgid "Server closed connection!"
 msgstr "服务器关闭了连接！"
 
@@ -4482,7 +4494,7 @@ msgstr "帖子 %d 没有在服务器上找到"
 msgid "Can't post article: %s"
 msgstr "无法读取：%s"
 
-#: nntp.c:1841 nntp.c:2259 pop.c:789 pop.c:856
+#: nntp.c:1841 nntp.c:2259 pop.c:792 pop.c:859
 msgid "Checking for new messages..."
 msgstr "正在检查新邮件..."
 
@@ -5711,53 +5723,57 @@ msgstr "无法将标头写入临时文件！"
 msgid "Command UIDL is not supported by server."
 msgstr "服务器不支持 UIDL 命令。"
 
-#: pop.c:314
-#, c-format
-msgid "%d messages have been lost. Try reopening the mailbox."
-msgstr "%d 个信件已丢失。请尝试重新打开信箱。"
+#: pop.c:315
+#, fuzzy, c-format
+msgid "%d message has been lost. Try reopening the mailbox."
+msgid_plural "%d messages have been lost. Try reopening the mailbox."
+msgstr[0] "%d 个信件已丢失。请尝试重新打开信箱。"
 
-#: pop.c:431 pop.c:836
+#: pop.c:434 pop.c:839
 #, c-format
 msgid "%s is an invalid POP path"
 msgstr "%s 是无效的 POP 路径"
 
-#: pop.c:474
+#: pop.c:477
 msgid "Fetching list of messages..."
 msgstr "正在取回信件列表..."
 
-#: pop.c:635
+#: pop.c:638
 msgid "Can't write message to temporary file!"
 msgstr "无法将新建写入临时文件！"
 
-#: pop.c:709
+#: pop.c:712
 msgid "Marking messages deleted..."
 msgstr "正在标记邮件为已删除..."
 
-#: pop.c:820
+#: pop.c:823
 msgid "POP host is not defined."
 msgstr "未定义 POP 主机。"
 
-#: pop.c:884
+#: pop.c:887
 msgid "No new mail in POP mailbox."
 msgstr "POP 信箱中没有新信件"
 
-#: pop.c:891
+#: pop.c:894
 msgid "Delete messages from server?"
 msgstr "删除服务器上的信件吗？"
 
-#: pop.c:893
+#: pop.c:896
 #, c-format
 msgid "Reading new messages (%d bytes)..."
 msgstr "正在读取新信件 (%d 字节)..."
 
-#: pop.c:936
+#: pop.c:939
 msgid "Error while writing mailbox!"
 msgstr "写入信箱时出错！"
 
-#: pop.c:940
-#, c-format
-msgid "%s [%d of %d messages read]"
-msgstr "%s [已读取 %d 封信件，共 %d 封]"
+#. L10N: The plural is picked by the second numerical argument, i.e.
+#. * the %d right before 'messages', i.e. the total number of messages.
+#: pop.c:945
+#, fuzzy, c-format
+msgid "%s [%d of %d message read]"
+msgid_plural "%s [%d of %d messages read]"
+msgstr[0] "%s [已读取 %d 封信件，共 %d 封]"
 
 #: pop_auth.c:90
 msgid "Authenticating (SASL)..."

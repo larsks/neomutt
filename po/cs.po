@@ -116,7 +116,7 @@ msgstr "Shodu pro jmenný vzor nelze nalézt, pokračovat?"
 msgid "Mailcap compose entry requires %%s"
 msgstr "Položka mailcapu „compose“ vyžaduje %%s"
 
-#: attach.c:139 attach.c:272 commands.c:236 compose.c:1563 compress.c:433
+#: attach.c:139 attach.c:272 commands.c:236 compose.c:1564 compress.c:433
 #: curs_lib.c:213 curs_lib.c:453 curs_main.c:936 curs_main.c:979 pager.c:2264
 #: sendlib.c:1447
 #, c-format
@@ -813,126 +813,130 @@ msgid "Bad IDN in \"%s\": '%s'"
 msgstr "Neplatné IDN v \"%s\": „%s“"
 
 #: compose.c:1040
-msgid "Attaching selected files..."
-msgstr "Připojuji zvolené soubory…"
+#, fuzzy
+msgid "Attaching selected file..."
+msgid_plural "Attaching selected files..."
+msgstr[0] "Připojuji zvolené soubory…"
+msgstr[1] "Připojuji zvolené soubory…"
+msgstr[2] "Připojuji zvolené soubory…"
 
-#: compose.c:1052
+#: compose.c:1053
 #, c-format
 msgid "Unable to attach %s!"
 msgstr "%s nelze připojit!"
 
-#: compose.c:1072
+#: compose.c:1073
 msgid "Open mailbox to attach message from"
 msgstr "Otevřít schránku, z níž se připojí zpráva"
 
-#: compose.c:1083
+#: compose.c:1084
 msgid "Open newsgroup to attach message from"
 msgstr "Otevřít diskusní skupinu, z níž se připojí zpráva"
 
-#: compose.c:1127
+#: compose.c:1128
 #, c-format
 msgid "Unable to open mailbox %s"
 msgstr "Schránku %s nelze otevřít"
 
-#: compose.c:1135
+#: compose.c:1136
 msgid "No messages in that folder."
 msgstr "V této složce nejsou žádné zprávy."
 
-#: compose.c:1145
+#: compose.c:1146
 msgid "Tag the messages you want to attach!"
 msgstr "Označte zprávy, které chcete připojit!"
 
-#: compose.c:1171
+#: compose.c:1172
 msgid "Unable to attach!"
 msgstr "Nelze připojit!"
 
-#: compose.c:1210
+#: compose.c:1211
 msgid "Recoding only affects text attachments."
 msgstr "Překódování se týká pouze textových příloh."
 
-#: compose.c:1215
+#: compose.c:1216
 msgid "The current attachment won't be converted."
 msgstr "Aktuální příloha nebude převedena."
 
-#: compose.c:1217
+#: compose.c:1218
 msgid "The current attachment will be converted."
 msgstr "Aktuální příloha bude převedena."
 
-#: compose.c:1290
+#: compose.c:1291
 msgid "Invalid encoding."
 msgstr "Neplatné kódování."
 
-#: compose.c:1314
+#: compose.c:1315
 msgid "Save a copy of this message?"
 msgstr "Uložit kopii této zprávy?"
 
-#: compose.c:1370
+#: compose.c:1371
 msgid "Send attachment with name: "
 msgstr "Poslat přílohu pod názvem: "
 
-#: compose.c:1387
+#: compose.c:1388
 msgid "Rename to: "
 msgstr "Přejmenovat na: "
 
 #. L10N:
 #. "stat" is a system call. Do "man 2 stat" for more information.
-#: compose.c:1394 editmsg.c:107 editmsg.c:143 sendlib.c:908
+#: compose.c:1395 editmsg.c:107 editmsg.c:143 sendlib.c:908
 #, c-format
 msgid "Can't stat %s: %s"
 msgstr "Chyba při volání funkce stat pro %s: %s"
 
-#: compose.c:1420
+#: compose.c:1421
 msgid "New file: "
 msgstr "Nový soubor: "
 
-#: compose.c:1435
+#: compose.c:1436
 msgid "Content-Type is of the form base/sub"
 msgstr "Položka „Content-Type“ je tvaru třída/podtřída"
 
-#: compose.c:1442
+#: compose.c:1443
 #, c-format
 msgid "Unknown Content-Type %s"
 msgstr "Hodnota %s položky „Content-Type“ je neznámá."
 
-#: compose.c:1450
+#: compose.c:1451
 #, c-format
 msgid "Can't create file %s"
 msgstr "Soubor %s nelze vytvořit"
 
-#: compose.c:1459
+#: compose.c:1460
 msgid "What we have here is a failure to make an attachment"
 msgstr "Vytvoření přílohy se nezdařilo."
 
-#: compose.c:1522
+#: compose.c:1523
 msgid "Postpone this message?"
 msgstr "Odložit tuto zprávu?"
 
-#: compose.c:1581
+#: compose.c:1582
 msgid "Write message to mailbox"
 msgstr "Uložit zprávu do schránky"
 
-#: compose.c:1584
+#: compose.c:1585
 #, c-format
 msgid "Writing message to %s ..."
 msgstr "Ukládám zprávu do %s…"
 
-#: compose.c:1593
+#: compose.c:1594
 msgid "Message written."
 msgstr "Zpráva uložena."
 
-#: compose.c:1602
+#: compose.c:1603
 msgid "No PGP backend configured"
 msgstr "Není nakonfigurováno a přeloženo s podporou PGP"
 
-#: compose.c:1610
+#: compose.c:1611
 msgid "S/MIME already selected. Clear and continue ? "
 msgstr "Je aktivní S/MIME, zrušit jej a pokračovat?"
 
-#: compose.c:1636
+#: compose.c:1637
 msgid "No S/MIME backend configured"
 msgstr "Není nakonfigurováno a přeložčno s podporou S/MIME"
 
-#: compose.c:1644
+#: compose.c:1645
 msgid "PGP already selected. Clear and continue ? "
 msgstr "Je aktivní PGP, zrušit jej a pokračovat?"
 
@@ -1685,9 +1689,12 @@ msgstr "Zprávu nelze upravit"
 #. L10N: This is displayed when the x-label on one or more
 #. * messages is edited.
 #: curs_main.c:2918 pager.c:3200
-#, c-format
-msgid "%d labels changed."
-msgstr "%d štítků změněno."
+#, fuzzy, c-format
+msgid "%d label changed."
+msgid_plural "%d labels changed."
+msgstr[0] "%d štítků změněno."
+msgstr[1] "%d štítků změněno."
+msgstr[2] "%d štítků změněno."
 
 #. L10N: This is displayed when editing an x-label, but no messages
 #. * were updated.  Possibly due to canceling at the prompt or if the new
@@ -2239,12 +2246,12 @@ msgstr "%s přihlášeno"
 msgid "Unsubscribed from %s"
 msgstr "%s odhlášeno"
 
-#: imap/imap.c:1932 imap/message.c:1452
+#: imap/imap.c:1932
 #, c-format
 msgid "Copying %d messages to %s..."
 msgstr "Kopíruji zprávy (%d) do %s…"
 
-#: imap/imap.c:1947 imap/imap.c:2240 imap/message.c:1489 muttlib.c:1353
+#: imap/imap.c:1947 imap/imap.c:2240 imap/message.c:1490 muttlib.c:1353
 #, c-format
 msgid "Create %s?"
 msgstr "Vytvořit %s?"
@@ -2263,36 +2270,43 @@ msgid "Expunge failed"
 msgstr "Příkaz EXPUNGE se nezdařil."
 
 #: imap/imap.c:2405
-#, c-format
-msgid "Marking %d messages deleted..."
-msgstr "Mažu zprávy (počet: %d)…"
+#, fuzzy, c-format
+msgid "Marking %d message deleted..."
+msgid_plural "Marking %d messages deleted..."
+msgstr[0] "Mažu zprávy (počet: %d)…"
+msgstr[1] "Mažu zprávy (počet: %d)…"
+msgstr[2] "Mažu zprávy (počet: %d)…"
 
-#: imap/imap.c:2437
-#, c-format
-msgid "Saving changed messages... [%d/%d]"
-msgstr "Ukládám změněné zprávy… [%d/%d]"
+#. L10N: The plural is choosen by the last %d, i.e. the total number
+#: imap/imap.c:2440
+#, fuzzy, c-format
+msgid "Saving changed message... [%d/%d]"
+msgid_plural "Saving changed messages... [%d/%d]"
+msgstr[0] "Ukládám změněné zprávy… [%d/%d]"
+msgstr[1] "Ukládám změněné zprávy… [%d/%d]"
+msgstr[2] "Ukládám změněné zprávy… [%d/%d]"
 
-#: imap/imap.c:2491
+#: imap/imap.c:2496
 msgid "Error saving flags. Close anyway?"
 msgstr "Došlo k chybě při ukládání příznaků. Přesto uzavřít?"
 
-#: imap/imap.c:2499
+#: imap/imap.c:2504
 msgid "Error saving flags"
 msgstr "Chyba při ukládání příznaků"
 
-#: imap/imap.c:2521
+#: imap/imap.c:2526
 msgid "Expunging messages from server..."
 msgstr "Odstraňuji zprávy ze serveru…"
 
-#: imap/imap.c:2527
+#: imap/imap.c:2532
 msgid "imap_sync_mailbox: EXPUNGE failed"
 msgstr "při volání imap_sync_mailbox: EXPUNGE selhalo"
 
-#: imap/imap.c:2573
+#: imap/imap.c:2578
 msgid "IMAP server doesn't support custom flags"
 msgstr "IMAP server nepodporuje vlastní příznaky"
 
-#: imap/imap.c:2617
+#: imap/imap.c:2622
 msgid "Invalid IMAP flags"
 msgstr "Neplatné IMAP příznaky"
 
@@ -2315,11 +2329,11 @@ msgstr "Dočasný soubor %s nelze vytvořit"
 msgid "Evaluating cache..."
 msgstr "Vyhodnocuji cache…"
 
-#: imap/message.c:1033 imap/message.c:1097 nntp.c:1612 pop.c:595
+#: imap/message.c:1033 imap/message.c:1097 nntp.c:1612 pop.c:598
 msgid "Fetching message..."
 msgstr "Stahuji zprávu…"
 
-#: imap/message.c:1084 pop.c:591
+#: imap/message.c:1084 pop.c:594
 msgid "The message index is incorrect. Try reopening the mailbox."
 msgstr "Index zpráv je chybný. Zkuste schránku znovu otevřít."
 
@@ -2327,7 +2341,15 @@ msgstr "Index zpráv je chybný. Zkuste schránku znovu otevřít."
 msgid "Uploading message..."
 msgstr "Nahrávám zprávu na server…"
 
-#: imap/message.c:1456
+#: imap/message.c:1452
+#, fuzzy, c-format
+msgid "Copying %d message to %s..."
+msgid_plural "Copying %d messages to %s..."
+msgstr[0] "Kopíruji zprávy (%d) do %s…"
+msgstr[1] "Kopíruji zprávy (%d) do %s…"
+msgstr[2] "Kopíruji zprávy (%d) do %s…"
+
+#: imap/message.c:1457
 #, c-format
 msgid "Copying message %d to %s..."
 msgstr "Kopíruji zprávu %d do %s…"
@@ -4355,7 +4377,7 @@ msgstr "Není definován žádný server diskusních skupin!"
 msgid "%s is an invalid news server specification!"
 msgstr "%s je neplatné zadání serveru diskusních skupin!"
 
-#: nntp.c:64 nntp.c:594 pop.c:963 pop_lib.c:405
+#: nntp.c:64 nntp.c:594 pop.c:970 pop_lib.c:405
 msgid "Server closed connection!"
 msgstr "Server uzavřel spojení!"
 
@@ -4419,7 +4441,7 @@ msgstr "Článek %d nebyl nalezen na serveru."
 msgid "Can't post article: %s"
 msgstr "Nelze odeslat článek: %s"
 
-#: nntp.c:1841 nntp.c:2259 pop.c:789 pop.c:856
+#: nntp.c:1841 nntp.c:2259 pop.c:792 pop.c:859
 msgid "Checking for new messages..."
 msgstr "Hledám nové zprávy…"
 
@@ -5606,53 +5628,61 @@ msgid "Command UIDL is not supported by server."
 msgstr "Server nepodporuje příkaz UIDL."
 
 # TODO: plurals
-#: pop.c:314
-#, c-format
-msgid "%d messages have been lost. Try reopening the mailbox."
-msgstr "%d zpráv bylo ztraceno. Zkuste schránku znovu otevřít."
+#: pop.c:315
+#, fuzzy, c-format
+msgid "%d message has been lost. Try reopening the mailbox."
+msgid_plural "%d messages have been lost. Try reopening the mailbox."
+msgstr[0] "%d zpráv bylo ztraceno. Zkuste schránku znovu otevřít."
+msgstr[1] "%d zpráv bylo ztraceno. Zkuste schránku znovu otevřít."
+msgstr[2] "%d zpráv bylo ztraceno. Zkuste schránku znovu otevřít."
 
-#: pop.c:431 pop.c:836
+#: pop.c:434 pop.c:839
 #, c-format
 msgid "%s is an invalid POP path"
 msgstr "%s je neplatná POP cesta"
 
-#: pop.c:474
+#: pop.c:477
 msgid "Fetching list of messages..."
 msgstr "Stahuji seznam zpráv…"
 
-#: pop.c:635
+#: pop.c:638
 msgid "Can't write message to temporary file!"
 msgstr "Nelze zapsat zprávu do dočasného souboru!"
 
-#: pop.c:709
+#: pop.c:712
 msgid "Marking messages deleted..."
 msgstr "Označuji zprávy ke smazání…"
 
-#: pop.c:820
+#: pop.c:823
 msgid "POP host is not defined."
 msgstr "POP server není definován."
 
-#: pop.c:884
+#: pop.c:887
 msgid "No new mail in POP mailbox."
 msgstr "Ve schránce na POP serveru nejsou nové zprávy."
 
-#: pop.c:891
+#: pop.c:894
 msgid "Delete messages from server?"
 msgstr "Odstranit zprávy ze serveru?"
 
-#: pop.c:893
+#: pop.c:896
 #, c-format
 msgid "Reading new messages (%d bytes)..."
 msgstr "Načítám nové zprávy (počet bajtů: %d)…"
 
-#: pop.c:936
+#: pop.c:939
 msgid "Error while writing mailbox!"
 msgstr "Chyba při zápisu do schránky!"
 
-#: pop.c:940
-#, c-format
-msgid "%s [%d of %d messages read]"
-msgstr "%s [počet přečtených zpráv: %d/%d]"
+#. L10N: The plural is picked by the second numerical argument, i.e.
+#. * the %d right before 'messages', i.e. the total number of messages.
+#: pop.c:945
+#, fuzzy, c-format
+msgid "%s [%d of %d message read]"
+msgid_plural "%s [%d of %d messages read]"
+msgstr[0] "%s [počet přečtených zpráv: %d/%d]"
+msgstr[1] "%s [počet přečtených zpráv: %d/%d]"
+msgstr[2] "%s [počet přečtených zpráv: %d/%d]"
 
 #: pop_auth.c:90
 msgid "Authenticating (SASL)..."

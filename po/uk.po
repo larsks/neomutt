@@ -112,7 +112,7 @@ msgstr "Немає відповідного імені, далі?"
 msgid "Mailcap compose entry requires %%s"
 msgstr "Спосіб створення, вказаний у mailcap, потребує параметра %%s"
 
-#: attach.c:139 attach.c:272 commands.c:236 compose.c:1563 compress.c:433
+#: attach.c:139 attach.c:272 commands.c:236 compose.c:1564 compress.c:433
 #: curs_lib.c:213 curs_lib.c:453 curs_main.c:936 curs_main.c:979 pager.c:2264
 #: sendlib.c:1447
 #, c-format
@@ -815,127 +815,131 @@ msgid "Bad IDN in \"%s\": '%s'"
 msgstr "Некоректне IDN в \"%s\": %s"
 
 #: compose.c:1040
-msgid "Attaching selected files..."
-msgstr "Додавання вибраних файлів..."
+#, fuzzy
+msgid "Attaching selected file..."
+msgid_plural "Attaching selected files..."
+msgstr[0] "Додавання вибраних файлів..."
+msgstr[1] "Додавання вибраних файлів..."
+msgstr[2] "Додавання вибраних файлів..."
 
-#: compose.c:1052
+#: compose.c:1053
 #, c-format
 msgid "Unable to attach %s!"
 msgstr "Неможливо додати %s!"
 
-#: compose.c:1072
+#: compose.c:1073
 msgid "Open mailbox to attach message from"
 msgstr "Скринька, з якої додати повідомлення"
 
-#: compose.c:1083
+#: compose.c:1084
 #, fuzzy
 msgid "Open newsgroup to attach message from"
 msgstr "Скринька, з якої додати повідомлення"
 
-#: compose.c:1127
+#: compose.c:1128
 #, c-format
 msgid "Unable to open mailbox %s"
 msgstr "Неможливо відкрити скриньку %s"
 
-#: compose.c:1135
+#: compose.c:1136
 msgid "No messages in that folder."
 msgstr "Ця скринька зовсім порожня."
 
-#: compose.c:1145
+#: compose.c:1146
 msgid "Tag the messages you want to attach!"
 msgstr "Виділіть повідомлення для додавання!"
 
-#: compose.c:1171
+#: compose.c:1172
 msgid "Unable to attach!"
 msgstr "Неможливо додати!"
 
-#: compose.c:1210
+#: compose.c:1211
 msgid "Recoding only affects text attachments."
 msgstr "Перекодування може бути застосоване тільки до текстових додатків."
 
-#: compose.c:1215
+#: compose.c:1216
 msgid "The current attachment won't be converted."
 msgstr "Поточний додаток не буде перетворено."
 
-#: compose.c:1217
+#: compose.c:1218
 msgid "The current attachment will be converted."
 msgstr "Поточний додаток буде перетворено."
 
-#: compose.c:1290
+#: compose.c:1291
 msgid "Invalid encoding."
 msgstr "Невірне кодування."
 
-#: compose.c:1314
+#: compose.c:1315
 msgid "Save a copy of this message?"
 msgstr "Зберегти копію цього повідомлення?"
 
-#: compose.c:1370
+#: compose.c:1371
 msgid "Send attachment with name: "
 msgstr "Відправити додаток з ім’ям: "
 
-#: compose.c:1387
+#: compose.c:1388
 msgid "Rename to: "
 msgstr "Перейменувати у: "
 
 #. L10N:
 #. "stat" is a system call. Do "man 2 stat" for more information.
-#: compose.c:1394 editmsg.c:107 editmsg.c:143 sendlib.c:908
+#: compose.c:1395 editmsg.c:107 editmsg.c:143 sendlib.c:908
 #, c-format
 msgid "Can't stat %s: %s"
 msgstr "Неможливо отримати дані %s: %s"
 
-#: compose.c:1420
+#: compose.c:1421
 msgid "New file: "
 msgstr "Новий файл: "
 
-#: compose.c:1435
+#: compose.c:1436
 msgid "Content-Type is of the form base/sub"
 msgstr "Поле Content-Type повинно мати форму тип/підтип"
 
-#: compose.c:1442
+#: compose.c:1443
 #, c-format
 msgid "Unknown Content-Type %s"
 msgstr "Невідомий Content-Type %s"
 
-#: compose.c:1450
+#: compose.c:1451
 #, c-format
 msgid "Can't create file %s"
 msgstr "Неможливо створити файл %s"
 
-#: compose.c:1459
+#: compose.c:1460
 msgid "What we have here is a failure to make an attachment"
 msgstr "Не вийшло створити додаток"
 
-#: compose.c:1522
+#: compose.c:1523
 msgid "Postpone this message?"
 msgstr "Залишити лист до подальшого редагування та відправки?"
 
-#: compose.c:1581
+#: compose.c:1582
 msgid "Write message to mailbox"
 msgstr "Записати лист до поштової скриньки"
 
-#: compose.c:1584
+#: compose.c:1585
 #, c-format
 msgid "Writing message to %s ..."
 msgstr "Запис листа до %s..."
 
-#: compose.c:1593
+#: compose.c:1594
 msgid "Message written."
 msgstr "Лист записано."
 
-#: compose.c:1602
+#: compose.c:1603
 msgid "No PGP backend configured"
 msgstr ""
 
-#: compose.c:1610
+#: compose.c:1611
 msgid "S/MIME already selected. Clear and continue ? "
 msgstr "S/MIME вже вибрано. Очистити і продовжити? "
 
-#: compose.c:1636
+#: compose.c:1637
 msgid "No S/MIME backend configured"
 msgstr ""
 
-#: compose.c:1644
+#: compose.c:1645
 msgid "PGP already selected. Clear and continue ? "
 msgstr "PGP вже вибрано. Очистити і продовжити? "
 
@@ -1700,9 +1704,12 @@ msgstr "Неможливо редагувати лист"
 #. L10N: This is displayed when the x-label on one or more
 #. * messages is edited.
 #: curs_main.c:2918 pager.c:3200
-#, c-format
-msgid "%d labels changed."
-msgstr "Позначки було змінено: %d"
+#, fuzzy, c-format
+msgid "%d label changed."
+msgid_plural "%d labels changed."
+msgstr[0] "Позначки було змінено: %d"
+msgstr[1] "Позначки було змінено: %d"
+msgstr[2] "Позначки було змінено: %d"
 
 #. L10N: This is displayed when editing an x-label, but no messages
 #. * were updated.  Possibly due to canceling at the prompt or if the new
@@ -2251,12 +2258,12 @@ msgstr "Підписано на %s..."
 msgid "Unsubscribed from %s"
 msgstr "Відписано від %s..."
 
-#: imap/imap.c:1932 imap/message.c:1452
+#: imap/imap.c:1932
 #, c-format
 msgid "Copying %d messages to %s..."
 msgstr "Копіювання %d листів до %s..."
 
-#: imap/imap.c:1947 imap/imap.c:2240 imap/message.c:1489 muttlib.c:1353
+#: imap/imap.c:1947 imap/imap.c:2240 imap/message.c:1490 muttlib.c:1353
 #, c-format
 msgid "Create %s?"
 msgstr "Створити %s?"
@@ -2275,37 +2282,44 @@ msgid "Expunge failed"
 msgstr "Помилка видалення"
 
 #: imap/imap.c:2405
-#, c-format
-msgid "Marking %d messages deleted..."
-msgstr "Маркування %d повідомлень видаленими..."
+#, fuzzy, c-format
+msgid "Marking %d message deleted..."
+msgid_plural "Marking %d messages deleted..."
+msgstr[0] "Маркування %d повідомлень видаленими..."
+msgstr[1] "Маркування %d повідомлень видаленими..."
+msgstr[2] "Маркування %d повідомлень видаленими..."
 
-#: imap/imap.c:2437
-#, c-format
-msgid "Saving changed messages... [%d/%d]"
-msgstr "Збереження змінених листів... [%d/%d]"
+#. L10N: The plural is choosen by the last %d, i.e. the total number
+#: imap/imap.c:2440
+#, fuzzy, c-format
+msgid "Saving changed message... [%d/%d]"
+msgid_plural "Saving changed messages... [%d/%d]"
+msgstr[0] "Збереження змінених листів... [%d/%d]"
+msgstr[1] "Збереження змінених листів... [%d/%d]"
+msgstr[2] "Збереження змінених листів... [%d/%d]"
 
-#: imap/imap.c:2491
+#: imap/imap.c:2496
 msgid "Error saving flags. Close anyway?"
 msgstr "Помилка збереження атрибутів. Закрити все одно?"
 
-#: imap/imap.c:2499
+#: imap/imap.c:2504
 msgid "Error saving flags"
 msgstr "Помилка збереження атрибутів"
 
-#: imap/imap.c:2521
+#: imap/imap.c:2526
 msgid "Expunging messages from server..."
 msgstr "Видалення повідомлень з серверу..."
 
-#: imap/imap.c:2527
+#: imap/imap.c:2532
 msgid "imap_sync_mailbox: EXPUNGE failed"
 msgstr "imap_sync_mailbox: помилка EXPUNGE"
 
-#: imap/imap.c:2573
+#: imap/imap.c:2578
 #, fuzzy
 msgid "IMAP server doesn't support custom flags"
 msgstr "SMTP-сервер не підтримує аутентифікації"
 
-#: imap/imap.c:2617
+#: imap/imap.c:2622
 #, fuzzy
 msgid "Invalid IMAP flags"
 msgstr "Неправ.   "
@@ -2329,11 +2343,11 @@ msgstr "Не вийшло створити тимчасовий файл %s"
 msgid "Evaluating cache..."
 msgstr "Завантаження кеша..."
 
-#: imap/message.c:1033 imap/message.c:1097 nntp.c:1612 pop.c:595
+#: imap/message.c:1033 imap/message.c:1097 nntp.c:1612 pop.c:598
 msgid "Fetching message..."
 msgstr "Отримання листа..."
 
-#: imap/message.c:1084 pop.c:591
+#: imap/message.c:1084 pop.c:594
 msgid "The message index is incorrect. Try reopening the mailbox."
 msgstr "Некоректний індекс повідомленнь. Спробуйте відкрити скриньку ще раз."
 
@@ -2341,7 +2355,15 @@ msgstr "Некоректний індекс повідомленнь. Спроб
 msgid "Uploading message..."
 msgstr "Відправка листа..."
 
-#: imap/message.c:1456
+#: imap/message.c:1452
+#, fuzzy, c-format
+msgid "Copying %d message to %s..."
+msgid_plural "Copying %d messages to %s..."
+msgstr[0] "Копіювання %d листів до %s..."
+msgstr[1] "Копіювання %d листів до %s..."
+msgstr[2] "Копіювання %d листів до %s..."
+
+#: imap/message.c:1457
 #, c-format
 msgid "Copying message %d to %s..."
 msgstr "Копіювання %d листів до %s..."
@@ -4369,7 +4391,7 @@ msgstr ""
 msgid "%s is an invalid news server specification!"
 msgstr "%s - неприпустимий шлях POP"
 
-#: nntp.c:64 nntp.c:594 pop.c:963 pop_lib.c:405
+#: nntp.c:64 nntp.c:594 pop.c:970 pop_lib.c:405
 msgid "Server closed connection!"
 msgstr "Сервер закрив з’єднання!"
 
@@ -4437,7 +4459,7 @@ msgstr ""
 msgid "Can't post article: %s"
 msgstr "Неможливо отримати дані %s: %s"
 
-#: nntp.c:1841 nntp.c:2259 pop.c:789 pop.c:856
+#: nntp.c:1841 nntp.c:2259 pop.c:792 pop.c:859
 msgid "Checking for new messages..."
 msgstr "Перевірка наявності нових повідомлень..."
 
@@ -5652,53 +5674,61 @@ msgstr "Неможливо записати заголовок до тимчас
 msgid "Command UIDL is not supported by server."
 msgstr "Команда UIDL не підтримується сервером."
 
-#: pop.c:314
-#, c-format
-msgid "%d messages have been lost. Try reopening the mailbox."
-msgstr "%d повідомлень втрачено. Спробуйте відкрити скриньку знову."
+#: pop.c:315
+#, fuzzy, c-format
+msgid "%d message has been lost. Try reopening the mailbox."
+msgid_plural "%d messages have been lost. Try reopening the mailbox."
+msgstr[0] "%d повідомлень втрачено. Спробуйте відкрити скриньку знову."
+msgstr[1] "%d повідомлень втрачено. Спробуйте відкрити скриньку знову."
+msgstr[2] "%d повідомлень втрачено. Спробуйте відкрити скриньку знову."
 
-#: pop.c:431 pop.c:836
+#: pop.c:434 pop.c:839
 #, c-format
 msgid "%s is an invalid POP path"
 msgstr "%s - неприпустимий шлях POP"
 
-#: pop.c:474
+#: pop.c:477
 msgid "Fetching list of messages..."
 msgstr "Отримання переліку повідомлень..."
 
-#: pop.c:635
+#: pop.c:638
 msgid "Can't write message to temporary file!"
 msgstr "Неможливо записати повідомлення до тимчасового файлу!"
 
-#: pop.c:709
+#: pop.c:712
 msgid "Marking messages deleted..."
 msgstr "Маркування повідомлень видаленими..."
 
-#: pop.c:820
+#: pop.c:823
 msgid "POP host is not defined."
 msgstr "POP host не визначено."
 
-#: pop.c:884
+#: pop.c:887
 msgid "No new mail in POP mailbox."
 msgstr "В поштовій скриньці POP немає нових листів."
 
-#: pop.c:891
+#: pop.c:894
 msgid "Delete messages from server?"
 msgstr "Видалити повідомлення з серверу?"
 
-#: pop.c:893
+#: pop.c:896
 #, c-format
 msgid "Reading new messages (%d bytes)..."
 msgstr "Читання нових повідомлень (%d байт)..."
 
-#: pop.c:936
+#: pop.c:939
 msgid "Error while writing mailbox!"
 msgstr "Помилка під час запису поштової скриньки!"
 
-#: pop.c:940
-#, c-format
-msgid "%s [%d of %d messages read]"
-msgstr "%s [%d з %d листів прочитано]"
+#. L10N: The plural is picked by the second numerical argument, i.e.
+#. * the %d right before 'messages', i.e. the total number of messages.
+#: pop.c:945
+#, fuzzy, c-format
+msgid "%s [%d of %d message read]"
+msgid_plural "%s [%d of %d messages read]"
+msgstr[0] "%s [%d з %d листів прочитано]"
+msgstr[1] "%s [%d з %d листів прочитано]"
+msgstr[2] "%s [%d з %d листів прочитано]"
 
 #: pop_auth.c:90
 msgid "Authenticating (SASL)..."

@@ -112,7 +112,7 @@ msgstr "Negaliu rasti tinkančio vardo, tęsti?"
 msgid "Mailcap compose entry requires %%s"
 msgstr "Mailcap kūrimo įrašui reikia %%s"
 
-#: attach.c:139 attach.c:272 commands.c:236 compose.c:1563 compress.c:433
+#: attach.c:139 attach.c:272 commands.c:236 compose.c:1564 compress.c:433
 #: curs_lib.c:213 curs_lib.c:453 curs_main.c:936 curs_main.c:979 pager.c:2264
 #: sendlib.c:1447
 #, c-format
@@ -809,126 +809,130 @@ msgid "Bad IDN in \"%s\": '%s'"
 msgstr ""
 
 #: compose.c:1040
-msgid "Attaching selected files..."
-msgstr "Prisegu parinktas bylas..."
+#, fuzzy
+msgid "Attaching selected file..."
+msgid_plural "Attaching selected files..."
+msgstr[0] "Prisegu parinktas bylas..."
+msgstr[1] "Prisegu parinktas bylas..."
+msgstr[2] "Prisegu parinktas bylas..."
 
-#: compose.c:1052
+#: compose.c:1053
 #, c-format
 msgid "Unable to attach %s!"
 msgstr "Negaliu prisegti %s!"
 
-#: compose.c:1072
+#: compose.c:1073
 msgid "Open mailbox to attach message from"
 msgstr "Atidaryti dėžutę, iš kurios prisegti laišką"
 
-#: compose.c:1083
+#: compose.c:1084
 msgid "Open newsgroup to attach message from"
 msgstr "Atidaryti naujienų grupę, iš kurios prisegti laišką"
 
-#: compose.c:1127
+#: compose.c:1128
 #, c-format
 msgid "Unable to open mailbox %s"
 msgstr "Negaliu atidaryti dėžutės %s"
 
-#: compose.c:1135
+#: compose.c:1136
 msgid "No messages in that folder."
 msgstr "Nėra laiškų tame aplanke."
 
-#: compose.c:1145
+#: compose.c:1146
 msgid "Tag the messages you want to attach!"
 msgstr "Pažymėk laiškus, kuriuos nori prisegti!"
 
-#: compose.c:1171
+#: compose.c:1172
 msgid "Unable to attach!"
 msgstr "Negaliu prisegti!"
 
-#: compose.c:1210
+#: compose.c:1211
 msgid "Recoding only affects text attachments."
 msgstr "Perkodavimas keičia tik tekstinius priedus."
 
-#: compose.c:1215
+#: compose.c:1216
 msgid "The current attachment won't be converted."
 msgstr "Esamas priedas nebus konvertuotas."
 
-#: compose.c:1217
+#: compose.c:1218
 msgid "The current attachment will be converted."
 msgstr "Esamas priedas bus konvertuotas."
 
-#: compose.c:1290
+#: compose.c:1291
 msgid "Invalid encoding."
 msgstr "Bloga koduotė."
 
-#: compose.c:1314
+#: compose.c:1315
 msgid "Save a copy of this message?"
 msgstr "Išsaugoti šio laiško kopiją?"
 
-#: compose.c:1370
+#: compose.c:1371
 msgid "Send attachment with name: "
 msgstr "Siųsti priedą vardu: "
 
-#: compose.c:1387
+#: compose.c:1388
 msgid "Rename to: "
 msgstr "Pervadinti į: "
 
 #. L10N:
 #. "stat" is a system call. Do "man 2 stat" for more information.
-#: compose.c:1394 editmsg.c:107 editmsg.c:143 sendlib.c:908
+#: compose.c:1395 editmsg.c:107 editmsg.c:143 sendlib.c:908
 #, c-format
 msgid "Can't stat %s: %s"
 msgstr "Negalėjau stat'inti %s: %s"
 
-#: compose.c:1420
+#: compose.c:1421
 msgid "New file: "
 msgstr "Nauja byla: "
 
-#: compose.c:1435
+#: compose.c:1436
 msgid "Content-Type is of the form base/sub"
 msgstr "Content-Type pavidalas yra rūšis/porūšis"
 
-#: compose.c:1442
+#: compose.c:1443
 #, c-format
 msgid "Unknown Content-Type %s"
 msgstr "Nežinomas Content-Type %s"
 
-#: compose.c:1450
+#: compose.c:1451
 #, c-format
 msgid "Can't create file %s"
 msgstr "Negaliu sukurti bylos %s"
 
-#: compose.c:1459
+#: compose.c:1460
 msgid "What we have here is a failure to make an attachment"
 msgstr "Čia turėtų būti priedas, tačiau jo nepavyko padaryti"
 
-#: compose.c:1522
+#: compose.c:1523
 msgid "Postpone this message?"
 msgstr "Atidėti šį laišką?"
 
-#: compose.c:1581
+#: compose.c:1582
 msgid "Write message to mailbox"
 msgstr "Įrašyti laišką į dėžutę"
 
-#: compose.c:1584
+#: compose.c:1585
 #, c-format
 msgid "Writing message to %s ..."
 msgstr "Rašau laišką į %s ..."
 
-#: compose.c:1593
+#: compose.c:1594
 msgid "Message written."
 msgstr "Laiškas įrašytas."
 
-#: compose.c:1602
+#: compose.c:1603
 msgid "No PGP backend configured"
 msgstr ""
 
-#: compose.c:1610
+#: compose.c:1611
 msgid "S/MIME already selected. Clear and continue ? "
 msgstr ""
 
-#: compose.c:1636
+#: compose.c:1637
 msgid "No S/MIME backend configured"
 msgstr ""
 
-#: compose.c:1644
+#: compose.c:1645
 msgid "PGP already selected. Clear and continue ? "
 msgstr ""
 
@@ -1710,8 +1714,11 @@ msgstr "Negaliu įrašyti laiško"
 #. * messages is edited.
 #: curs_main.c:2918 pager.c:3200
 #, fuzzy, c-format
-msgid "%d labels changed."
-msgstr "Dėžutė yra nepakeista."
+msgid "%d label changed."
+msgid_plural "%d labels changed."
+msgstr[0] "Dėžutė yra nepakeista."
+msgstr[1] "Dėžutė yra nepakeista."
+msgstr[2] "Dėžutė yra nepakeista."
 
 #. L10N: This is displayed when editing an x-label, but no messages
 #. * were updated.  Possibly due to canceling at the prompt or if the new
@@ -2297,12 +2304,12 @@ msgstr "Užsakiau %s"
 msgid "Unsubscribed from %s"
 msgstr "Atsisakiau %s"
 
-#: imap/imap.c:1932 imap/message.c:1452
+#: imap/imap.c:1932
 #, c-format
 msgid "Copying %d messages to %s..."
 msgstr "Kopijuoju %d laiškus į %s..."
 
-#: imap/imap.c:1947 imap/imap.c:2240 imap/message.c:1489 muttlib.c:1353
+#: imap/imap.c:1947 imap/imap.c:2240 imap/message.c:1490 muttlib.c:1353
 #, c-format
 msgid "Create %s?"
 msgstr "Sukurti %s?"
@@ -2322,37 +2329,44 @@ msgid "Expunge failed"
 msgstr "Nepavyko pasisveikinti."
 
 #: imap/imap.c:2405
-#, c-format
-msgid "Marking %d messages deleted..."
-msgstr "Pažymiu %d laiškus ištrintais..."
+#, fuzzy, c-format
+msgid "Marking %d message deleted..."
+msgid_plural "Marking %d messages deleted..."
+msgstr[0] "Pažymiu %d laiškus ištrintais..."
+msgstr[1] "Pažymiu %d laiškus ištrintais..."
+msgstr[2] "Pažymiu %d laiškus ištrintais..."
 
-#: imap/imap.c:2437
-#, c-format
-msgid "Saving changed messages... [%d/%d]"
-msgstr "Išsaugau pasikeitusius laiškus... [%d/%d]"
+#. L10N: The plural is choosen by the last %d, i.e. the total number
+#: imap/imap.c:2440
+#, fuzzy, c-format
+msgid "Saving changed message... [%d/%d]"
+msgid_plural "Saving changed messages... [%d/%d]"
+msgstr[0] "Išsaugau pasikeitusius laiškus... [%d/%d]"
+msgstr[1] "Išsaugau pasikeitusius laiškus... [%d/%d]"
+msgstr[2] "Išsaugau pasikeitusius laiškus... [%d/%d]"
 
-#: imap/imap.c:2491
+#: imap/imap.c:2496
 msgid "Error saving flags. Close anyway?"
 msgstr ""
 
-#: imap/imap.c:2499
+#: imap/imap.c:2504
 #, fuzzy
 msgid "Error saving flags"
 msgstr "Klaida nagrinėjant adresą!"
 
-#: imap/imap.c:2521
+#: imap/imap.c:2526
 msgid "Expunging messages from server..."
 msgstr "Ištuštinu laiškus iš serverio..."
 
-#: imap/imap.c:2527
+#: imap/imap.c:2532
 msgid "imap_sync_mailbox: EXPUNGE failed"
 msgstr ""
 
-#: imap/imap.c:2573
+#: imap/imap.c:2578
 msgid "IMAP server doesn't support custom flags"
 msgstr ""
 
-#: imap/imap.c:2617
+#: imap/imap.c:2622
 #, fuzzy
 msgid "Invalid IMAP flags"
 msgstr "Blogas mėnuo: %s"
@@ -2377,11 +2391,11 @@ msgstr "Negaliu sukurti laikinos bylos %s"
 msgid "Evaluating cache..."
 msgstr "Paimu laiškų antraštes... [%d/%d]"
 
-#: imap/message.c:1033 imap/message.c:1097 nntp.c:1612 pop.c:595
+#: imap/message.c:1033 imap/message.c:1097 nntp.c:1612 pop.c:598
 msgid "Fetching message..."
 msgstr "Paimu laišką..."
 
-#: imap/message.c:1084 pop.c:591
+#: imap/message.c:1084 pop.c:594
 msgid "The message index is incorrect. Try reopening the mailbox."
 msgstr "Laiškų indeksas yra neteisingas. Bandyk iš naujo atidaryti dėžutę."
 
@@ -2390,7 +2404,15 @@ msgstr "Laiškų indeksas yra neteisingas. Bandyk iš naujo atidaryti dėžutę.
 msgid "Uploading message..."
 msgstr "Nusiunčiu laišką..."
 
-#: imap/message.c:1456
+#: imap/message.c:1452
+#, fuzzy, c-format
+msgid "Copying %d message to %s..."
+msgid_plural "Copying %d messages to %s..."
+msgstr[0] "Kopijuoju %d laiškus į %s..."
+msgstr[1] "Kopijuoju %d laiškus į %s..."
+msgstr[2] "Kopijuoju %d laiškus į %s..."
+
+#: imap/message.c:1457
 #, c-format
 msgid "Copying message %d to %s..."
 msgstr "Kopijuoju laišką %d į %s..."
@@ -4511,7 +4533,7 @@ msgstr ""
 msgid "%s is an invalid news server specification!"
 msgstr ""
 
-#: nntp.c:64 nntp.c:594 pop.c:963 pop_lib.c:405
+#: nntp.c:64 nntp.c:594 pop.c:970 pop_lib.c:405
 msgid "Server closed connection!"
 msgstr "Serveris uždarė jungtį!"
 
@@ -4578,7 +4600,7 @@ msgstr ""
 msgid "Can't post article: %s"
 msgstr "Negalėjau stat'inti: %s"
 
-#: nntp.c:1841 nntp.c:2259 pop.c:789 pop.c:856
+#: nntp.c:1841 nntp.c:2259 pop.c:792 pop.c:859
 msgid "Checking for new messages..."
 msgstr "Tikrinu, ar yra naujų laiškų..."
 
@@ -5823,54 +5845,62 @@ msgstr "Negaliu įrašyti antraštės į laikiną bylą!"
 msgid "Command UIDL is not supported by server."
 msgstr "Serveris nepalaiko komandos UIDL."
 
-#: pop.c:314
+#: pop.c:315
 #, fuzzy, c-format
-msgid "%d messages have been lost. Try reopening the mailbox."
-msgstr "Laiškų indeksas yra neteisingas. Bandyk iš naujo atidaryti dėžutę."
+msgid "%d message has been lost. Try reopening the mailbox."
+msgid_plural "%d messages have been lost. Try reopening the mailbox."
+msgstr[0] "Laiškų indeksas yra neteisingas. Bandyk iš naujo atidaryti dėžutę."
+msgstr[1] "Laiškų indeksas yra neteisingas. Bandyk iš naujo atidaryti dėžutę."
+msgstr[2] "Laiškų indeksas yra neteisingas. Bandyk iš naujo atidaryti dėžutę."
 
-#: pop.c:431 pop.c:836
+#: pop.c:434 pop.c:839
 #, c-format
 msgid "%s is an invalid POP path"
 msgstr ""
 
-#: pop.c:474
+#: pop.c:477
 msgid "Fetching list of messages..."
 msgstr "Paimu laiškų sąrašą..."
 
-#: pop.c:635
+#: pop.c:638
 msgid "Can't write message to temporary file!"
 msgstr "Negaliu įrašyti laiško į laikiną bylą!"
 
-#: pop.c:709
+#: pop.c:712
 #, fuzzy
 msgid "Marking messages deleted..."
 msgstr "Pažymiu %d laiškus ištrintais..."
 
-#: pop.c:820
+#: pop.c:823
 msgid "POP host is not defined."
 msgstr "POP hostas nenurodytas."
 
-#: pop.c:884
+#: pop.c:887
 msgid "No new mail in POP mailbox."
 msgstr "Nėra naujų laiškų POP dėžutėje."
 
-#: pop.c:891
+#: pop.c:894
 msgid "Delete messages from server?"
 msgstr "Ištrinti laiškus iš serverio?"
 
-#: pop.c:893
+#: pop.c:896
 #, c-format
 msgid "Reading new messages (%d bytes)..."
 msgstr "Skaitau naujus laiškus (%d baitų)..."
 
-#: pop.c:936
+#: pop.c:939
 msgid "Error while writing mailbox!"
 msgstr "Klaida rašant į pašto dėžutę!"
 
-#: pop.c:940
-#, c-format
-msgid "%s [%d of %d messages read]"
-msgstr "%s [%d iš %d laiškų perskaityti]"
+#. L10N: The plural is picked by the second numerical argument, i.e.
+#. * the %d right before 'messages', i.e. the total number of messages.
+#: pop.c:945
+#, fuzzy, c-format
+msgid "%s [%d of %d message read]"
+msgid_plural "%s [%d of %d messages read]"
+msgstr[0] "%s [%d iš %d laiškų perskaityti]"
+msgstr[1] "%s [%d iš %d laiškų perskaityti]"
+msgstr[2] "%s [%d iš %d laiškų perskaityti]"
 
 #: pop_auth.c:90
 msgid "Authenticating (SASL)..."
