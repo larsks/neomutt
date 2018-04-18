@@ -3127,14 +3127,12 @@ msgid "Move %d read messages to %s?"
 msgstr "Přesunout %d přečtených zpráv do %s?"
 
 #: mx.c:728 mx.c:1032
-#, c-format
+#, fuzzy, c-format
 msgid "Purge %d deleted message?"
-msgstr "Zahodit smazané zprávy (%d)?"
-
-#: mx.c:728 mx.c:1032
-#, c-format
-msgid "Purge %d deleted messages?"
-msgstr "Zahodit smazané zprávy (%d)?"
+msgid_plural "Purge %d deleted messages?"
+msgstr[0] "Zahodit smazané zprávy (%d)?"
+msgstr[1] "Zahodit smazané zprávy (%d)?"
+msgstr[2] "Zahodit smazané zprávy (%d)?"
 
 #: mx.c:750
 #, c-format
@@ -6271,6 +6269,9 @@ msgstr "Výchzí volby:"
 #: version.c:414
 msgid "Compile options:"
 msgstr "Přeloženo s volbami:"
+
+#~ msgid "Purge %d deleted messages?"
+#~ msgstr "Zahodit smazané zprávy (%d)?"
 
 #~ msgid "ID is expired/disabled/revoked."
 #~ msgstr "Tomuto ID vypršela platnost, nebo bylo zakázáno či odvoláno."

@@ -3178,14 +3178,11 @@ msgid "Move %d read messages to %s?"
 msgstr "Flytta lästa meddelanden till %s?"
 
 #: mx.c:728 mx.c:1032
-#, c-format
+#, fuzzy, c-format
 msgid "Purge %d deleted message?"
-msgstr "Rensa %d raderat meddelande?"
-
-#: mx.c:728 mx.c:1032
-#, c-format
-msgid "Purge %d deleted messages?"
-msgstr "Rensa %d raderade meddelanden?"
+msgid_plural "Purge %d deleted messages?"
+msgstr[0] "Rensa %d raderat meddelande?"
+msgstr[1] "Rensa %d raderade meddelanden?"
 
 #: mx.c:750
 #, c-format
@@ -6412,6 +6409,9 @@ msgstr "Kompileringsval:"
 #: version.c:414
 msgid "Compile options:"
 msgstr "Kompileringsval:"
+
+#~ msgid "Purge %d deleted messages?"
+#~ msgstr "Rensa %d raderade meddelanden?"
 
 #~ msgid "ID is expired/disabled/revoked."
 #~ msgstr "ID:t är utgånget/inaktiverat/återkallat."

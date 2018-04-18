@@ -3178,14 +3178,11 @@ msgid "Move %d read messages to %s?"
 msgstr "Irakurritako mezuak %s-ra mugitu?"
 
 #: mx.c:728 mx.c:1032
-#, c-format
+#, fuzzy, c-format
 msgid "Purge %d deleted message?"
-msgstr "Ezabatutako %d mezua betirako ezabatu?"
-
-#: mx.c:728 mx.c:1032
-#, c-format
-msgid "Purge %d deleted messages?"
-msgstr "Ezabatutako %d mezuak betirako ezabatu?"
+msgid_plural "Purge %d deleted messages?"
+msgstr[0] "Ezabatutako %d mezua betirako ezabatu?"
+msgstr[1] "Ezabatutako %d mezuak betirako ezabatu?"
 
 #: mx.c:750
 #, c-format
@@ -6390,6 +6387,9 @@ msgstr "Konpilazio aukerak:"
 #: version.c:414
 msgid "Compile options:"
 msgstr "Konpilazio aukerak:"
+
+#~ msgid "Purge %d deleted messages?"
+#~ msgstr "Ezabatutako %d mezuak betirako ezabatu?"
 
 #~ msgid "ID is expired/disabled/revoked."
 #~ msgstr "ID-a denboraz kanpo/ezgaitua/ukatua dago."

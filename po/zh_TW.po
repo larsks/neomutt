@@ -3257,14 +3257,10 @@ msgid "Move %d read messages to %s?"
 msgstr "搬移已讀取的信件到 %s？"
 
 #: mx.c:728 mx.c:1032
-#, c-format
+#, fuzzy, c-format
 msgid "Purge %d deleted message?"
-msgstr "清除 %d 封已經被刪除的信件？"
-
-#: mx.c:728 mx.c:1032
-#, c-format
-msgid "Purge %d deleted messages?"
-msgstr "清除 %d 封已被刪除的信件？"
+msgid_plural "Purge %d deleted messages?"
+msgstr[0] "清除 %d 封已經被刪除的信件？"
 
 #: mx.c:750
 #, c-format
@@ -6528,6 +6524,9 @@ msgstr "編譯選項："
 #: version.c:414
 msgid "Compile options:"
 msgstr "編譯選項："
+
+#~ msgid "Purge %d deleted messages?"
+#~ msgstr "清除 %d 封已被刪除的信件？"
 
 #, fuzzy
 #~ msgid "ID is expired/disabled/revoked."

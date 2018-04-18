@@ -3175,14 +3175,10 @@ msgid "Move %d read messages to %s?"
 msgstr "Pindahkan surat-surat yang sudah dibaca ke %s?"
 
 #: mx.c:728 mx.c:1032
-#, c-format
+#, fuzzy, c-format
 msgid "Purge %d deleted message?"
-msgstr "Benar-benar hapus %d surat yang ditandai akan dihapus?"
-
-#: mx.c:728 mx.c:1032
-#, c-format
-msgid "Purge %d deleted messages?"
-msgstr "Benar-benar hapus %d surat yang ditandai akan dihapus?"
+msgid_plural "Purge %d deleted messages?"
+msgstr[0] "Benar-benar hapus %d surat yang ditandai akan dihapus?"
 
 #: mx.c:750
 #, c-format
@@ -6410,6 +6406,9 @@ msgstr "Opsi2 saat kompilasi:"
 #: version.c:414
 msgid "Compile options:"
 msgstr "Opsi2 saat kompilasi:"
+
+#~ msgid "Purge %d deleted messages?"
+#~ msgstr "Benar-benar hapus %d surat yang ditandai akan dihapus?"
 
 #~ msgid "ID is expired/disabled/revoked."
 #~ msgstr "ID telah kadaluwarsa/disabled/dicabut."

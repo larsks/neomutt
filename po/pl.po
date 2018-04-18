@@ -3121,14 +3121,12 @@ msgid "Move %d read messages to %s?"
 msgstr "Przenieść %d przeczytanych listów do %s?"
 
 #: mx.c:728 mx.c:1032
-#, c-format
+#, fuzzy, c-format
 msgid "Purge %d deleted message?"
-msgstr "Usunąć NIEODWOŁALNIE %d zaznaczony list?"
-
-#: mx.c:728 mx.c:1032
-#, c-format
-msgid "Purge %d deleted messages?"
-msgstr "Usunąć NIEODWOŁALNIE %d zaznaczone listy?"
+msgid_plural "Purge %d deleted messages?"
+msgstr[0] "Usunąć NIEODWOŁALNIE %d zaznaczony list?"
+msgstr[1] "Usunąć NIEODWOŁALNIE %d zaznaczone listy?"
+msgstr[2] "Usunąć NIEODWOŁALNIE %d zaznaczone listy?"
 
 #: mx.c:750
 #, c-format
@@ -6274,6 +6272,9 @@ msgstr "Domyślne opcje:"
 #: version.c:414
 msgid "Compile options:"
 msgstr "Parametry kompilacji:"
+
+#~ msgid "Purge %d deleted messages?"
+#~ msgstr "Usunąć NIEODWOŁALNIE %d zaznaczone listy?"
 
 #~ msgid "ID is expired/disabled/revoked."
 #~ msgstr "Identyfikator wygasł, został wyłączony lub wyprowadzony."

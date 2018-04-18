@@ -3150,14 +3150,11 @@ msgid "Move %d read messages to %s?"
 msgstr "Gelezen berichten naar %s verplaatsen?"
 
 #: mx.c:728 mx.c:1032
-#, c-format
+#, fuzzy, c-format
 msgid "Purge %d deleted message?"
-msgstr "%d als gewist gemarkeerde berichten verwijderen?"
-
-#: mx.c:728 mx.c:1032
-#, c-format
-msgid "Purge %d deleted messages?"
-msgstr "%d als gewist gemarkeerde berichten verwijderen?"
+msgid_plural "Purge %d deleted messages?"
+msgstr[0] "%d als gewist gemarkeerde berichten verwijderen?"
+msgstr[1] "%d als gewist gemarkeerde berichten verwijderen?"
 
 #: mx.c:750
 #, c-format
@@ -6351,6 +6348,9 @@ msgstr "Opties tijdens compileren:"
 #: version.c:414
 msgid "Compile options:"
 msgstr "Opties tijdens compileren:"
+
+#~ msgid "Purge %d deleted messages?"
+#~ msgstr "%d als gewist gemarkeerde berichten verwijderen?"
 
 #~ msgid "ID is expired/disabled/revoked."
 #~ msgstr "Dit ID is verlopen/uitgeschakeld/ingetrokken."

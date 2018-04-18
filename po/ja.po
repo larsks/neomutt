@@ -3153,14 +3153,11 @@ msgid "Move %d read messages to %s?"
 msgstr "%s に既読メッセージを移動?"
 
 #: mx.c:728 mx.c:1032
-#, c-format
+#, fuzzy, c-format
 msgid "Purge %d deleted message?"
-msgstr "削除された %d メッセージを廃棄?"
-
-#: mx.c:728 mx.c:1032
-#, c-format
-msgid "Purge %d deleted messages?"
-msgstr "削除された %d メッセージを廃棄?"
+msgid_plural "Purge %d deleted messages?"
+msgstr[0] "削除された %d メッセージを廃棄?"
+msgstr[1] "削除された %d メッセージを廃棄?"
 
 #: mx.c:750
 #, c-format
@@ -6320,6 +6317,9 @@ msgstr "コンパイル時オプション:"
 #: version.c:414
 msgid "Compile options:"
 msgstr "コンパイル時オプション:"
+
+#~ msgid "Purge %d deleted messages?"
+#~ msgstr "削除された %d メッセージを廃棄?"
 
 #~ msgid "ID is expired/disabled/revoked."
 #~ msgstr "ID は期限切れか使用不可か廃棄済み。"

@@ -3139,14 +3139,12 @@ msgid "Move %d read messages to %s?"
 msgstr "Перенести прочитані листи до %s?"
 
 #: mx.c:728 mx.c:1032
-#, c-format
+#, fuzzy, c-format
 msgid "Purge %d deleted message?"
-msgstr "Знищити %d видалений листі?"
-
-#: mx.c:728 mx.c:1032
-#, c-format
-msgid "Purge %d deleted messages?"
-msgstr "Знищити %d видалених листів?"
+msgid_plural "Purge %d deleted messages?"
+msgstr[0] "Знищити %d видалений листі?"
+msgstr[1] "Знищити %d видалених листів?"
+msgstr[2] "Знищити %d видалених листів?"
 
 #: mx.c:750
 #, c-format
@@ -6319,6 +6317,9 @@ msgstr "Параметри компіляції:"
 #: version.c:414
 msgid "Compile options:"
 msgstr "Параметри компіляції:"
+
+#~ msgid "Purge %d deleted messages?"
+#~ msgstr "Знищити %d видалених листів?"
 
 #~ msgid "ID is expired/disabled/revoked."
 #~ msgstr "ID прострочений, заборонений чи відкликаний."

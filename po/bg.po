@@ -3280,14 +3280,11 @@ msgid "Move %d read messages to %s?"
 msgstr "Желаете ли да преместите прочетените писма в %s?"
 
 #: mx.c:728 mx.c:1032
-#, c-format
+#, fuzzy, c-format
 msgid "Purge %d deleted message?"
-msgstr "Желаете ли да изтриете %d-то отбелязано за изтриване писмо?"
-
-#: mx.c:728 mx.c:1032
-#, c-format
-msgid "Purge %d deleted messages?"
-msgstr "Желаете ли да изтриете  %d отбелязани за изтриване писма?"
+msgid_plural "Purge %d deleted messages?"
+msgstr[0] "Желаете ли да изтриете %d-то отбелязано за изтриване писмо?"
+msgstr[1] "Желаете ли да изтриете  %d отбелязани за изтриване писма?"
 
 #: mx.c:750
 #, c-format
@@ -6531,6 +6528,9 @@ msgstr "Опции при компилация:"
 #: version.c:414
 msgid "Compile options:"
 msgstr "Опции при компилация:"
+
+#~ msgid "Purge %d deleted messages?"
+#~ msgstr "Желаете ли да изтриете  %d отбелязани за изтриване писма?"
 
 #~ msgid "ID is expired/disabled/revoked."
 #~ msgstr "Този идентификатор е остарял, деактивиран или анулиран."

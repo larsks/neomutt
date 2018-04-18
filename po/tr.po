@@ -3142,14 +3142,11 @@ msgid "Move %d read messages to %s?"
 msgstr "Okunan iletiler %s eposta kutusuna taşınsın mı?"
 
 #: mx.c:728 mx.c:1032
-#, c-format
+#, fuzzy, c-format
 msgid "Purge %d deleted message?"
-msgstr "Silmek için işaretlenmiş %d ileti silinsin mi?"
-
-#: mx.c:728 mx.c:1032
-#, c-format
-msgid "Purge %d deleted messages?"
-msgstr "Silmek için işaretlenmiş %d ileti silinsin mi?"
+msgid_plural "Purge %d deleted messages?"
+msgstr[0] "Silmek için işaretlenmiş %d ileti silinsin mi?"
+msgstr[1] "Silmek için işaretlenmiş %d ileti silinsin mi?"
 
 #: mx.c:750
 #, c-format
@@ -6384,6 +6381,9 @@ msgstr "Varsayılan seçenekler:"
 #: version.c:414
 msgid "Compile options:"
 msgstr "İnşa seçenekleri:"
+
+#~ msgid "Purge %d deleted messages?"
+#~ msgstr "Silmek için işaretlenmiş %d ileti silinsin mi?"
 
 #~ msgid "ID is expired/disabled/revoked."
 #~ msgstr "Kimlik (ID), süresi dolmuş/etkin değil/hükümsüz durumda."

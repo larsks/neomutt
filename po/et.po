@@ -3250,14 +3250,11 @@ msgid "Move %d read messages to %s?"
 msgstr "Tõstan loetud teated postkasti %s?"
 
 #: mx.c:728 mx.c:1032
-#, c-format
+#, fuzzy, c-format
 msgid "Purge %d deleted message?"
-msgstr "Eemaldan %d kustutatud teate?"
-
-#: mx.c:728 mx.c:1032
-#, c-format
-msgid "Purge %d deleted messages?"
-msgstr "Eemaldan %d kustutatud teadet?"
+msgid_plural "Purge %d deleted messages?"
+msgstr[0] "Eemaldan %d kustutatud teate?"
+msgstr[1] "Eemaldan %d kustutatud teadet?"
 
 #: mx.c:750
 #, c-format
@@ -6484,6 +6481,9 @@ msgstr "Kompileerimise võtmed:"
 #: version.c:414
 msgid "Compile options:"
 msgstr "Kompileerimise võtmed:"
+
+#~ msgid "Purge %d deleted messages?"
+#~ msgstr "Eemaldan %d kustutatud teadet?"
 
 #~ msgid "ID is expired/disabled/revoked."
 #~ msgstr "ID on aegunud/blokeeritud/tühistatud."

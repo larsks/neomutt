@@ -3241,14 +3241,10 @@ msgid "Move %d read messages to %s?"
 msgstr "읽은 메일을 %s로 옮길까요?"
 
 #: mx.c:728 mx.c:1032
-#, c-format
+#, fuzzy, c-format
 msgid "Purge %d deleted message?"
-msgstr "삭제 표시된 메일(%d)을 삭제할까요?"
-
-#: mx.c:728 mx.c:1032
-#, c-format
-msgid "Purge %d deleted messages?"
-msgstr "삭제 표시된 메일들(%d)을 삭제할까요?"
+msgid_plural "Purge %d deleted messages?"
+msgstr[0] "삭제 표시된 메일(%d)을 삭제할까요?"
 
 #: mx.c:750
 #, c-format
@@ -6469,6 +6465,9 @@ msgstr "컴파일 선택사항:"
 #: version.c:414
 msgid "Compile options:"
 msgstr "컴파일 선택사항:"
+
+#~ msgid "Purge %d deleted messages?"
+#~ msgstr "삭제 표시된 메일들(%d)을 삭제할까요?"
 
 #~ msgid "ID is expired/disabled/revoked."
 #~ msgstr "이 키는 만기/사용중지/취소됨."

@@ -3140,14 +3140,11 @@ msgid "Move %d read messages to %s?"
 msgstr "Flyt læste breve til %s?"
 
 #: mx.c:728 mx.c:1032
-#, c-format
+#, fuzzy, c-format
 msgid "Purge %d deleted message?"
-msgstr "Fjern %d slettet brev?"
-
-#: mx.c:728 mx.c:1032
-#, c-format
-msgid "Purge %d deleted messages?"
-msgstr "Fjern %d slettede breve?"
+msgid_plural "Purge %d deleted messages?"
+msgstr[0] "Fjern %d slettet brev?"
+msgstr[1] "Fjern %d slettede breve?"
 
 #: mx.c:750
 #, c-format
@@ -6326,6 +6323,9 @@ msgstr "Tilvalg ved oversættelsen:"
 #: version.c:414
 msgid "Compile options:"
 msgstr "Tilvalg ved oversættelsen:"
+
+#~ msgid "Purge %d deleted messages?"
+#~ msgstr "Fjern %d slettede breve?"
 
 #~ msgid "ID is expired/disabled/revoked."
 #~ msgstr "Id er udløbet/ugyldig/ophævet."

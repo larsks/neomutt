@@ -3221,14 +3221,12 @@ msgid "Move %d read messages to %s?"
 msgstr "Perkelti skaitytus laiškus į %s?"
 
 #: mx.c:728 mx.c:1032
-#, c-format
+#, fuzzy, c-format
 msgid "Purge %d deleted message?"
-msgstr "Sunaikinti %d ištrintą laišką?"
-
-#: mx.c:728 mx.c:1032
-#, c-format
-msgid "Purge %d deleted messages?"
-msgstr "Sunaikinti %d ištrintus laiškus?"
+msgid_plural "Purge %d deleted messages?"
+msgstr[0] "Sunaikinti %d ištrintą laišką?"
+msgstr[1] "Sunaikinti %d ištrintus laiškus?"
+msgstr[2] "Sunaikinti %d ištrintus laiškus?"
 
 #: mx.c:750
 #, c-format
@@ -6488,6 +6486,9 @@ msgstr "Įprastos parinktys:"
 #: version.c:414
 msgid "Compile options:"
 msgstr "Kompiliavimo parinktys:"
+
+#~ msgid "Purge %d deleted messages?"
+#~ msgstr "Sunaikinti %d ištrintus laiškus?"
 
 #, fuzzy
 #~ msgid "ID is expired/disabled/revoked."

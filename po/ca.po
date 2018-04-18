@@ -3332,14 +3332,11 @@ msgstr "Voleu moure els missatges a «%s»?"
 # ivb (2001/12/08)
 # ivb  Ací «%d» sempre és 1.
 #: mx.c:728 mx.c:1032
-#, c-format
+#, fuzzy, c-format
 msgid "Purge %d deleted message?"
-msgstr "Voleu eliminar %d missatge esborrat?"
-
-#: mx.c:728 mx.c:1032
-#, c-format
-msgid "Purge %d deleted messages?"
-msgstr "Voleu eliminar %d missatges esborrats?"
+msgid_plural "Purge %d deleted messages?"
+msgstr[0] "Voleu eliminar %d missatge esborrat?"
+msgstr[1] "Voleu eliminar %d missatges esborrats?"
 
 #: mx.c:750
 #, c-format
@@ -6686,6 +6683,9 @@ msgstr "Opcions de compilació:"
 #: version.c:414
 msgid "Compile options:"
 msgstr "Opcions de compilació:"
+
+#~ msgid "Purge %d deleted messages?"
+#~ msgstr "Voleu eliminar %d missatges esborrats?"
 
 # ivb (2001/12/08)
 # ivb  ABREUJAT!

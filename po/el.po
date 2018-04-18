@@ -3274,14 +3274,11 @@ msgid "Move %d read messages to %s?"
 msgstr "Μετακίνηση αναγνωσμένων μηνυμάτων στο %s;"
 
 #: mx.c:728 mx.c:1032
-#, c-format
+#, fuzzy, c-format
 msgid "Purge %d deleted message?"
-msgstr "Καθαρισμός %d διεγραμμένου μηνύματος;"
-
-#: mx.c:728 mx.c:1032
-#, c-format
-msgid "Purge %d deleted messages?"
-msgstr "Καθαρισμός %d διεγραμμένων μηνυμάτων;"
+msgid_plural "Purge %d deleted messages?"
+msgstr[0] "Καθαρισμός %d διεγραμμένου μηνύματος;"
+msgstr[1] "Καθαρισμός %d διεγραμμένων μηνυμάτων;"
 
 #: mx.c:750
 #, c-format
@@ -6524,6 +6521,9 @@ msgstr "Παράμετροι μεταγλώττισης:"
 #: version.c:414
 msgid "Compile options:"
 msgstr "Παράμετροι μεταγλώττισης:"
+
+#~ msgid "Purge %d deleted messages?"
+#~ msgstr "Καθαρισμός %d διεγραμμένων μηνυμάτων;"
 
 #~ msgid "ID is expired/disabled/revoked."
 #~ msgstr "Το ID είναι ληγμένο/αχρηστευμένο/άκυρο."

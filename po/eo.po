@@ -3138,14 +3138,11 @@ msgid "Move %d read messages to %s?"
 msgstr "Ĉu movi legitajn mesaĝojn al %s?"
 
 #: mx.c:728 mx.c:1032
-#, c-format
+#, fuzzy, c-format
 msgid "Purge %d deleted message?"
-msgstr "Ĉu forpurigi %d forviŝitan mesaĝon?"
-
-#: mx.c:728 mx.c:1032
-#, c-format
-msgid "Purge %d deleted messages?"
-msgstr "Ĉu forpurigi %d forviŝitajn mesaĝojn?"
+msgid_plural "Purge %d deleted messages?"
+msgstr[0] "Ĉu forpurigi %d forviŝitan mesaĝon?"
+msgstr[1] "Ĉu forpurigi %d forviŝitajn mesaĝojn?"
 
 #: mx.c:750
 #, c-format
@@ -6332,6 +6329,9 @@ msgstr "Parametroj de la tradukaĵo:"
 #: version.c:414
 msgid "Compile options:"
 msgstr "Parametroj de la tradukaĵo:"
+
+#~ msgid "Purge %d deleted messages?"
+#~ msgstr "Ĉu forpurigi %d forviŝitajn mesaĝojn?"
 
 #~ msgid "ID is expired/disabled/revoked."
 #~ msgstr "ID estas eksvalidiĝinta/malŝaltita/revokita."

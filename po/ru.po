@@ -3160,14 +3160,12 @@ msgid "Move %d read messages to %s?"
 msgstr "Переместить прочитанные сообщения в %s?"
 
 #: mx.c:728 mx.c:1032
-#, c-format
+#, fuzzy, c-format
 msgid "Purge %d deleted message?"
-msgstr "Вычистить %d удаленное сообщение?"
-
-#: mx.c:728 mx.c:1032
-#, c-format
-msgid "Purge %d deleted messages?"
-msgstr "Вычистить %d удаленных сообщений?"
+msgid_plural "Purge %d deleted messages?"
+msgstr[0] "Вычистить %d удаленное сообщение?"
+msgstr[1] "Вычистить %d удаленных сообщений?"
+msgstr[2] "Вычистить %d удаленных сообщений?"
 
 #: mx.c:750
 #, c-format
@@ -6360,6 +6358,9 @@ msgstr "Параметры компиляции:"
 #: version.c:414
 msgid "Compile options:"
 msgstr "Параметры компиляции:"
+
+#~ msgid "Purge %d deleted messages?"
+#~ msgstr "Вычистить %d удаленных сообщений?"
 
 #~ msgid "ID is expired/disabled/revoked."
 #~ msgstr "ID просрочен, запрещен или отозван."

@@ -3183,14 +3183,14 @@ msgid "Move %d read messages to %s?"
 msgstr "Bog na teachtaireachtaí léite go %s?"
 
 #: mx.c:728 mx.c:1032
-#, c-format
+#, fuzzy, c-format
 msgid "Purge %d deleted message?"
-msgstr "Glan %d teachtaireacht scriosta?"
-
-#: mx.c:728 mx.c:1032
-#, c-format
-msgid "Purge %d deleted messages?"
-msgstr "Glan %d teachtaireacht scriosta?"
+msgid_plural "Purge %d deleted messages?"
+msgstr[0] "Glan %d teachtaireacht scriosta?"
+msgstr[1] "Glan %d teachtaireacht scriosta?"
+msgstr[2] "Glan %d teachtaireacht scriosta?"
+msgstr[3] "Glan %d teachtaireacht scriosta?"
+msgstr[4] "Glan %d teachtaireacht scriosta?"
 
 #: mx.c:750
 #, c-format
@@ -6437,6 +6437,9 @@ msgstr "Roghanna tiomsaithe:"
 #: version.c:414
 msgid "Compile options:"
 msgstr "Roghanna tiomsaithe:"
+
+#~ msgid "Purge %d deleted messages?"
+#~ msgstr "Glan %d teachtaireacht scriosta?"
 
 #~ msgid "ID is expired/disabled/revoked."
 #~ msgstr "Tá an t-aitheantas as feidhm/díchumasaithe/cúlghairthe."

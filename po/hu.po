@@ -3266,14 +3266,11 @@ msgid "Move %d read messages to %s?"
 msgstr "Az olvasott leveleket mozgassam a %s postafiókba?"
 
 #: mx.c:728 mx.c:1032
-#, c-format
+#, fuzzy, c-format
 msgid "Purge %d deleted message?"
-msgstr "Töröljem a %d töröltnek jelölt levelet?"
-
-#: mx.c:728 mx.c:1032
-#, c-format
-msgid "Purge %d deleted messages?"
-msgstr "Töröljem a %d töröltnek jelölt levelet?"
+msgid_plural "Purge %d deleted messages?"
+msgstr[0] "Töröljem a %d töröltnek jelölt levelet?"
+msgstr[1] "Töröljem a %d töröltnek jelölt levelet?"
 
 #: mx.c:750
 #, c-format
@@ -6520,6 +6517,9 @@ msgstr "Fordítási opciók:"
 #: version.c:414
 msgid "Compile options:"
 msgstr "Fordítási opciók:"
+
+#~ msgid "Purge %d deleted messages?"
+#~ msgstr "Töröljem a %d töröltnek jelölt levelet?"
 
 #~ msgid "ID is expired/disabled/revoked."
 #~ msgstr "ID lejárt/letiltott/visszavont."

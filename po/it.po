@@ -3177,14 +3177,11 @@ msgid "Move %d read messages to %s?"
 msgstr "Spostare i messaggi letti in %s?"
 
 #: mx.c:728 mx.c:1032
-#, c-format
+#, fuzzy, c-format
 msgid "Purge %d deleted message?"
-msgstr "Eliminare %d messaggio cancellato?"
-
-#: mx.c:728 mx.c:1032
-#, c-format
-msgid "Purge %d deleted messages?"
-msgstr "Eliminare %d messaggi cancellati?"
+msgid_plural "Purge %d deleted messages?"
+msgstr[0] "Eliminare %d messaggio cancellato?"
+msgstr[1] "Eliminare %d messaggi cancellati?"
 
 #: mx.c:750
 #, c-format
@@ -6380,6 +6377,9 @@ msgstr "Opzioni di compilazione:"
 #: version.c:414
 msgid "Compile options:"
 msgstr "Opzioni di compilazione:"
+
+#~ msgid "Purge %d deleted messages?"
+#~ msgstr "Eliminare %d messaggi cancellati?"
 
 #~ msgid "ID is expired/disabled/revoked."
 #~ msgstr "L'ID è scaduto/disabilitato/revocato."

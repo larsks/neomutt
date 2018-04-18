@@ -3309,15 +3309,11 @@ msgstr "Déplacer %d messages lus dans %s ?"
 
 # , c-format
 #: mx.c:728 mx.c:1032
-#, c-format
+#, fuzzy, c-format
 msgid "Purge %d deleted message?"
-msgstr "Effacer %d message marqué à effacer ?"
-
-# , c-format
-#: mx.c:728 mx.c:1032
-#, c-format
-msgid "Purge %d deleted messages?"
-msgstr "Effacer %d messages marqués à effacer ?"
+msgid_plural "Purge %d deleted messages?"
+msgstr[0] "Effacer %d message marqué à effacer ?"
+msgstr[1] "Effacer %d messages marqués à effacer ?"
 
 # , c-format
 #: mx.c:750
@@ -6557,6 +6553,10 @@ msgstr "Options de compilation :"
 #: version.c:414
 msgid "Compile options:"
 msgstr "Options de compilation :"
+
+# , c-format
+#~ msgid "Purge %d deleted messages?"
+#~ msgstr "Effacer %d messages marqués à effacer ?"
 
 #~ msgid "ID is expired/disabled/revoked."
 #~ msgstr "L'ID est expiré/désactivé/révoqué."

@@ -3231,14 +3231,12 @@ msgid "Move %d read messages to %s?"
 msgstr "Presunúť prečítané správy do %s?"
 
 #: mx.c:728 mx.c:1032
-#, c-format
+#, fuzzy, c-format
 msgid "Purge %d deleted message?"
-msgstr "Odstrániť %d zmazané správy?"
-
-#: mx.c:728 mx.c:1032
-#, c-format
-msgid "Purge %d deleted messages?"
-msgstr "Odstrániť %d zmazaných správ?"
+msgid_plural "Purge %d deleted messages?"
+msgstr[0] "Odstrániť %d zmazané správy?"
+msgstr[1] "Odstrániť %d zmazaných správ?"
+msgstr[2] "Odstrániť %d zmazaných správ?"
 
 #: mx.c:750
 #, c-format
@@ -6502,6 +6500,9 @@ msgstr "Nastavenia kompilácie:"
 #: version.c:414
 msgid "Compile options:"
 msgstr "Nastavenia kompilácie:"
+
+#~ msgid "Purge %d deleted messages?"
+#~ msgstr "Odstrániť %d zmazaných správ?"
 
 #~ msgid "ID is expired/disabled/revoked."
 #~ msgstr "ID je expirovaný/zakázaný/odvolaný."

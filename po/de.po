@@ -3135,14 +3135,11 @@ msgid "Move %d read messages to %s?"
 msgstr "%d gelesene Nachrichten nach %s verschieben?"
 
 #: mx.c:728 mx.c:1032
-#, c-format
+#, fuzzy, c-format
 msgid "Purge %d deleted message?"
-msgstr "Entferne %d als gelöscht markierte Nachrichten?"
-
-#: mx.c:728 mx.c:1032
-#, c-format
-msgid "Purge %d deleted messages?"
-msgstr "Entferne %d als gelöscht markierte Nachrichten?"
+msgid_plural "Purge %d deleted messages?"
+msgstr[0] "Entferne %d als gelöscht markierte Nachrichten?"
+msgstr[1] "Entferne %d als gelöscht markierte Nachrichten?"
 
 #: mx.c:750
 #, c-format
@@ -6319,6 +6316,9 @@ msgstr "Standard Einstellungen:"
 #: version.c:414
 msgid "Compile options:"
 msgstr "Einstellungen bei der Kompilierung:"
+
+#~ msgid "Purge %d deleted messages?"
+#~ msgstr "Entferne %d als gelöscht markierte Nachrichten?"
 
 #~ msgid "ID is expired/disabled/revoked."
 #~ msgstr "Diese ID ist veraltet/deaktiviert/zurückgezogen."
